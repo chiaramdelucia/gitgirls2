@@ -4,6 +4,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import CounterDisplay from "./components/CounterDisplay";
+import DocInfo from "./components/DocInfo"
 
 class App extends React.Component {
   constructor() {
