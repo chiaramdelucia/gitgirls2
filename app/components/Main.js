@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 
 
-class App extends React.Component {
+class Main extends React.Component {
   constructor() {
     super();
   }
@@ -14,6 +14,7 @@ class App extends React.Component {
 
         <div className="row">
           <div className="col-md-12">
+              <h1>Welcome to Cancer Alliance</h1>
               <a href='#/cancer1'>Cancer</a>
           </div>
         </div>
@@ -30,4 +31,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+export default Main
