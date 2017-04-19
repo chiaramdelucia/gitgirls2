@@ -15,6 +15,21 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
+// Database configuration for mongoose
+// db: ???????????????????????????????
+mongoose.connect("mongodb://localhost/******************");
+// Hook mongoose connection to db
+var db = mongoose.connection;
+
+// Log any mongoose errors
+db.on("error", function(error) {
+  console.log("Mongoose Error: ", error);
+});
+
+// Log a success message when we connect to our mongoDB collection with no issues
+db.once("open", function() {
+  console.log("Mongoose connection successful.");
+});
 
 
 
