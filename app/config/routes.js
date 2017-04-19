@@ -5,8 +5,6 @@ import React from 'react'
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 
 // Reference the high-level components
-// var Main = require("../components/Main");
-// var *** = require("../components/*****************");
 import Main from "../components/Main";
 import Dashboard from '../components/children/Dashboard'
 
@@ -19,7 +17,7 @@ export default (
 
     <Route path="/" component={Main}>
 
-	  <Route path="cancer1" disease='Cancer 1' component={Dasboard} />
+	  <Route path="cancer1" disease='Cancer 1' component={Dashboard} />
 
       <IndexRoute component={Main} />
 
