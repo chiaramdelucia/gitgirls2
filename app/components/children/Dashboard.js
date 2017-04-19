@@ -4,7 +4,7 @@ import Forum from './Forum.js'
 
 
 
-class App extends React.Component {
+class Dashboard extends React.Component {
   constructor() {
     super();
 
@@ -42,5 +42,5 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+export default Dashboard;
 
