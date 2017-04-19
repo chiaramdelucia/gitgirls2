@@ -1,5 +1,7 @@
 // Inclue the React library
-import React from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 
 // Include the react-router module
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
@@ -19,7 +21,7 @@ export default (
 
 	  <Route path="cancer1" disease='Cancer 1' component={Dashboard} />
 
-      <IndexRoute component={Main} />
+      
 
     </Route>
 
