@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 
 
 
-const Pane = React.createClass({
+class Pane extends React.Component {
+  constructor() {
   displayName: 'Pane',
   propTypes: {
     label: React.PropTypes.string.isRequired,
@@ -17,4 +18,7 @@ const Pane = React.createClass({
     );
   }
 });
+}
+
+export default Pane
 
