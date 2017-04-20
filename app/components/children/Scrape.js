@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Tabs from 'react-simpletabs'
 
 
 class Scrape extends React.Component {
@@ -22,15 +23,15 @@ class Scrape extends React.Component {
               </div>
               <div className="panel-body"> 
                 <Tabs>
-                  <Pane label="Tab 1">
-                    <div>This is my tab 1 contents!</div>
-                  </Pane>
-                  <Pane label="Tab 2">
-                    <div>This is my tab 2 contents!</div>
-                  </Pane>
-                  <Pane label="Tab 3">
-                    <div>This is my tab 3 contents!</div>
-                  </Pane>
+                  <Tabs.Panel title='Tab #1'>
+                    <h2>Content #1 here</h2>
+                  </Tabs.Panel>
+                  <Tabs.Panel title='Tab #2'>
+                    <h2>Content #2 here</h2>
+                  </Tabs.Panel>
+                  <Tabs.Panel title='Tab #3'>
+                    <h2>Content #3 here</h2>
+                  </Tabs.Panel>
                 </Tabs>
               </div>
             </div>
