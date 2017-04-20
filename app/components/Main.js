@@ -2,6 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 
+//EXAMPLE code of what the new React for ES6 looks like -- should follow this example
+import React from "react";
+import ReactDOM from "react-dom";
+import CounterDisplay from "./components/CounterDisplay";
+import DocInfo from "./components/DocInfo"
+
 
 class Main extends React.Component {
   constructor() {
