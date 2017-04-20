@@ -10,7 +10,7 @@ import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 import Main from "../components/Main";
 import Dashboard from '../components/children/Dashboard'
 import Scrape from '../components/children/Scrape'
-
+import DocInfo from "../components/DocInfo"
 
 // Export the Routes
 export default (
