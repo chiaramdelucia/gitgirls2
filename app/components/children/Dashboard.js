@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Forum from './Forum.js'
+import Scrape from './Scrape.js'
 
 
 
@@ -32,6 +33,7 @@ class Dashboard extends React.Component {
                 The disease is {this.props.route.disease}
               </div>
               <Forum disease={this.props.route.disease} />
+              <Scrape />
             </div>
 
           </div>
