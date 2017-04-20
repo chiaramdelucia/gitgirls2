@@ -1,7 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Forum from './Forum.js'
-
+import Topic1 from './grandchildren/Topic1';
+import Topic2 from './grandchildren/Topic2';
+import Topic3 from './grandchildren/Topic3';
+import Topic4 from './grandchildren/Topic4';
 
 
 class Dashboard extends React.Component {
@@ -31,7 +34,9 @@ class Dashboard extends React.Component {
               <div className="panel-body">
                 The disease is {this.props.route.disease}
               </div>
-              <Forum disease={this.props.route.disease} />
+              <Forum disease={this.props.route.disease} >
+              {this.props.children}
+              </Forum>
             </div>
 
           </div>
