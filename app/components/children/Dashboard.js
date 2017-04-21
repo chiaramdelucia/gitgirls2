@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Forum from './Forum.js'
+import Topic1 from './grandchildren/Topic1';
+import Topic2 from './grandchildren/Topic2';
+import Topic3 from './grandchildren/Topic3';
+import Topic4 from './grandchildren/Topic4';
 import Scrape from './Scrape.js'
-
-
 
 class Dashboard extends React.Component {
   constructor() {
@@ -17,6 +19,7 @@ class Dashboard extends React.Component {
   }
 
   render() {
+    console.log("Dashboard PROPS",this.props);
     return (
 
       <div className="container">
@@ -27,13 +30,16 @@ class Dashboard extends React.Component {
 
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h3 className="panel-title">Disease: {this.props.route.disease}</h3>
+                <h3 className="panel-title">Disease: {this.props.params.disease}</h3>
               </div>
               <div className="panel-body">
-                The disease is {this.props.route.disease}
+                The disease is {this.props.params.disease}
               </div>
-              <Forum disease={this.props.route.disease} />
-              <Scrape />
+
+              <Forum disease={this.props.params.disease} >
+              {this.props.children}
+              </Forum>
+
             </div>
 
           </div>
