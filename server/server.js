@@ -35,7 +35,7 @@ app.get('/', function(req,res){
 	res.sendFile(path.join(__dirname, '../app/public/index.html'))
 })
 
-
+require('../app/components/utils/scrapehelp.js')(app)
 
 // Starting our express server
 app.listen(PORT, function() {
