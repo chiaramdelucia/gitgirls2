@@ -2,7 +2,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-
+var axios = require('axios');
+var cheerio = require('cheerio');
 // Create a new express app
 var app = express();
 // Sets an initial port. We'll use this later in our listener
@@ -35,8 +36,36 @@ app.get('/', function(req,res){
 	res.sendFile(path.join(__dirname, '../app/public/index.html'))
 })
 
-require('../app/components/utils/scrapehelp.js')(app)
+app.get('/scrape', function(req, res) {
 
+        axios.get('https://www.cancer.gov/news-events/cancer-currents-blog')
+        .then(function(response, html){
+            var $ = cheerio.load(response.data);
+            // console.log(response.data)
+            var result = [];
+
+
+            $('div.has-images > ul > li.list-item').each(function(i, element) {
+                var link = $(element).find('a.title').attr('href');
+                var title = $(element).find('a.title').text();
+                // var teaser = $(element).find('p').text();
+                // console.log(link);
+                // console.log(title);
+                // console.log(teaser);
+
+                result.push({
+                    title: title,
+                    link: link,
+                    // teaser: teaser
+                });
+            })
+            console.log(result);
+            
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    })
 // Starting our express server
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);

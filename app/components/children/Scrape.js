@@ -2,21 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Tabs from 'react-simpletabs'
 // import {scrapeACS} from '../utils/scrapehelp'
-import * as scrapers from'../utils/scrapehelp'
-import axios from 'axios'
+import scrapehelp from '../utils/scrapehelp'
+// import axios from 'axios'
 
 
 class Scrape extends React.Component {
-  constructor(props) {
-    super(props);
-        this.state = {
-      posts: ''
-    };
+  constructor() {
+    super();
   }
   componentDidMount(){
-    axios.get('/scrape')
-    .then((res) => console.log('it worked!' + res))
-    .catch(e => console.error(e))
+    scrapehelp.getNCIscrape()
   }
 
   render() {
