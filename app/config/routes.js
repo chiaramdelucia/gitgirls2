@@ -18,14 +18,13 @@ export default (
 
   // The high level component is the Router component
   <Router history={hashHistory}>
-
     <Route path="/" component={Main}>
-
-	  <Route path="cancer1" disease='Cancer 1' component={Dashboard} />
-      
-
-    </Route>
-
+		<Route path=":disease" component={Dashboard}>
+	  		<Route path=':topic' component={Topic} />
+	  		<IndexRoute component={Topic} />
+		</Route>
+	  	<IndexRoute component={Dashboard} />
+	</Route>
   </Router>
 
 );
