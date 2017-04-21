@@ -16,6 +16,8 @@ import Topic2 from '../components/children/grandchildren/Topic2';
 import Topic3 from '../components/children/grandchildren/Topic3';
 import Topic4 from '../components/children/grandchildren/Topic4';
 
+import Scrape from '../components/children/Scrape'
+import DocInfo from "../components/DocInfo"
 
 // Export the Routes
 export default (
@@ -31,6 +33,7 @@ export default (
 	</Route>
   </Router>
 
+
 );
 /*<Route path="cancer2" disease='Cancer 2' component={Dashboard}>
 
@@ -43,6 +46,7 @@ export default (
 		</Route>
 
 		<Route path="cancer3" disease='Cancer 3' component={Dashboard}>
+
 
 	  		<Route path='Topic1' topic='Topic 1' component={Topic1} />
 	  		<Route path='Topic2' topic='Topic 2' component={Topic2} />
