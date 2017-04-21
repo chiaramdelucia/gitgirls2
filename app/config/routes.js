@@ -12,7 +12,7 @@ import Main from "../components/Main";
 import Dashboard from '../components/children/Dashboard';
 import Topic from '../components/children/grandchildren/Topic';
 import Scrape from '../components/children/Scrape'
-// import DocInfo from "../components/DocInfo"
+import DocInfo from "../components/children/DocInfo"
 
 // Export the Routes
 export default (
