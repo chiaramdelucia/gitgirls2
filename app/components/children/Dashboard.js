@@ -19,6 +19,7 @@ class Dashboard extends React.Component {
   }
 
   render() {
+    console.log("Dashboard PROPS",this.props);
     return (
 
       <div className="container">
@@ -29,12 +30,12 @@ class Dashboard extends React.Component {
 
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h3 className="panel-title">Disease: {this.props.route.disease}</h3>
+                <h3 className="panel-title">Disease: {this.props.params.disease}</h3>
               </div>
               <div className="panel-body">
-                The disease is {this.props.route.disease}
+                The disease is {this.props.params.disease}
               </div>
-              <Forum disease={this.props.route.disease} >
+              <Forum disease={this.props.params.disease} >
               {this.props.children}
               </Forum>
             </div>

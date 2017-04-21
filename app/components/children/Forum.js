@@ -9,6 +9,8 @@ class Forum extends React.Component {
   }
 
   render() {
+        console.log("FORUM PROPS",this.props);
+
     return (
 
       

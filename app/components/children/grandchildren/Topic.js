@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 
-class Topic1 extends React.Component {
+class Topic extends React.Component {
   constructor() {
     super();
   }
@@ -13,8 +13,8 @@ class Topic1 extends React.Component {
     return (
       
           <div className="tab-pane" id="1b">
-            <h3>Topic 1</h3>
-            <h4>Post2</h4>
+            <h3>Topic</h3>
+            <h4>Post1</h4>
             <h4>Post2</h4>
           </div>
       
@@ -23,4 +23,4 @@ class Topic1 extends React.Component {
   }
 }
 
-export default Topic1;
+export default Topic;
