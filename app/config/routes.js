@@ -17,7 +17,7 @@ import Topic3 from '../components/children/grandchildren/Topic3';
 import Topic4 from '../components/children/grandchildren/Topic4';
 
 import Scrape from '../components/children/Scrape'
-import DocInfo from "../components/DocInfo"
+import DocInfo from "../components/children/DocInfo"
 
 // Export the Routes
 export default (
