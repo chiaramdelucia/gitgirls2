@@ -2,7 +2,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-
+var axios = require('axios');
+var cheerio = require('cheerio');
 // Create a new express app
 var app = express();
 // Sets an initial port. We'll use this later in our listener
@@ -35,7 +36,7 @@ app.get('/', function(req,res){
 	res.sendFile(path.join(__dirname, '../app/public/index.html'))
 })
 
-
+require('./server-routes/scrape-routes.js')(app);
 
 // Starting our express server
 app.listen(PORT, function() {
