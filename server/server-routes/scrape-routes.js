@@ -26,7 +26,8 @@ module.exports = function(app){
                     // teaser: teaser
                 });
             })
-            console.log(result);
+            // console.log(result);
+            res.send(result);
             
         })
         .catch(function(error){

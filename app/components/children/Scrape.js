@@ -11,7 +11,9 @@ class Scrape extends React.Component {
     super();
   }
   componentDidMount(){
-    scrapehelp.getNCIscrape()
+    scrapehelp.getNCIscrape().then(function(data){
+      console.log('NCI Response ' + data.data[0].title)
+    })
   }
 
   render() {
@@ -31,6 +33,7 @@ class Scrape extends React.Component {
                 <Tabs>
                   <Tabs.Panel title='Tab #1'>
                     <h2>Content #1 here</h2>
+
                   </Tabs.Panel>
                   <Tabs.Panel title='Tab #2'>
                     <h2>Content #2 here</h2>
