@@ -7,13 +7,27 @@ import scrapehelp from '../utils/scrapehelp'
 
 
 class Scrape extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      scrapedstuff: 'love'
+    }
   }
+
   componentDidMount(){
-    scrapehelp.getNCIscrape().then(function(data){
-      console.log('NCI Response ' + data.data[0].title)
-    })
+    scrapehelp.getNCIscrape()
+      .then(function(data){
+        console.log('REACT NCI ' + data)
+        this.setState({
+          scrapedstuff: 'hate'
+        })
+      })
+    // .then(function(data){
+    //   // console.log('NCI Response ' + data.data[0].title)
+    //   this.setState({
+    //  scrapedstuff: data.data
+    //    });
+    // }).bind(this)
   }
 
   render() {
