@@ -11,13 +11,8 @@ console.log(RR);
 import Main from "../components/Main";
 import Dashboard from '../components/children/Dashboard';
 import Topic from '../components/children/grandchildren/Topic';
-import Topic1 from '../components/children/grandchildren/Topic1';
-import Topic2 from '../components/children/grandchildren/Topic2';
-import Topic3 from '../components/children/grandchildren/Topic3';
-import Topic4 from '../components/children/grandchildren/Topic4';
-
 import Scrape from '../components/children/Scrape'
-import DocInfo from "../components/DocInfo"
+// import DocInfo from "../components/DocInfo"
 
 // Export the Routes
 export default (
@@ -29,50 +24,9 @@ export default (
 	  		<Route path=':topic' component={Topic} />
 	  		<IndexRoute component={Topic} />
 		</Route>
-	  	<IndexRoute component={Dashboard} />
+	  	
 	</Route>
   </Router>
 
 
 );
-/*<Route path="cancer2" disease='Cancer 2' component={Dashboard}>
-
-	  		<Route path='Topic1' topic='Topic 1' component={Topic1} />
-	  		<Route path='Topic2' topic='Topic 2' component={Topic2} />
-	  		<Route path='Topic3' topic='Topic 3' component={Topic3} />
-	  		<Route path='Topic4' topic='Topic 4' component={Topic4} />
-
-	  		<IndexRoute component={Topic1} />
-		</Route>
-
-		<Route path="cancer3" disease='Cancer 3' component={Dashboard}>
-
-
-	  		<Route path='Topic1' topic='Topic 1' component={Topic1} />
-	  		<Route path='Topic2' topic='Topic 2' component={Topic2} />
-	  		<Route path='Topic3' topic='Topic 3' component={Topic3} />
-	  		<Route path='Topic4' topic='Topic 4' component={Topic4} />
-
-	  		<IndexRoute component={Topic1} />
-		</Route>
-
-		<Route path="cancer4" disease='Cancer 4' component={Dashboard}>
-
-	  		<Route path='Topic1' topic='Topic 1' component={Topic1} />
-	  		<Route path='Topic2' topic='Topic 2' component={Topic2} />
-	  		<Route path='Topic3' topic='Topic 3' component={Topic3} />
-	  		<Route path='Topic4' topic='Topic 4' component={Topic4} />
-
-	  		<IndexRoute component={Topic1} />
-		</Route>
-		*/
-
-		// <Route path="/:disease" disease='Cancer 1' component={Dashboard}>
-
-	 //  		<Route path='Topic1' topic='Topic 1' component={Topic1} />
-	 //  		<Route path='Topic2' topic='Topic 2' component={Topic2} />
-	 //  		<Route path='Topic3' topic='Topic 3' component={Topic3} />
-	 //  		<Route path='Topic4' topic='Topic 4' component={Topic4} />
-
-	 //  		<IndexRoute component={Topic1} />
-		// </Route>

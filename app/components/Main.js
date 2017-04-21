@@ -2,7 +2,7 @@
 //EXAMPLE code of what the new React for ES6 looks like -- should follow this example
 import React from "react";
 import ReactDOM from "react-dom";
-import DocInfo from "./components/DocInfo";
+// import DocInfo from "./components/DocInfo";
 
 class Main extends React.Component {
   constructor() {
