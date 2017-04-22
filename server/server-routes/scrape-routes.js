@@ -20,7 +20,7 @@ module.exports = function(app){
 
                 result.push({
                     title: title,
-                    link: link,
+                    link: 'https://www.cancer.gov' + link,
                 });
             })
             // console.log(result);
@@ -49,7 +49,7 @@ module.exports = function(app){
 
                 result.push({
                     title: title,
-                    link: link,
+                    link: 'http://www.who.int' + link,
                 });
 
             })
@@ -79,7 +79,7 @@ module.exports = function(app){
 
                 result.push({
                     title: title,
-                    link: link,
+                    link: 'http://www.cancerresearchuk.org' + link,
                 });
 
             })
