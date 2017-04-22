@@ -10,24 +10,28 @@ class Scrape extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      scrapedstuff: 'love'
+      nci: [],
+      who: [],
+      cruk: []
     }
   }
 
   componentDidMount(){
     scrapehelp.getNCIscrape()
-      .then(function(data){
-        console.log('REACT NCI ' + data)
-        this.setState({
-          scrapedstuff: 'hate'
+      .then((data) => {console.log('REACT NCI ' + data); this.setState({
+          nci: data
         })
+      });
+    scrapehelp.getWHOscrape()
+      .then((data)=> {console.log('REACT WHO' + data); this.setState({
+        who: data
       })
-    // .then(function(data){
-    //   // console.log('NCI Response ' + data.data[0].title)
-    //   this.setState({
-    //  scrapedstuff: data.data
-    //    });
-    // }).bind(this)
+    });
+    scrapehelp.getCRUKscrape()
+      .then((data)=> {console.log('REACT CRUK' + data); this.setState({
+        cruk: data
+      })
+    });
   }
 
   render() {
@@ -45,15 +49,33 @@ class Scrape extends React.Component {
               </div>
               <div className="panel-body"> 
                 <Tabs>
-                  <Tabs.Panel title='Tab #1'>
-                    <h2>Content #1 here</h2>
+                  <Tabs.Panel title='NCI'>
+                    <h2>National Cancer Institute</h2>
+                    <div>
+                      {this.state.nci.map((result, i) => {
+                        return <p key={i}>{result.title}</p>
+                        })
+                      }
+                    </div>
 
                   </Tabs.Panel>
-                  <Tabs.Panel title='Tab #2'>
-                    <h2>Content #2 here</h2>
+                  <Tabs.Panel title='WHO'>
+                    <h2>WHO</h2>
+                    <div>
+                      {this.state.who.map((result, i) => {
+                        return <p key={i}>{result.title}</p>
+                        })
+                      }
+                    </div>
                   </Tabs.Panel>
-                  <Tabs.Panel title='Tab #3'>
-                    <h2>Content #3 here</h2>
+                  <Tabs.Panel title='CRUK'>
+                    <h2>Cancer Research UK</h2>
+                    <div>
+                      {this.state.cruk.map((result, i) => {
+                        return <p key={i}>{result.title}</p>
+                        })
+                      }
+                    </div>
                   </Tabs.Panel>
                 </Tabs>
               </div>

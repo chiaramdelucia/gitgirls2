@@ -7,7 +7,6 @@ import Scrape from './Scrape.js'
 class Dashboard extends React.Component {
   constructor() {
     super();
-
   }
 
   componentDidUpdate(){
