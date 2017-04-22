@@ -18,17 +18,23 @@ class Scrape extends React.Component {
 
   componentDidMount(){
     scrapehelp.getNCIscrape()
-      .then((data) => {console.log('REACT NCI ' + data); this.setState({
+      .then((data) => {
+        // console.log('REACT NCI ' + data); 
+        this.setState({
           nci: data
         })
       });
     scrapehelp.getWHOscrape()
-      .then((data)=> {console.log('REACT WHO' + data); this.setState({
+      .then((data)=> {
+        // console.log('REACT WHO' + data); 
+        this.setState({
         who: data
       })
     });
     scrapehelp.getCRUKscrape()
-      .then((data)=> {console.log('REACT CRUK' + data); this.setState({
+      .then((data)=> {
+        // console.log('REACT CRUK' + data); 
+        this.setState({
         cruk: data
       })
     });
@@ -51,31 +57,31 @@ class Scrape extends React.Component {
                 <Tabs>
                   <Tabs.Panel title='NCI'>
                     <h2>National Cancer Institute</h2>
-                    <div>
+                    <ul>
                       {this.state.nci.map((result, i) => {
-                        return <p key={i}>{result.title}</p>
+                        return <li><a key={i} href={result.link} target='_blank'>{result.title}</a></li>
                         })
                       }
-                    </div>
+                    </ul>
 
                   </Tabs.Panel>
                   <Tabs.Panel title='WHO'>
                     <h2>WHO</h2>
-                    <div>
+                    <ul>
                       {this.state.who.map((result, i) => {
-                        return <p key={i}>{result.title}</p>
+                        return <li><a key={i} href={result.link} target='_blank'>{result.title}</a></li>
                         })
                       }
-                    </div>
+                    </ul>
                   </Tabs.Panel>
                   <Tabs.Panel title='CRUK'>
                     <h2>Cancer Research UK</h2>
-                    <div>
+                    <ul>
                       {this.state.cruk.map((result, i) => {
-                        return <p key={i}>{result.title}</p>
+                        return <li><a key={i} href={result.link} target='_blank'>{result.title}</a></li>
                         })
                       }
-                    </div>
+                    </ul>
                   </Tabs.Panel>
                 </Tabs>
               </div>
