@@ -1,4 +1,4 @@
-
+var axios = require('axios');
 // Helper Functions (in this case the only one is runQuery)
 var helpers = {
 
@@ -20,4 +20,4 @@ var helpers = {
 };
 
 // We export the helpers function (which contains getGithubInfo)
-module.exports = helpers;
+module.exports = docinfohelp;
