@@ -1,10 +1,7 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import Tabs from 'react-simpletabs'
-// import {scrapeACS} from '../utils/scrapehelp'
 import scrapehelp from '../utils/scrapehelp'
-// import axios from 'axios'
-
 
 class Scrape extends React.Component {
   constructor(props) {
@@ -12,9 +9,10 @@ class Scrape extends React.Component {
     this.state = {
       nci: [],
       who: [],
-      cruk: []
+      cruk: [],
+    };
     }
-  }
+
 
   componentDidMount(){
     scrapehelp.getNCIscrape()
@@ -41,6 +39,7 @@ class Scrape extends React.Component {
   }
 
   render() {
+
     return (
 
       <div className="container">
@@ -84,9 +83,9 @@ class Scrape extends React.Component {
                     </ul>
                   </Tabs.Panel>
                 </Tabs>
+
               </div>
             </div>
-
           </div>
 
         </div>

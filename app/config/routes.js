@@ -1,6 +1,5 @@
 // Inclue the React library
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 
 // Include the react-router module
@@ -11,8 +10,8 @@ console.log(RR);
 import Main from "../components/Main";
 import Dashboard from '../components/children/Dashboard';
 import Topic from '../components/children/grandchildren/Topic';
-import Scrape from '../components/children/Scrape'
-// import DocInfo from "../components/children/DocInfo"
+import Scrape from '../components/children/Scrape';
+import DoctorForm from '../components/children/DoctorForm';
 
 // Export the Routes
 export default (
@@ -24,7 +23,6 @@ export default (
 	  		<Route path=':topic' component={Topic} />
 	  		<IndexRoute component={Topic} />
 		</Route>
-	  	
 	</Route>
   </Router>
 

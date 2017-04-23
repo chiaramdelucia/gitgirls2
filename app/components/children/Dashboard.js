@@ -1,8 +1,7 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Forum from './Forum.js'
-
 import Scrape from './Scrape.js'
+import DoctorForm from './DoctorForm.js'
 
 class Dashboard extends React.Component {
   constructor() {
@@ -19,27 +18,16 @@ class Dashboard extends React.Component {
     return (
 
       <div className="container">
-
         <div className="row">
-
           <div className="col-lg-12">
-
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                <h3 className="panel-title">Disease: {this.props.params.disease}</h3>
-              </div>
-              <div className="panel-body">
-                The disease is {this.props.params.disease}
-              </div>
+              <h3>Disease: {this.props.params.disease}</h3>
               <Forum disease={this.props.params.disease} >
               {this.props.children}
               </Forum>
               <Scrape disease={this.props.params.disease}/>
-
-            </div>
+              <DoctorForm disease={this.props.params.disease}/>
 
           </div>
-
         </div>
       </div>
     );
