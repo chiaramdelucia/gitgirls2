@@ -41,6 +41,20 @@ class DoctorForm extends React.Component {
                        contentLabel="Minimal Modal Example"
                     >
                       <button onClick={this.handleCloseModal}>Close Modal</button>
+                      <div>
+                        <label for="name">Name: </label>
+                        <input type="text" name="fullname" value="Full Name"></input>
+                      </div>
+                      <br></br>
+                      <div>
+                        <label for="email">Email: </label>
+                        <input type="text" name="email" value="Email"></input>
+                      </div>
+                      <br></br>
+                      <div>
+                        <label for="description">Review: </label>
+                        <input type="text" name="review" value="Review"></input>
+                      </div>
                     </ReactModal>
                 </div>
 
