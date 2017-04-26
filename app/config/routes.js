@@ -20,7 +20,7 @@ export default (
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
 		<Route path=":disease" component={Dashboard}>
-	  		<Route path=':topic' component={Topic} />
+	  		<Route path='/:disease/:topic' component={Topic} />
 	  		<IndexRoute component={Topic} />
 		</Route>
 	</Route>

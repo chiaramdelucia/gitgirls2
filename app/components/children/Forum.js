@@ -27,10 +27,10 @@ class Forum extends React.Component {
             <div className="container"><h2>Forum</h2></div>
               <div id="exTab3" className="container"> 
               <ul  className="nav nav-pills">
-                <li className="active"><a href="#/cancer1/Topic1" data-toggle="tab">Topic 1</a></li>
-                <li><a href="#/cancer1/Topic2" data-toggle="tab">Topic 2</a></li>
-                <li><a href="#/cancer1/Topic3" data-toggle="tab">Topic 3</a></li>
-                <li><a href="#/Topic4" data-toggle="tab">Topic 4</a></li>
+                <li><a href={"#/" + this.props.disease + "/Topic1"} data-toggle="tab">Topic 1</a></li>
+                <li><a href={"#/" + this.props.disease + "/Topic2"} data-toggle="tab">Topic 2</a></li>
+                <li><a href={"#/" + this.props.disease + "/Topic3"} data-toggle="tab">Topic 3</a></li>
+                <li><a href={"#/" + this.props.disease + "/Topic4"} data-toggle="tab">Topic 4</a></li>
               </ul>
 
              
