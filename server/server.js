@@ -18,7 +18,7 @@ app.use(express.static("./public"));
 
 // Database configuration for mongoose
 // db: ???????????????????????????????
-mongoose.connect("mongodb://localhost/******************");
+mongoose.connect("mongodb://localhost/CancerAlliance");
 // Hook mongoose connection to db
 var db = mongoose.connection;
 
@@ -36,8 +36,8 @@ app.get('/', function(req,res){
 	res.sendFile(path.join(__dirname, '../app/public/index.html'))
 })
 
+require('./server-routes/form-routes.js')(app);
 require('./server-routes/scrape-routes.js')(app);
-
 // Starting our express server
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);

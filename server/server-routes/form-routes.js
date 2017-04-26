@@ -18,7 +18,7 @@ module.exports = function(app){
 	  });
 	});
 
-	app.post("/doctable", function(req, res) {
+	app.post("/insertdoc", function(req, res) {
 
 		var fullname = req.body.fullname;
 		var website = req.body.website;

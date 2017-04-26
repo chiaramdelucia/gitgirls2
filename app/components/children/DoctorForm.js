@@ -1,16 +1,22 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import formhelp from '../utils/formhelp.js'
 
 
 class DoctorForm extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      showModal: false
+      showModal: false,
     }
+
     
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  componentDidMount () {
+    formhelp.showInfo().then((data)=>{console.log('reacthelp') + data})
   }
   
   handleOpenModal () {
@@ -57,13 +63,14 @@ class DoctorForm extends React.Component {
                       </div>
                       <br></br>
                       <div>
-                        <label for="email">Email: </label>
-                        <input type="text" name="email" value="Email"></input>
+                        <label for="email">Website: </label>
+                        <input type="text" name="website" value="Website"></input>
                       </div>
                       <br></br>
                       <div>
-                        <label for="description">Review: </label>
-                        <input type="text" name="review" value="Review"></input>
+                        <label for="description">Phone Number: </label>
+                        <input type="text" name="phonenumber" value="phonenumber"></input>
+                        <input type="hidden" name="category" value={this.props.disease}></input>
                       </div>
                       <button
                         className="btn btn-primary"
