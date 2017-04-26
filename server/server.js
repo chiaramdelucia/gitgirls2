@@ -17,7 +17,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("./public"));
 
 // Database configuration for mongoose
-// db: ???????????????????????????????
+// db: CancerAlliance
 mongoose.connect("mongodb://localhost/CancerAlliance");
 // Hook mongoose connection to db
 var db = mongoose.connection;
@@ -37,6 +37,8 @@ app.get('/', function(req,res){
 })
 
 require('./server-routes/scrape-routes.js')(app);
+require('./server-routes/forumTable-routes.js')(app);
+
 
 // Starting our express server
 app.listen(PORT, function() {
