@@ -7,7 +7,7 @@ class DoctorForm extends React.Component {
     super(props);
     this.state = {
       showModal: false
-    };
+    }
     
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -19,6 +19,16 @@ class DoctorForm extends React.Component {
   
   handleCloseModal () {
     this.setState({ showModal: false });
+  }
+
+  handleSubmit (event) {
+    // prevent the HTML from trying to submit a form if the user hits "Enter" instead of
+    // clicking the button
+    event.preventDefault();
+
+    // Set the parent to have the search term
+    this.props.setTerm(this.state.term);
+    this.setState({ term: "" });
   }
   
   render () {
@@ -55,6 +65,12 @@ class DoctorForm extends React.Component {
                         <label for="description">Review: </label>
                         <input type="text" name="review" value="Review"></input>
                       </div>
+                      <button
+                        className="btn btn-primary"
+                        type="submit"
+                      >
+                        Submit
+                      </button>
                     </ReactModal>
                 </div>
 
