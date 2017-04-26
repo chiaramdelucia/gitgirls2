@@ -1,23 +1,27 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+
 import formhelp from '../utils/formhelp.js'
+
 
 
 class DoctorForm extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      showModal: false,
-    }
+      showModal: false
+    };
 
     
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
+
   componentDidMount () {
     formhelp.showInfo().then((data)=>{console.log('reacthelp') + data})
   }
+
   
   handleOpenModal () {
     this.setState({ showModal: true });
@@ -26,6 +30,7 @@ class DoctorForm extends React.Component {
   handleCloseModal () {
     this.setState({ showModal: false });
   }
+
 
   handleSubmit (event) {
     // prevent the HTML from trying to submit a form if the user hits "Enter" instead of
@@ -36,6 +41,7 @@ class DoctorForm extends React.Component {
     this.props.setTerm(this.state.term);
     this.setState({ term: "" });
   }
+
   
   render () {
     return (
@@ -59,6 +65,7 @@ class DoctorForm extends React.Component {
                       <button onClick={this.handleCloseModal}>Close Modal</button>
                       <div>
                         <label for="name">Name: </label>
+
                         <input type="text" name="fullname" value="Full Name"></input>
                       </div>
                       <br></br>
@@ -78,6 +85,7 @@ class DoctorForm extends React.Component {
                       >
                         Submit
                       </button>
+
                     </ReactModal>
                 </div>
 
