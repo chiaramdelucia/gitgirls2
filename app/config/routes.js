@@ -5,7 +5,7 @@ import React from 'react';
 // Include the react-router module
 import {Route, Router, IndexRoute, browserHistory,hashHistory} from 'react-router';
 import * as RR from 'react-router';
-console.log(RR);
+// console.log(RR);
 // Reference the high-level components
 import Main from "../components/Main";
 import Dashboard from '../components/children/Dashboard';
@@ -20,8 +20,8 @@ export default (
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
 		<Route path=":disease" component={Dashboard}>
-	  		<Route path=':topic' component={Topic} />
-	  		<IndexRoute component={Topic} />
+	  		<Route path='/:disease/:state' component={Topic} />
+	  		
 		</Route>
 	</Route>
   </Router>
