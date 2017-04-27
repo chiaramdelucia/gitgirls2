@@ -1,5 +1,5 @@
 const axios = require('axios');
-var Forum = ('../server/models/ForumModel.js')
+var Forum = require('../models/ForumModel.js');
 
 
 module.exports = function(app){
@@ -8,14 +8,17 @@ module.exports = function(app){
 	  // This GET request will search for the latest Forum
 	  Forum.find()
 	  	.then(function(doc){
-	  		res.render('index', {items:doc});
+	  		console.log(doc)
+	  		res.send(doc);
+
 	  	})
 	});
+
 
 	app.post("/forumpost", function(req, res) {
 
 		var post = {
-			title: req.body.tile,
+			title: req.body.title,
 		 	category: req.body.category,
 			author: req.body.author,
 		 	content: req.body.content

@@ -18,11 +18,11 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("./public"));
 
 mongoose.Promise = Promise;
-var Forum = ('./server/models/ForumModel.js')
+
 
 // Database configuration for mongoose
 // db: CancerAlliance
-mongoose.connect("localhost/CancerAlliance");
+mongoose.connect("mongodb://localhost/CancerAlliance");
 
 // Hook mongoose connection to db
 var db = mongoose.connection;
@@ -43,6 +43,8 @@ app.get('/', function(req,res){
 
 require('./server-routes/scrape-routes.js')(app);
 require('./server-routes/forumTable-routes.js')(app);
+
+
 
 
 // Starting our express server

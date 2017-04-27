@@ -9,11 +9,11 @@ class Forum extends React.Component {
   }
 
   render() {
-        console.log("FORUM PROPS",this.props);
+        // console.log("FORUM PROPS",this.props);
 
     return (
 
-      
+      <div className ='well'>
         <div className="row">
 
           <div className="col-lg-12">
@@ -27,10 +27,10 @@ class Forum extends React.Component {
             <div className="container"><h2>Forum</h2></div>
               <div id="exTab3" className="container"> 
               <ul  className="nav nav-pills">
-                <li><a href={"#/" + this.props.disease + "/Topic1"} data-toggle="tab">NJ</a></li>
-                <li><a href={"#/" + this.props.disease + "/Topic2"} data-toggle="tab">NY</a></li>
-                <li><a href={"#/" + this.props.disease + "/Topic3"} data-toggle="tab">PA</a></li>
-                <li><a href={"#/" + this.props.disease + "/Topic4"} data-toggle="tab">CT</a></li>
+                <li><a href={"#/" + this.props.disease + "/NJ"} data-toggle="tab">NJ</a></li>
+                <li><a href={"#/" + this.props.disease + "/NY"} data-toggle="tab">NY</a></li>
+                <li><a href={"#/" + this.props.disease + "/PA"} data-toggle="tab">PA</a></li>
+                <li><a href={"#/" + this.props.disease + "/CT"} data-toggle="tab">CT</a></li>
               </ul>
 
              
@@ -44,6 +44,7 @@ class Forum extends React.Component {
           </div> 
 
         </div>
+      </div>
 
       
     );

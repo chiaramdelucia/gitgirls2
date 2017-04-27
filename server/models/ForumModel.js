@@ -1,18 +1,19 @@
-import mongoose from 'mongoose';
+
+var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
 
-var forumSchema = new Schema({
+var ForumSchema = new Schema({
 
 	title: {
 		type:String,
 		required: true
-	}
+	},
 	category: {
 		type: String,
 		required: true,
-	}
+	},
 	author: String,
 	content: {
 		type: String,
@@ -22,7 +23,7 @@ var forumSchema = new Schema({
 });
 
 
-var Forum = mongoose.model("Forum", forumSchema);
+var Forum = mongoose.model("Forum", ForumSchema);
 
 
 module.exports = Forum;
