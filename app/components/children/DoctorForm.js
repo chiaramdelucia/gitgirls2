@@ -76,7 +76,7 @@ class DoctorForm extends React.Component {
                       <br></br>
                       <div>
                         <label for="description">Phone Number: </label>
-                        <input type="text" name="phonenumber" value="phonenumber"></input>
+                        <input type="text" name="phonenumber" value="Phone Number"></input>
                         <input type="hidden" name="category" value={this.props.disease}></input>
                       </div>
                       <button
