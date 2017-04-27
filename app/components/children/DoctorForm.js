@@ -82,6 +82,7 @@ class DoctorForm extends React.Component {
                       <button
                         className="btn btn-primary"
                         type="submit"
+                        onClick="THIS WILL NEED TO SEND TO MONGO DATABASE"
                       >
                         Submit
                       </button>
