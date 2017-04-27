@@ -9,23 +9,25 @@ class Dashboard extends React.Component {
   }
 
   componentDidUpdate(){
-    console.log("component updated with disease" + this.props.route.disease);
+    // console.log("component updated with disease" + this.props.route.disease);
     //do some stuff to load info about disease here, and set state data so u can pass it down to other components!    
   }
 
   render() {
-    console.log("Dashboard PROPS",this.props);
+    // console.log("Dashboard PROPS",this.props);
     return (
 
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
+            <div className='well'>
               <h3>Disease: {this.props.params.disease}</h3>
+            </div>
               <Forum disease={this.props.params.disease} >
               {this.props.children}
               </Forum>
-              <Scrape disease={this.props.params.disease}/>
-              <DoctorForm disease={this.props.params.disease}/>
+              {/*<Scrape disease={this.props.params.disease}/>
+              <DoctorForm disease={this.props.params.disease}/>*/}
 
           </div>
         </div>

@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var axios = require('axios');
 var cheerio = require('cheerio');
+
 // Create a new express app
 var app = express();
 // Sets an initial port. We'll use this later in our listener
@@ -16,9 +17,16 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
+mongoose.Promise = Promise;
+
+
 // Database configuration for mongoose
-// db: ???????????????????????????????
+
+
+// db: CancerAlliance
 mongoose.connect("mongodb://localhost/CancerAlliance");
+
+
 // Hook mongoose connection to db
 var db = mongoose.connection;
 
@@ -38,6 +46,14 @@ app.get('/', function(req,res){
 
 require('./server-routes/form-routes.js')(app);
 require('./server-routes/scrape-routes.js')(app);
+<<<<<<< HEAD
+=======
+require('./server-routes/forumTable-routes.js')(app);
+
+
+
+
+>>>>>>> master
 // Starting our express server
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
