@@ -6,35 +6,26 @@ module.exports = function(app){
 
 	app.get("/forumtable", function(req, res) {
 	  // This GET request will search for the latest Forum
-	  Forum.find({}, function(err, docs) {
-	    if (err) {
-	      console.log(err);
-	    }
-	    else {
-	      res.send(docs);
-	    }
-	  });
+	  Forum.find()
+	  	.then(function(doc){
+	  		res.render('index', {items:doc});
+	  	})
 	});
 
-	// app.post("/forumpost", function(req, res) {
+	app.post("/forumpost", function(req, res) {
 
-	// 	var postTitle = req.body.postTile;
-	// 	var category = req.body.categor;
-	// 	var userName = req.body.userName;
-	// 	var post = req.body.post;
+		var post = {
+			title: req.body.tile,
+		 	category: req.body.category,
+			author: req.body.author,
+		 	content: req.body.content
+		}
 
-	// 	Forum.insert({ 
-	// 		fullname: fullname,
-	// 		category: category,
-	// 		userName: userName,
-	// 		post: req.body.post,
+		var forum = new Forum(post)
 
-	// 	})
-
-	// });
+		forum.save();
 
 
-
-
+	});
 
 }

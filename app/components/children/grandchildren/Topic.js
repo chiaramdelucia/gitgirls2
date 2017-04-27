@@ -17,7 +17,8 @@ class Topic extends React.Component {
   constructor() {
     super();
     this.state = {
-      showModal: false
+      showModal: false,
+      posts:[]
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -26,7 +27,13 @@ class Topic extends React.Component {
   }
 
   componentDidMount () {
-    forumTable.showInfo().then((data)=>{console.log('forumTablehelp') + data})
+    forumTable.showInfo()
+      .then((data) => {
+        (console.log(data))
+        this.setState({
+          posts: data
+        })
+      })
   }
   
   handleOpenModal () {
@@ -50,6 +57,11 @@ class Topic extends React.Component {
       
           <div className="tab-pane">
             <h3>{this.props.params.topic}</h3>
+            <ul>
+              {this.state.posts.map((result,i)=>{
+                return <li><a> {result}></a></li> 
+              })}
+            </ul>
             <h4>Post1</h4>
             <h4>Post2</h4>
             <div>
@@ -58,24 +70,28 @@ class Topic extends React.Component {
                   isOpen={this.state.showModal}
                   contentLabel="Minimal Modal Example"
                 >
-                  <div>
-                    <label for="postTitle">Title: </label>
-                    <input type ='text' name ='postTitle'></input> 
-                  </div>
-                  <div>
-                    <label for="category">Category: </label>
-                    <input type ='text' name ='category'></input> 
-                  </div>
-                  <div>
-                    <label for="userName">User Name: </label>
-                    <input type ='text' name ='userName'></input> 
-                  </div>
-                  <div>
-                    <label for="post">Post: </label>
-                    <textarea type ='text' name ='post' style={customStyles.content}></textarea> 
-                  </div>
-                  <button onClick={this.handleCloseModal}>Cancel</button>
-                  <button onClick={this.handleSubmitModal}>Submit</button>
+                  <form name ='forumPost' method='post'>
+                    <div>
+                      <label for="title">Title: </label>
+                      <input type ='text' name ='title'></input> 
+                    </div>
+                    <div>
+                      <label for="category">Category: </label>
+                      <input type ='text' name ='category'></input> 
+                    </div>
+                    <div>
+                      <label for="author">Author: </label>
+                      <input type ='text' name ='author'></input> 
+                    </div>
+                    <div>
+                      <label for="content">Post: </label>
+                      <textarea type ='text' name ='content' style={customStyles.content}></textarea> 
+                    </div>
+                    <div>
+                      <button onClick={this.handleCloseModal}>Cancel</button>
+                      <input type='submit' value='Submit' onClick={this.handleSubmitModal}></input>
+                    </div>
+                  </form>
                 </ReactModal>
             </div>
           </div>

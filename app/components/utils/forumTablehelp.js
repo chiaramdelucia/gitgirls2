@@ -4,9 +4,13 @@ const axios = require('axios');
 var forumTablehelp = {
 
 	showInfo: function() {
-		return axios.get('/forumtable').then(function(data) {
-			console.log("this is forum;table " + data)
-		})
+		return axios.get('/forumtable')
+			.then(function(response) {
+				console.log("this is forum;table " + response.data)
+			})
+			.catch(function (error) {
+    			console.log(error);
+ 			 });
 	},
 
 	postInfo: function() {

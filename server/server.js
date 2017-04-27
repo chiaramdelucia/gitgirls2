@@ -22,7 +22,7 @@ var Forum = ('./server/models/ForumModel.js')
 
 // Database configuration for mongoose
 // db: CancerAlliance
-mongoose.connect("mongodb://localhost/CancerAlliance");
+mongoose.connect("localhost/CancerAlliance");
 
 // Hook mongoose connection to db
 var db = mongoose.connection;
