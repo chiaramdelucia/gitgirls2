@@ -18,20 +18,34 @@ module.exports = function(app){
 	  });
 	});
 
-	app.post("/insertdoc", function(req, res) {
+	/*create and save docinfo*/
+	app.post('/doctable', function(request, response){
+		console.log(request.body)
 
-		var fullname = req.body.fullname;
-		var website = req.body.website;
-		var phonenumber = req.body.phonenumber;
+		var details = {};
+		
+		details.fullname = req.body.fullname;
+		details.website = req.body.website;
+		details.phonenumber = req.body.phonenumber;
+		details.category = req.body.category;
+	
+		var entry = new DocInfo(details);
 
-		DocInfo.insert({ 
-			fullname: fullname,
-			website: website,
-			phonenumber: phonenumber,
-			category: req.body.category,
-
-		})
-
+		NewsPost.find({phonenumber: request.body.phonenumber}, function(err, docs){
+			if (docs.length){
+				console.log('already exists')
+			}
+			else{
+				entry.save(function(err, doc){
+					if (err) {
+						console.log(err)
+					}
+					else {
+					console.log('saved!')
+					}
+				})
+			}
+		});
 	});
 
 }

@@ -9,8 +9,8 @@ var formhelp = {
 	},
 
 	postInfo: function() {
-		return axios.get('/insertdoc').then(function(data) {
-			console.log("WTF! INSERTTABLE" + data)
+		return axios.post('/doctable').then(function(data) {
+			console.log("INSERTTABLE" + data)
 		})
 	}
 
