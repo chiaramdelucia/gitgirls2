@@ -21,6 +21,12 @@ var DocInfoSchema = new Schema({
 	},
 	category : {
 		type: String
+	},
+	hospital: {
+		type: String
+	},
+	reason: {
+		typs: String
 	}
 	
 });

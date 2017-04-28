@@ -13,13 +13,15 @@ var formhelp = {
 },
 
 		postInfo: function(data) {
-    // console.log(data.title + '' + data.category + data.author + data.content)
     		return axios.post('/insertdoc', {
-            fullname: data.fullname,
-            website: data.website,
-            phonenumber: data.phonenumber,
-            category: data.category
-        })
+                fullname: data.fullname,
+                website: data.website,
+                phonenumber: data.phonenumber,
+                category: data.category,
+                hospital: data.hospital,
+                reason: data.reason
+
+            })
 				.then((response) => {
                 console.log("this is docform;table " + response.data);
                 return response.data

@@ -24,6 +24,8 @@ app.post('/insertdoc', function(req, res) {
     	website: req.body.website,
     	phonenumber: req.body.phonenumber,
     	category: req.body.category,
+        hospital: req.body.hospital,
+        reason: req.body.reason
     }
 
     var entry = new DocInfo(details);
