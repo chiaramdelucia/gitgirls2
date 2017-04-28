@@ -16,15 +16,15 @@ app.get("/doctable", function(req, res) {
 });
 
 /*create and save docinfo*/
-app.post('/insertdoc', function(request, response) {
-    console.log(request.body)
+app.post('/insertdoc', function(req, res) {
+    console.log(req.body)
 
-    var details = {};
-
-    details.fullname = req.body.fullname;
-    details.website = req.body.website;
-    details.phonenumber = req.body.phonenumber;
-    details.category = req.body.category;
+    var details = {
+    	fullname: req.body.fullname,
+    	website: req.body.website,
+    	phonenumber: req.body.phonenumber,
+    	category: req.body.category,
+    }
 
     var entry = new DocInfo(details);
 
