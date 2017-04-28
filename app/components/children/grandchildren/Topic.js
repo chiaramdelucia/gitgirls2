@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
-// import Tabs from 'react-simpletabs';
-import forumTable from '../../utils/forumTablehelp.js'
+import forumTable from '../../utils/forumTablehelp.js';
+import Tabs from 'react-simpletabs';
 
 
 const customStyles = {
@@ -99,6 +99,7 @@ class Topic extends React.Component {
       
       <div className="tab-pane">
             <h3>{this.props.params.state}</h3>
+
             <ul>
               {this.state.posts.filter((element, i)=>{
                 console.log(element.title)
@@ -107,9 +108,31 @@ class Topic extends React.Component {
               
             </ul>
 
-
-              
-
+            <Tabs>
+              <Tabs.Panel title='Category #1'>
+                <h2>Content #1 here</h2>
+                <ul>
+                  {this.state.posts.map((result,i)=>{
+                    console.log(result)
+                    return <div key={i}><li>{result.title}</li>
+                    <li>{result.category}</li>
+                    <li>{result.content}</li> </div>
+                  })} 
+                </ul>
+              </Tabs.Panel>
+              <Tabs.Panel title='Category #2'>
+                <h2>Content #2 here</h2>
+              </Tabs.Panel>
+              <Tabs.Panel title='Category #3'>
+                <h2>Content #3 here</h2>
+              </Tabs.Panel>
+            </Tabs>
+              {/*   <ul>
+                  {this.state.posts.map((result,i)=>{
+                    console.log(result)
+                    return <li><a> {result.title}</a></li> 
+                  })} 
+                </ul>*/}
 
           {/* Submit new Post to Forum */}
             <div>
