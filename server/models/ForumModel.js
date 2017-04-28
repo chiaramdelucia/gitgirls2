@@ -18,7 +18,8 @@ var ForumSchema = new Schema({
 	content: {
 		type: String,
 		required:true
-	}
+	},
+	area: String
 	
 });
 
