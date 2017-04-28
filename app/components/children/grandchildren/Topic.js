@@ -100,9 +100,9 @@ class Topic extends React.Component {
       <div className="tab-pane">
             <h3>{this.props.params.state}</h3>
             <ul>
-              {this.state.posts.map((result,i)=>{
-                console.log(result)
-                return <li><a> {result.title}</a></li> 
+              {this.state.posts.filter((element, i)=>{
+                console.log(element.title)
+                return <li><a> key{element.title}</a></li> 
               })} 
               
             </ul>
