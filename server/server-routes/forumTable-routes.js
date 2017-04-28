@@ -26,7 +26,9 @@ module.exports = function(app){
 
 		var forum = new Forum(post)
 
-		forum.save();
+		forum.save(function(err, forum){
+			res.send(forum)
+		});
 
 
 	});

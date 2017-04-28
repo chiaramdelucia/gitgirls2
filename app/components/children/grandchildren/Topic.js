@@ -57,10 +57,18 @@ class Topic extends React.Component {
   }
 
   handleSubmitModal() {
+    
     this.setState({
       showModal:false,
     });
-    forumTable.postInfo(this.state);
+
+    forumTable.postInfo(this.state)
+      .then((forum) => {
+        //console.log(this);
+        this.setState({
+          post: this.state.post.concat([forum])
+        });
+      });
     // event.preventdefault();
 
   }
