@@ -16,13 +16,15 @@ module.exports = function(app){
 
 
 	app.post("/forumpost", function(req, res) {
+		console.log("/forumpost req: " + req.location)
 
 		var post = {
 			title: req.body.title,
 		 	category: req.body.category,
 			author: req.body.author,
 		 	content: req.body.content,
-		 	area: req.body.area
+		 	location: req.body.location,
+		 	condition: req.body.condition
 		}
 
 		var forum = new Forum(post)

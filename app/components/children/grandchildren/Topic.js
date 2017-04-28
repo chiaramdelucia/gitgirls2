@@ -24,7 +24,8 @@ class Topic extends React.Component {
       category:'',
       author:'',
       content: '',
-      area: this.props.params.state,
+      location: {},
+      condition: {},
       posts: []
     };
 
@@ -60,20 +61,26 @@ class Topic extends React.Component {
   }
 
   handleSubmitModal() {
-    
+
+    console.log(this.state)
+
     this.setState({
       showModal:false,
       title: '',
       category: '',
       author: '',
       content: '',
+
     });
 
     forumTable.postInfo(this.state)
       .then((forum) => {
         //console.log(this);
+        
         this.setState({
-          posts: this.state.posts.concat([forum])
+          posts: this.state.posts.concat([forum]),
+          location: this.props.params.location,
+          condition:this.props.params.condition
 
         });
       });
@@ -84,9 +91,16 @@ class Topic extends React.Component {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
+    const location = this.props.params.location;
+    const condition = this.props.params.condition;
+    console.log (this);
+    console.log(this.props.params.location);
+    console.log(location + condition);
 
     this.setState({
-      [name]: value
+      [name]: value,
+      location: location,
+      condition: condition
     });
 
 
@@ -94,29 +108,22 @@ class Topic extends React.Component {
 
   render() {
         // console.log("TPIC PROPS",this.props);
+        
 
     return (
       
       <div className="tab-pane">
-            <h3>{this.props.params.state}</h3>
-
-            <ul>
-              {this.state.posts.filter((element, i)=>{
-                console.log(element.title)
-                return <li><a> key{element.title}</a></li> 
-              })} 
-              
-            </ul>
-
+           <h3>{this.props.params.location}</h3>
             <Tabs>
               <Tabs.Panel title='Category #1'>
                 <h2>Content #1 here</h2>
+                <h3></h3>
                 <ul>
                   {this.state.posts.map((result,i)=>{
                     console.log(result)
-                    return <div key={i}><li>{result.title}</li>
-                    <li>{result.category}</li>
-                    <li>{result.content}</li> </div>
+
+                    return <div key={i}><li>{result.title}</li></div>
+
                   })} 
                 </ul>
               </Tabs.Panel>
@@ -143,6 +150,7 @@ class Topic extends React.Component {
                 >
 
                 <form>
+                     
                     <div>
                       <label for="title">Title: </label>
                       <input type ='text' name ='title' value={this.state.title} onChange={this.handleInputChange}></input> 
@@ -159,6 +167,9 @@ class Topic extends React.Component {
                       <label for="content">Post: </label>
                       <textarea type ='text' name ='content' value={this.state.content} onChange={this.handleInputChange} style={customStyles.content}></textarea> 
                     </div>
+                    <div>
+                      <input type='hidden' name='location' value={this.props.params.location} onChange={this.handleInputChange}></input>
+                      <input type='hidden' name='condition' value={this.props.params.condition} onChange={this.handleInputChange}></input>                    </div>
                     
                     <div>
                       <button onClick={this.handleCloseModal}>Cancel</button>
