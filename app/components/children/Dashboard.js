@@ -27,7 +27,7 @@ class Dashboard extends React.Component {
               {this.props.children}
               </Forum>
               <Scrape condition={this.props.params.condition}/>
-              <DoctorForm condition={this.props.params.condition}/>
+              {/*<DoctorForm condition={this.props.params.condition}/>*/}
 
           </div>
         </div>
