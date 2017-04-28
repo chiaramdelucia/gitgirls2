@@ -46,14 +46,9 @@ app.get('/', function(req,res){
 
 require('./server-routes/form-routes.js')(app);
 require('./server-routes/scrape-routes.js')(app);
-<<<<<<< HEAD
-=======
 require('./server-routes/forumTable-routes.js')(app);
 
 
-
-
->>>>>>> master
 // Starting our express server
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);

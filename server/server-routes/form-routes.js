@@ -2,50 +2,40 @@
 var DocInfo = require('../models/DocInfo.js')
 
 
+module.exports = function(app) {
 
+app.get("/doctable", function(req, res) {
+    // This GET request will search for the latest DocInfo
+    DocInfo.find({}).exec(function(err, doc) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(doc);
+        }
+    });
+});
 
-module.exports = function(app){
+/*create and save docinfo*/
+app.post('/insertdoc', function(request, response) {
+    console.log(request.body)
 
-	app.get("/doctable", function(req, res) {
-	  // This GET request will search for the latest DocInfo
-	  DocInfo.find({}).exec(function(err, doc) {
-	    if (err) {
-	      console.log(err);
-	    }
-	    else {
-	      res.send(doc);
-	    }
-	  });
-	});
+    var details = {};
 
-	/*create and save docinfo*/
-	app.post('/doctable', function(request, response){
-		console.log(request.body)
+    details.fullname = req.body.fullname;
+    details.website = req.body.website;
+    details.phonenumber = req.body.phonenumber;
+    details.category = req.body.category;
 
-		var details = {};
-		
-		details.fullname = req.body.fullname;
-		details.website = req.body.website;
-		details.phonenumber = req.body.phonenumber;
-		details.category = req.body.category;
-	
-		var entry = new DocInfo(details);
+    var entry = new DocInfo(details);
 
-		NewsPost.find({phonenumber: request.body.phonenumber}, function(err, docs){
-			if (docs.length){
-				console.log('already exists')
-			}
-			else{
-				entry.save(function(err, doc){
-					if (err) {
-						console.log(err)
-					}
-					else {
-					console.log('saved!')
-					}
-				})
-			}
-		});
-	});
+    entry.save(function(err, doc) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log('saved!')
+          	res.send(doc);
+        }
+    })
+});
 
 }
