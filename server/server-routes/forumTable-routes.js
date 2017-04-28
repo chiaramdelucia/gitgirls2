@@ -8,7 +8,7 @@ module.exports = function(app){
 	  // This GET request will search for the latest Forum
 	  Forum.find()
 	  	.then(function(doc){
-	  		console.log(doc)
+	  		console.log("/forumtable doc: " + doc)
 	  		res.send(doc);
 
 	  	})
@@ -16,19 +16,22 @@ module.exports = function(app){
 
 
 	app.post("/forumpost", function(req, res) {
+		console.log("/forumpost req: " + req.body.location)
 
 		var post = {
 			title: req.body.title,
 		 	category: req.body.category,
 			author: req.body.author,
 		 	content: req.body.content,
-		 	area: req.body.area
+		 	location: req.body.location,
+		 	condition: req.body.condition
 		}
 
 		var forum = new Forum(post)
 
 		forum.save(function(err, forum){
 			res.send(forum)
+			console.log("forum: " + forum)
 		});
 
 

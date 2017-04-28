@@ -19,8 +19,8 @@ export default (
   // The high level component is the Router component
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
-		<Route path=":disease" component={Dashboard}>
-	  		<Route path='/:disease/:state' component={Topic} />
+		<Route path=":condition" component={Dashboard}>
+	  		<Route path='/:condition/:location' component={Topic} />
 	  		
 		</Route>
 	</Route>

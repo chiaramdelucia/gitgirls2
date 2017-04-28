@@ -21,13 +21,13 @@ class Dashboard extends React.Component {
         <div className="row">
           <div className="col-lg-12">
             <div className='well'>
-              <h3>Disease: {this.props.params.disease}</h3>
+              <h3>Condition: {this.props.params.condition}</h3>
             </div>
-              <Forum disease={this.props.params.disease} >
+              <Forum condition={this.props.params.condition} >
               {this.props.children}
               </Forum>
               {/*<Scrape disease={this.props.params.disease}/>*/}
-              <DoctorForm disease={this.props.params.disease}/>
+              <DoctorForm condition={this.props.params.condition}/>
 
           </div>
         </div>

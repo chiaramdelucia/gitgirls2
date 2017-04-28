@@ -20,17 +20,17 @@ class Forum extends React.Component {
 
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h3 className="panel-title">Chat about {this.props.disease}</h3>
+                <h3 className="panel-title">Chat about {this.props.condition}</h3>
               </div>
             </div>
 
             <div className="container"><h2>Forum</h2></div>
               <div id="exTab3" className="container"> 
               <ul  className="nav nav-pills">
-                <li><a href={"#/" + this.props.disease + "/NJ"} data-toggle="tab">NJ</a></li>
-                <li><a href={"#/" + this.props.disease + "/NY"} data-toggle="tab">NY</a></li>
-                <li><a href={"#/" + this.props.disease + "/PA"} data-toggle="tab">PA</a></li>
-                <li><a href={"#/" + this.props.disease + "/CT"} data-toggle="tab">CT</a></li>
+                <li><a href={"#/" + this.props.condition + "/NJ"} data-toggle="tab">NJ</a></li>
+                <li><a href={"#/" + this.props.condition + "/NY"} data-toggle="tab">NY</a></li>
+                <li><a href={"#/" + this.props.condition + "/PA"} data-toggle="tab">PA</a></li>
+                <li><a href={"#/" + this.props.condition + "/CT"} data-toggle="tab">CT</a></li>
               </ul>
 
              
