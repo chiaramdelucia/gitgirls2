@@ -15,15 +15,11 @@ var forumTablehelp = {
 	},
 
 	postInfo: function(data) {
-		// console.log(data.title + '' + data.category + data.author + data.content)
-		return axios.post('/forumpost', {title:data.title, category:data.category, author:data.author, content:data.content})
-			.then(function(response){
-				console.log('forum table response: ' + response)
-				
-			})
-			.catch(function (error) {
-    			console.log(error);
- 			 });
+		// console.log("data area" + data.area)
+		return axios.post('/forumpost', {title:data.title, category:data.category, author:data.author, content:data.content, area:data.area}).then((response) => {
+				console.log("this is forum;table " + response.data);
+				return response.data
+			});
 	}
 
 

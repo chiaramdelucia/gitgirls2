@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
-import forumTable from '../../utils/forumTablehelp.js';
+// import Tabs from 'react-simpletabs';
+import forumTable from '../../utils/forumTablehelp.js'
+
 
 const customStyles = {
   content : {
@@ -14,15 +16,16 @@ const customStyles = {
 
 
 class Topic extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showModal: false,
       title:'',
       category:'',
       author:'',
       content: '',
-      post: []
+      area: this.props.params.state,
+      posts: []
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -37,7 +40,7 @@ class Topic extends React.Component {
       .then((data) => {
         console.log('did mount' + '' + data)
         this.setState({
-          post: data
+          posts: data
         })
       })  
   }
@@ -57,11 +60,23 @@ class Topic extends React.Component {
   }
 
   handleSubmitModal() {
+    
     this.setState({
       showModal:false,
+      title: '',
+      category: '',
+      author: '',
+      content: '',
     });
-    forumTable.postInfo(this.state);
-    // event.preventdefault();
+
+    forumTable.postInfo(this.state)
+      .then((forum) => {
+        //console.log(this);
+        this.setState({
+          posts: this.state.posts.concat([forum])
+
+        });
+      });
 
   }
 
@@ -82,15 +97,19 @@ class Topic extends React.Component {
 
     return (
       
-          <div className="tab-pane">
+      <div className="tab-pane">
             <h3>{this.props.params.state}</h3>
             <ul>
-              {this.state.post.map((result,i)=>{
+              {this.state.posts.map((result,i)=>{
                 console.log(result)
                 return <li><a> {result.title}</a></li> 
               })} 
               
             </ul>
+
+
+              
+
 
           {/* Submit new Post to Forum */}
             <div>
@@ -117,6 +136,7 @@ class Topic extends React.Component {
                       <label for="content">Post: </label>
                       <textarea type ='text' name ='content' value={this.state.content} onChange={this.handleInputChange} style={customStyles.content}></textarea> 
                     </div>
+                    
                     <div>
                       <button onClick={this.handleCloseModal}>Cancel</button>
                       <input type='submit' value='Submit' onClick={this.handleSubmitModal}></input>
@@ -128,7 +148,7 @@ class Topic extends React.Component {
 
 
 
-          </div>
+    </div>
       
     );
 

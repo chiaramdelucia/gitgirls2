@@ -21,12 +21,15 @@ module.exports = function(app){
 			title: req.body.title,
 		 	category: req.body.category,
 			author: req.body.author,
-		 	content: req.body.content
+		 	content: req.body.content,
+		 	area: req.body.area
 		}
 
 		var forum = new Forum(post)
 
-		forum.save();
+		forum.save(function(err, forum){
+			res.send(forum)
+		});
 
 
 	});
