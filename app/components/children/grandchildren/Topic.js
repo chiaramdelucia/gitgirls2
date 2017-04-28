@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
-import forumTable from '../../utils/forumTablehelp.js'
+import forumTable from '../../utils/forumTablehelp.js';
 
 const customStyles = {
   content : {
