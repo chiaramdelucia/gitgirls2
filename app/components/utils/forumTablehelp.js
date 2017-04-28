@@ -15,6 +15,7 @@ var forumTablehelp = {
 	},
 
 	postInfo: function(data) {
+		console.log(data)
 		// console.log("data area" + data.area)
 		return axios.post('/forumpost', {
 			title:data.title, 
@@ -22,7 +23,7 @@ var forumTablehelp = {
 			author:data.author, 
 			content:data.content, 
 			location:data.location, 
-			condtion: data.condition
+			condition: data.condition
 		})
 			.then((response) => {
 				console.log("this is forum;table " + response.data);

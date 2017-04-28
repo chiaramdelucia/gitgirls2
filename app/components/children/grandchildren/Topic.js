@@ -24,8 +24,8 @@ class Topic extends React.Component {
       category:'',
       author:'',
       content: '',
-      location: {},
-      condition: {},
+      location: this.props.params.location,
+      condition: this.props.params.condition,
       posts: []
     };
 
@@ -46,9 +46,6 @@ class Topic extends React.Component {
       })  
   }
 
-  // componentDidUpdate(){
-  //   forumTable.postInfo();
-  // }
     
   handleOpenModal () {
     this.setState({ showModal: true });
@@ -71,11 +68,13 @@ class Topic extends React.Component {
       author: '',
       content: '',
 
+
     });
 
     forumTable.postInfo(this.state)
       .then((forum) => {
         //console.log(this);
+        console.log(this.state)
         
         this.setState({
           posts: this.state.posts.concat([forum]),
@@ -83,6 +82,7 @@ class Topic extends React.Component {
           condition:this.props.params.condition
 
         });
+
       });
 
   }
@@ -114,17 +114,22 @@ class Topic extends React.Component {
       
       <div className="tab-pane">
            <h3>{this.props.params.location}</h3>
+           <h3>{this.props.params.condition}</h3>
             <Tabs>
               <Tabs.Panel title='Category #1'>
                 <h2>Content #1 here</h2>
                 <h3></h3>
                 <ul>
-                  {this.state.posts.map((result,i)=>{
-                    console.log(result)
+                {this.state.posts.filter((post) => post.location == this.props.params.location && post.condition == this.props.params.condition).map((result,i)=>{
+                    // console.log(result)
+                    return <div key={i}><li>{result.title} - {result.location} - {result.condition}</li></div>
+                  })} 
+                  {/*{this.state.posts.map((result,i)=>{
+                    // console.log(result)
 
                     return <div key={i}><li>{result.title}</li></div>
 
-                  })} 
+                  })} */}
                 </ul>
               </Tabs.Panel>
               <Tabs.Panel title='Category #2'>
