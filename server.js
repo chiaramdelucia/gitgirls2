@@ -5,6 +5,7 @@ var mongoose = require("mongoose");
 var axios = require('axios');
 var cheerio = require('cheerio');
 
+
 // Create a new express app
 var app = express();
 // Sets an initial port. We'll use this later in our listener
@@ -15,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.use(express.static("./public"));
+app.use(express.static(__dirname + "/public"));
 
 mongoose.Promise = Promise;
 
@@ -24,7 +25,7 @@ mongoose.Promise = Promise;
 
 
 // db: CancerAlliance
-mongoose.connect("mongodb://localhost/CancerAlliance");
+mongoose.connect("mongodb://127.0.0.1/CancerAlliance");
 
 
 // Hook mongoose connection to db
@@ -41,12 +42,12 @@ db.once("open", function() {
 });
 
 app.get('/', function(req,res){
-	res.sendFile(path.join(__dirname, '../app/public/index.html'))
+	res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
-require('./server-routes/form-routes.js')(app);
-require('./server-routes/scrape-routes.js')(app);
-require('./server-routes/forumTable-routes.js')(app);
+require('./server/server-routes/form-routes.js')(app);
+require('./server/server-routes/scrape-routes.js')(app);
+require('./server/server-routes/forumTable-routes.js')(app);
 
 
 // Starting our express server

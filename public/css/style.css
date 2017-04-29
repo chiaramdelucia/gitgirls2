@@ -1,0 +1,81 @@
+body {
+ background: #757f9a;
+ background: -webkit-linear-gradient(to right, #757f9a, #d7dde8); /* Chrome 10-25, Safari 5.1-6 */
+ background: linear-gradient(to right, #757f9a, #d7dde8);
+
+}
+
+
+
+.header {
+	background-color: #2578a0;
+	
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #2578a0;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  height: 50px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 4px 4px 5px #808080;
+
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+h4 {
+	font-family: 'Oxygen', sans-serif;
+	color: white;
+}
+
+h1 {
+
+	font-family: 'Paytone One', sans-serif;
+	text-align: center;
+}
+
+h3 {
+
+	font-family: 'Oxygen', sans-serif;
+	text-align: center;
+}
+
+a {
+	color: white;
+}
+
+.main-img {
+
+border:2px solid #fff; box-shadow: 8px 8px 10px #aaa; }
