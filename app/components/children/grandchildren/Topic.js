@@ -107,7 +107,7 @@ class Topic extends React.Component {
   }
 
   render() {
-        // console.log("TPIC PROPS",this.props);
+        console.log("TPIC PROPS",this.props);
         
 
     return (
