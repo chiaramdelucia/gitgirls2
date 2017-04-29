@@ -1,0 +1,16 @@
+.ovMain, .breastMain, .prosMain {
+	width: 30px; 
+	height: 30px;
+}
+
+.lungMain, .colonMain {
+	width: 25px;
+	height: 25px;
+}
+.mainBtn{
+	vertical-align: middle;
+}
+.logoMain{
+	width: 100px;
+	height: 100px;
+}
