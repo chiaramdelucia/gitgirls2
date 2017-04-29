@@ -25,7 +25,7 @@ this.handleInputChange = this.handleInputChange.bind(this);
 componentDidMount () {
   formhelp.showInfo()
     .then((data) => {
-    console.log('did mount' + '' + data)
+    // console.log('did mount' + '' + data)
     this.setState({
     info: data
     })
@@ -42,18 +42,19 @@ handleCloseModal () {
 handleSubmitModal() {
   this.setState({
     showModal:false,
+    fullname: '',
+    website: '',
+    phonenumber: '',
+    condition: '',
+    hospital: '',
+    reason: '',
   });
   formhelp.postInfo(this.state)
   .then((doc) => {
+    console.log("this.state " + this.state)
   this.setState({
-    info: {
-      fullname: this.state.fullname,
-      website: this.state.website,
-      phonenumber: this.state.phonenumber,
-      condition: this.props.condition,
-      hospital: this.state.hospital,
-      reason: this.state.reason,
-    }
+
+    info: this.state.info.concat([doc]),
     });
   });
 }
@@ -61,8 +62,11 @@ handleInputChange(event) {
   const target = event.target;
   const value = target.value;
   const name = target.name;
+  const condition = this.props.condition
   this.setState({
-    [name]: value
+    [name]: value,
+    condition: condition
+
   });
 }
 
@@ -83,10 +87,9 @@ render () {
               <div>
                 <button onClick={this.handleOpenModal}>Add Doctor</button>
                 <div>{this.state.info.fullname}</div>
-                {confilter.map((result, i) => {
-                  console.log(result)
-                  return <div key={i}><p>Name : {result.fullname}</p><p>Website: {result.website}</p><p>Phone: {result.phonenumber}</p><p>Known Hospital Affiliation: {result.hospital}</p><p>Reason for Recommendation: {result.reason}</p></div>
-                })}
+                  {confilter.map((result, i) => {
+                    return <div key={i}><p>Name : {result.fullname}</p><p>Website: {result.website}</p><p>Phone: {result.phonenumber}</p><p>Known Hospital Affiliation: {result.hospital}</p><p>Reason for Recommendation: {result.reason}</p></div>
+                   })}
 
                 <ReactModal
                   isOpen={this.state.showModal}
@@ -108,7 +111,7 @@ render () {
                       <label htmlFor="description">Phone Number: </label>
                       <input type="text" name="phonenumber" value={this.state.phonenumber} onChange={this.handleInputChange}></input>
                     </div>
-                    <input type="hidden" name="condition" value={this.props.condition} onChange={this.handleInputChange}></input>
+                    <input type="hidden" name="condition" value={this.state.condition} onChange={this.handleInputChange}></input>
                     <div>
                       <label htmlFor="hospital">Known Hospital Affiliation: </label>
                       <input type="text" name="hospital" value={this.state.hospital} onChange={this.handleInputChange}></input>
