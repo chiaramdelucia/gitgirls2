@@ -21,12 +21,13 @@ mongoose.Promise = Promise;
 
 
 // Database configuration for mongoose
-
+if (process.env.MONGODB_URI){
+	mongoose.connect(process.env.MONGODB_URI)
+} else {
 
 // db: CancerAlliance
 mongoose.connect("mongodb://localhost/CancerAlliance");
-
-
+}
 // Hook mongoose connection to db
 var db = mongoose.connection;
 
