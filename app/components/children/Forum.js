@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 
 
 class Forum extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {

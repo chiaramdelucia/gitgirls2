@@ -6,7 +6,9 @@ module.exports = function(app) {
 
 app.get("/doctable", function(req, res) {
     // This GET request will search for the latest DocInfo
+
     DocInfo.find({}).exec(function(err, doc) {
+        console.log(doc)
         if (err) {
             console.log(err);
         } else {
@@ -17,13 +19,15 @@ app.get("/doctable", function(req, res) {
 
 /*create and save docinfo*/
 app.post('/insertdoc', function(req, res) {
-    console.log(req.body)
+    // console.log('req.body ' + req.body)
 
     var details = {
     	fullname: req.body.fullname,
     	website: req.body.website,
     	phonenumber: req.body.phonenumber,
-    	category: req.body.category,
+    	condition: req.body.condition,
+        hospital: req.body.hospital,
+        reason: req.body.reason
     }
 
     var entry = new DocInfo(details);

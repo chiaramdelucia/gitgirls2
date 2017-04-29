@@ -126,9 +126,7 @@ class Topic extends React.Component {
                   })} 
                   {/*{this.state.posts.map((result,i)=>{
                     // console.log(result)
-
                     return <div key={i}><li>{result.title}</li></div>
-
                   })} */}
                 </ul>
               </Tabs.Panel>
