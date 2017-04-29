@@ -42,7 +42,7 @@ db.once("open", function() {
 });
 
 app.get('/', function(req,res){
-	res.sendFile(path.join(__dirname, '../app/public/index.html'))
+	res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
 require('./server/server-routes/form-routes.js')(app);
