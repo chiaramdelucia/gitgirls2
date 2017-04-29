@@ -9,12 +9,12 @@ class Dashboard extends React.Component {
   }
 
   componentDidUpdate(){
-    // console.log("component updated with disease" + this.props.route.disease);
-    //do some stuff to load info about disease here, and set state data so u can pass it down to other components!    
+    // console.log("component updated with condition" + this.props.route.condition);
+    //do some stuff to load info about condition here, and set state data so u can pass it down to other components!    
   }
 
   render() {
-    // console.log("Dashboard PROPS",this.props);
+    console.log("Dashboard PROPS",this.props);
     return (
 
       <div className="container">
@@ -22,12 +22,13 @@ class Dashboard extends React.Component {
           <div className="col-lg-12">
             <div className='well'>
               <h3>Condition: {this.props.params.condition}</h3>
+              {this.props.children}
             </div>
               <Forum condition={this.props.params.condition} >
               {this.props.children}
               </Forum>
-              {/*<Scrape disease={this.props.params.disease}/>*/}
-              <DoctorForm condition={this.props.params.condition}/>
+              <Scrape condition={this.props.params.condition}/>
+            <DoctorForm condition={this.props.params.condition}/>
 
           </div>
         </div>

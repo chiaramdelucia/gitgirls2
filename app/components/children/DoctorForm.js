@@ -3,15 +3,18 @@ import ReactModal from 'react-modal';
 import formhelp from '../utils/formhelp.js'
 
 class DoctorForm extends React.Component {
+
 constructor (props) {
-super(props);
-this.state = {
-showModal: false,
-fullname: '',
-website: '',
-phonenumber: '',
-category: '',
-info: [],
+  super(props);
+    this.state = {
+      showModal: false,
+      fullname: '',
+      website: '',
+      phonenumber: '',
+      condition: this.props.condition,
+      hospital: '',
+      reason: '',
+      info: []
 };
 
 this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -20,105 +23,115 @@ this.handleSubmitModal = this.handleSubmitModal.bind(this);
 this.handleInputChange = this.handleInputChange.bind(this);
 }
 componentDidMount () {
-formhelp.showInfo()
-.then((data) => {
-console.log('did mount' + '' + data)
-this.setState({
-info: data
-})
-})
+  formhelp.showInfo()
+    .then((data) => {
+    console.log('did mount' + '' + data)
+    this.setState({
+    info: data
+    })
+  })  
 }
 
 handleOpenModal () {
-this.setState({ showModal: true });
+  this.setState({ showModal: true });
 }
 
 handleCloseModal () {
-this.setState({ showModal: false });
+  this.setState({ showModal: false });
 }
 handleSubmitModal() {
-
-this.setState({
-showModal:false,
-});
-formhelp.postInfo(this.state)
-.then((doc) => {
-//console.log(this);
-this.setState({
-info: this.state.info.concat([doc])
-});
-});
+  this.setState({
+    showModal:false,
+  });
+  formhelp.postInfo(this.state)
+  .then((doc) => {
+  this.setState({
+    info: {
+      fullname: this.state.fullname,
+      website: this.state.website,
+      phonenumber: this.state.phonenumber,
+      condition: this.props.condition,
+      hospital: this.state.hospital,
+      reason: this.state.reason,
+    }
+    });
+  });
 }
 handleInputChange(event) {
-const target = event.target;
-const value = target.value;
-const name = target.name;
-this.setState({
-[name]: value
-});
+  const target = event.target;
+  const value = target.value;
+  const name = target.name;
+  this.setState({
+    [name]: value
+  });
 }
 
 render () {
-return (
-<div className="container">
-  <div className="row">
-    <div className="col-lg-12">
-      <div className="panel panel-default">
-        <div className="panel-heading">
-          <h3 className="panel-title">DoctorForm</h3>
-        </div>
-        <div className="panel-body">
-          <div>
-            <button onClick={this.handleOpenModal}>Add Doctor</button>
-            <ul>
+  console.log("Doctor PROPS",this.props);
+  const confilter = this.state.info.filter((c) => {  
+        return c.condition === this.props.condition});
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-12">
+          <div className="panel panel-default">
+            <div className="panel-heading">
+              <h3 className="panel-title">DoctorForm</h3>
+            </div>
+            <div className="panel-body">
+          <div><h2>{this.props.condition}</h2></div>
+              <div>
+                <button onClick={this.handleOpenModal}>Add Doctor</button>
+                <div>{this.state.info.fullname}</div>
+                {confilter.map((result, i) => {
+                  console.log(result)
+                  return <div key={i}><p>Name : {result.fullname}</p><p>Website: {result.website}</p><p>Phone: {result.phonenumber}</p><p>Known Hospital Affiliation: {result.hospital}</p><p>Reason for Recommendation: {result.reason}</p></div>
+                })}
 
-              {this.state.info.map((result,i)=>{
-              console.log(result)
-              return
-              <div>
-               <li><a> {result.fullname}</a></li>
-              <li><a> {result.website}</a></li>
-              <li><a> {result.phonenumber}</a></li>
+                <ReactModal
+                  isOpen={this.state.showModal}
+                  contentLabel="Minimal Modal Example"
+                >
+                  
+                  
+                    <div>
+                      <label htmlFor="name">Name: </label>
+                      <input type="text" name="fullname" value={this.state.fullname} onChange={this.handleInputChange}></input>
+                    </div>
+                    <br></br>
+                    <div>
+                      <label htmlFor="email">Website: </label>
+                      <input type="text" name="website" value={this.state.website} onChange={this.handleInputChange}></input>
+                    </div>
+                    <br></br>
+                    <div>
+                      <label htmlFor="description">Phone Number: </label>
+                      <input type="text" name="phonenumber" value={this.state.phonenumber} onChange={this.handleInputChange}></input>
+                    </div>
+                    <input type="hidden" name="condition" value={this.props.condition} onChange={this.handleInputChange}></input>
+                    <div>
+                      <label htmlFor="hospital">Known Hospital Affiliation: </label>
+                      <input type="text" name="hospital" value={this.state.hospital} onChange={this.handleInputChange}></input>
+                    </div>
+                    <div>
+                      <label htmlFor="reason">Reason for Recommendation: </label>
+                      <input type="text" name="reason" value={this.state.reason} onChange={this.handleInputChange}></input>
+                    </div>
+                    <span><button className="btn btn-primary" type="submit" onClick={this.handleSubmitModal}>
+                    Submit
+                    </button>
+                    <button onClick={this.handleCloseModal}>Close Modal</button></span>
+                 
+                </ReactModal>
               </div>
-              })}
-            </ul>
-            <ReactModal
-            isOpen={this.state.showModal}
-            contentLabel="Minimal Modal Example"
-            >
-            <button onClick={this.handleCloseModal}>Close Modal</button>
-            <form>
-              <div>
-                <label for="name">Name: </label>
-                <input type="text" name="fullname" value={this.state.fullname} onChange={this.handleInputChange}></input>
-              </div>
-              <br></br>
-              <div>
-                <label for="email">Website: </label>
-                <input type="text" name="website" value={this.state.website} onChange={this.handleInputChange}></input>
-              </div>
-              <br></br>
-              <div>
-                <label for="description">Phone Number: </label>
-                <input type="text" name="phonenumber" value={this.state.phonenumber} onChange={this.handleInputChange}></input>
-                <input type="hidden" name="category" value={this.props.disease} onChange={this.handleInputChange}></input>
-              </div>
-              <button
-              className="btn btn-primary"
-              type="submit"
-              onClick={this.handleSubmitModal}
-              >
-              Submit
-              </button>
-            </form>
-            </ReactModal>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-);
+    );
+  }
 }
-}
+
 export default DoctorForm
+
