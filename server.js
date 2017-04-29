@@ -45,9 +45,9 @@ app.get('/', function(req,res){
 	res.sendFile(path.join(__dirname, '../app/public/index.html'))
 })
 
-require('./server-routes/form-routes.js')(app);
-require('./server-routes/scrape-routes.js')(app);
-require('./server-routes/forumTable-routes.js')(app);
+require('./server/server-routes/form-routes.js')(app);
+require('./server/server-routes/scrape-routes.js')(app);
+require('./server/server-routes/forumTable-routes.js')(app);
 
 
 // Starting our express server
