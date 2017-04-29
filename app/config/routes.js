@@ -7,6 +7,7 @@ import {Route, Router, IndexRoute, browserHistory,hashHistory} from 'react-route
 import * as RR from 'react-router';
 // console.log(RR);
 // Reference the high-level components
+import Wrapper from "../components/Wrapper";
 import Main from "../components/Main";
 import Dashboard from '../components/children/Dashboard';
 import Topic from '../components/children/grandchildren/Topic';
@@ -18,11 +19,12 @@ export default (
 
   // The high level component is the Router component
   <Router history={hashHistory}>
-    <Route path="/" component={Main}>
+    <Route path="/" component={Wrapper}>
+    	<Route path="/main" component={Main}/>
 		<Route path=":condition" component={Dashboard}>
-	  		<Route path='/:condition/:location' component={Topic} />
-	  		
+	  		<Route path='/:condition/:location' component={Topic} />	
 		</Route>
+		<IndexRoute component={Main} />
 	</Route>
   </Router>
 

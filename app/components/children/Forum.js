@@ -12,7 +12,7 @@ class Forum extends React.Component {
         // console.log("FORUM PROPS",this.props);
 
     return (
-
+      <div className="row">
       <div className ='well'>
         <div className="row">
 
@@ -45,7 +45,7 @@ class Forum extends React.Component {
 
         </div>
       </div>
-
+      </div>
       
     );
   }
