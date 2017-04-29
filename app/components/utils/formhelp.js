@@ -4,7 +4,7 @@ var formhelp = {
 
     showInfo: function() {
         return axios.get('/doctable').then(function(response) {
-                console.log("this is docform;table " + response.data);
+                // console.log("this is docform;table " + response.data);
                 return response.data
             })
             .catch(function(error) {
@@ -23,7 +23,7 @@ var formhelp = {
 
             })
 				.then((response) => {
-                console.log("this is docform;table " + response.data);
+                // console.log("this is docform;table " + response.data);
                 return response.data
             });
 }

@@ -26,7 +26,7 @@ var DocInfoSchema = new Schema({
 		type: String
 	},
 	reason: {
-		typs: String
+		type: String
 	}
 	
 });
