@@ -4,8 +4,8 @@ import Scrape from './Scrape.js'
 import DoctorForm from './DoctorForm.js'
 
 class Dashboard extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidUpdate(){
