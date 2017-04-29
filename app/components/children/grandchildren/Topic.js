@@ -107,9 +107,14 @@ class Topic extends React.Component {
   }
 
   render() {
-        // console.log("TPIC PROPS",this.props);
-        
 
+        // console.log("TPIC PROPS",this.props);
+      const routeFilter =  this.state.posts.filter((post) => {return post.location == this.props.params.location && post.condition == this.props.params.condition});
+
+        const one = routeFilter.filter((c) => {return c.category == 'nj'})
+        const two = routeFilter.filter((c) => {return c.category == 'Testing'})
+        console.log('two: ', two)
+        console.log('one: ', one)
     return (
       
       <div className="tab-pane">
@@ -120,29 +125,26 @@ class Topic extends React.Component {
                 <h2>Content #1 here</h2>
                 <h3></h3>
                 <ul>
-                {this.state.posts.filter((post) => post.location == this.props.params.location && post.condition == this.props.params.condition).map((result,i)=>{
+                {one.map((result,i)=>{
                     // console.log(result)
                     return <div key={i}><li>{result.title} - {result.location} - {result.condition}</li></div>
                   })} 
-                  {/*{this.state.posts.map((result,i)=>{
-                    // console.log(result)
-                    return <div key={i}><li>{result.title}</li></div>
-                  })} */}
+
                 </ul>
               </Tabs.Panel>
               <Tabs.Panel title='Category #2'>
                 <h2>Content #2 here</h2>
+                <ul>
+                {two.map((result,i)=>{
+                    // console.log(result)
+                    return <div key={i}><li>{result.title} - {result.location} - {result.condition}</li></div>
+                  })} 
+                </ul>
               </Tabs.Panel>
               <Tabs.Panel title='Category #3'>
                 <h2>Content #3 here</h2>
               </Tabs.Panel>
             </Tabs>
-              {/*   <ul>
-                  {this.state.posts.map((result,i)=>{
-                    console.log(result)
-                    return <li><a> {result.title}</a></li> 
-                  })} 
-                </ul>*/}
 
           {/* Submit new Post to Forum */}
             <div>
