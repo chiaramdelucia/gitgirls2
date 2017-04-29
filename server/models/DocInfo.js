@@ -19,7 +19,7 @@ var DocInfoSchema = new Schema({
 	phonenumber : {
 		type: String
 	},
-	category : {
+	condition : {
 		type: String
 	},
 	hospital: {

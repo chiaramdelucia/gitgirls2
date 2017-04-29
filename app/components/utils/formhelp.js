@@ -17,7 +17,7 @@ var formhelp = {
                 fullname: data.fullname,
                 website: data.website,
                 phonenumber: data.phonenumber,
-                category: data.category,
+                condition: data.condition,
                 hospital: data.hospital,
                 reason: data.reason
 

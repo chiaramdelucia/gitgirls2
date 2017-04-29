@@ -11,7 +11,7 @@ constructor (props) {
       fullname: '',
       website: '',
       phonenumber: '',
-      category: this.props.params.condition,
+      condition: this.props.condition,
       hospital: '',
       reason: '',
       info: []
@@ -45,9 +45,15 @@ handleSubmitModal() {
   });
   formhelp.postInfo(this.state)
   .then((doc) => {
-//console.log(this);
   this.setState({
-    info: this.state.info.concat([doc])
+    info: {
+      fullname: this.state.fullname,
+      website: this.state.website,
+      phonenumber: this.state.phonenumber,
+      condition: this.props.condition,
+      hospital: this.state.hospital,
+      reason: this.state.reason,
+    }
     });
   });
 }
@@ -61,6 +67,9 @@ handleInputChange(event) {
 }
 
 render () {
+  console.log("Doctor PROPS",this.props);
+  const confilter = this.state.info.filter((c) => {  
+        return c.condition === this.props.condition});
   return (
     <div className="container">
       <div className="row">
@@ -70,55 +79,49 @@ render () {
               <h3 className="panel-title">DoctorForm</h3>
             </div>
             <div className="panel-body">
+          <div><h2>{this.props.condition}</h2></div>
               <div>
                 <button onClick={this.handleOpenModal}>Add Doctor</button>
-                <div> 
-                  {this.state.info.filter((d) => d.condition == this.props.params.condition)
-                    .map((result,i)=>{
-                    return
-                      <div key={i}>
-                        <p>Name: {result.fullname}</p>
-                        <p>Website: {result.website}</p>
-                        <p>Number: {result.phonenumber}</p>
-                         <p>Known Hospital Affiliation: {result.hospital}</p>
-                          <p>Reason for Recommendation: {result.reason}</p>
-                      </div>
-                   })} 
-                </div>
+                <div>{this.state.info.fullname}</div>
+                {confilter.map((result, i) => {
+                  console.log(result)
+                  return <div key={i}><p>Name : {result.fullname}</p><p>Website: {result.website}</p><p>Phone: {result.phonenumber}</p><p>Known Hospital Affiliation: {result.hospital}</p><p>Reason for Recommendation: {result.reason}</p></div>
+                })}
+
                 <ReactModal
                   isOpen={this.state.showModal}
                   contentLabel="Minimal Modal Example"
                 >
                   
-                  <form>
+                  
                     <div>
-                      <label for="name">Name: </label>
+                      <label htmlFor="name">Name: </label>
                       <input type="text" name="fullname" value={this.state.fullname} onChange={this.handleInputChange}></input>
                     </div>
                     <br></br>
                     <div>
-                      <label for="email">Website: </label>
+                      <label htmlFor="email">Website: </label>
                       <input type="text" name="website" value={this.state.website} onChange={this.handleInputChange}></input>
                     </div>
                     <br></br>
                     <div>
-                      <label for="description">Phone Number: </label>
+                      <label htmlFor="description">Phone Number: </label>
                       <input type="text" name="phonenumber" value={this.state.phonenumber} onChange={this.handleInputChange}></input>
-                      <input type="hidden" name="category" value={this.props.params.condition} onChange={this.handleInputChange}></input>
                     </div>
+                    <input type="hidden" name="condition" value={this.props.condition} onChange={this.handleInputChange}></input>
                     <div>
-                      <label for="hospital">Known Hospital Affiliation: </label>
+                      <label htmlFor="hospital">Known Hospital Affiliation: </label>
                       <input type="text" name="hospital" value={this.state.hospital} onChange={this.handleInputChange}></input>
                     </div>
                     <div>
-                      <label for="reason">Reason for Recommendation: </label>
+                      <label htmlFor="reason">Reason for Recommendation: </label>
                       <input type="text" name="reason" value={this.state.reason} onChange={this.handleInputChange}></input>
                     </div>
                     <span><button className="btn btn-primary" type="submit" onClick={this.handleSubmitModal}>
                     Submit
                     </button>
                     <button onClick={this.handleCloseModal}>Close Modal</button></span>
-                  </form>
+                 
                 </ReactModal>
               </div>
             </div>
