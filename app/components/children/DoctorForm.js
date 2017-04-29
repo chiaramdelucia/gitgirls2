@@ -75,7 +75,6 @@ render () {
   const confilter = this.state.info.filter((c) => {  
         return c.condition === this.props.condition});
   return (
-    <div className="container">
       <div className="row">
         <div className="col-lg-12">
           <div className="panel panel-default">
@@ -131,7 +130,6 @@ render () {
           </div>
         </div>
       </div>
-    </div>
     );
   }
 }
