@@ -9,7 +9,8 @@ const customStyles = {
   content : {
     width: '200px',
     height: '200px',
-    overflow: 'scroll'
+    overflow: 'scroll',
+    color: 'black'
   }
 };
 
@@ -117,7 +118,7 @@ class Topic extends React.Component {
         console.log('one: ', one)
     return (
       
-      <div className="tab-pane">
+      <div role='tab-pane' className="tab-pane active">
            <h3>{this.props.params.location}</h3>
            <h3>{this.props.params.condition}</h3>
             <Tabs>
