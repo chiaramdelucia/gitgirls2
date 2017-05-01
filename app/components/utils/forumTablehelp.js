@@ -6,7 +6,7 @@ var forumTablehelp = {
 	showInfo: function() {
 		return axios.get('/forumtable')
 			.then(function(response) {
-				console.log("this is forum;table " + response.data);
+				// console.log("this is forum;table " + response.data);
 				return response.data
 			})
 			.catch(function (error) {

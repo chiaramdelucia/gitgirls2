@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
-import forumTable from '../../utils/forumTablehelp.js';
 import Tabs from 'react-simpletabs';
+import forumTable from '../../utils/forumTablehelp.js';
+import commentHelp from '../../utils/commenthelp.js';
+
 
 
 const customStyles = {
@@ -27,6 +28,8 @@ class Topic extends React.Component {
       content: '',
       location: this.props.params.location,
       condition: this.props.params.condition,
+      comment: '',
+      username: '',
       posts: []
     };
 
@@ -40,11 +43,17 @@ class Topic extends React.Component {
   componentDidMount () {
     forumTable.showInfo()
       .then((data) => {
-        console.log('did mount' + '' + data)
+        // console.log('did mount' + '' + data)
         this.setState({
           posts: data
         })
-      })  
+      }) 
+
+    // commentHelp.showComment()
+    //   .then((data)=>{
+    //     console.log('comment mount: ', data)
+
+    //   }) 
   }
 
     
@@ -60,7 +69,7 @@ class Topic extends React.Component {
 
   handleSubmitModal() {
 
-    console.log(this.state)
+    // console.log(this.state)
 
     this.setState({
       showModal:false,
@@ -75,7 +84,7 @@ class Topic extends React.Component {
     forumTable.postInfo(this.state)
       .then((forum) => {
         //console.log(this);
-        console.log(this.state)
+        // console.log(this.state)
         
         this.setState({
           posts: this.state.posts.concat([forum]),
@@ -85,6 +94,18 @@ class Topic extends React.Component {
         });
 
       });
+  }
+
+  handleComments() {
+    commentHelp.postComment()
+      .then((comment)=>{
+        console.log('handle comment submit: ', comment)
+        // this.setState({
+        //   username: this.state.username.concat([comment.username]),
+        //   comment: this.state.username.concat([comment.comment])
+        // })
+      
+      })
 
   }
 
@@ -94,9 +115,9 @@ class Topic extends React.Component {
     const name = target.name;
     const location = this.props.params.location;
     const condition = this.props.params.condition;
-    console.log (this);
-    console.log(this.props.params.location);
-    console.log(location + condition);
+    // console.log (this);
+    // console.log(this.props.params.location);
+    // console.log(location + condition);
 
     this.setState({
       [name]: value,
@@ -114,8 +135,8 @@ class Topic extends React.Component {
 
         const one = routeFilter.filter((c) => {return c.category == 'nj'})
         const two = routeFilter.filter((c) => {return c.category == 'Testing'})
-        console.log('two: ', two)
-        console.log('one: ', one)
+        // console.log('two: ', two)
+        // console.log('one: ', one)
     return (
       
       <div role='tab-pane' className="tab-pane active">
@@ -124,11 +145,20 @@ class Topic extends React.Component {
             <Tabs>
               <Tabs.Panel title='Category #1'>
                 <h2>Content #1 here</h2>
-                <h3></h3>
                 <ul>
                 {one.map((result,i)=>{
                     // console.log(result)
-                    return <div key={i}><li>{result.title} - {result.location} - {result.condition}</li></div>
+                    return <div key={i} className='well'>
+                      <h5>Title: {result.title}</h5>
+                      <p>Post: {result.location} - {result.condition}</p>
+                      
+                    <input type='text' name='username' placeholder='Username' value={this.state.username} onChange={this.handleInputChange}></input>
+                    <br></br>
+                    <textarea type='text' name='comment' value={this.state.comment} placeholder='Comments' onChange={this.handleInputChange}></textarea>
+                    <input type='submit' value='Submit' onClick={this.handleComments}></input>
+                    
+                    
+                      </div>
                   })} 
 
                 </ul>
@@ -138,10 +168,19 @@ class Topic extends React.Component {
                 <ul>
                 {two.map((result,i)=>{
                     // console.log(result)
-                    return <div key={i}><li>{result.title} - {result.location} - {result.condition}</li></div>
+                    return <div key={i} className='well'>
+                    <h5>{result.title}</h5>
+                    <p>{result.location} - {result.condition}</p>
+                    <form>
+                    <input type='text' name='username' placeholder='Username' onChange={this.handleInputChange}></input>
+                    <textarea type='text' name='comment' value={this.state.comment} placeholder='Comments' onChange={this.handleInputChange}></textarea>
+                    </form>
+                    </div>
                   })} 
                 </ul>
               </Tabs.Panel>
+
+
               <Tabs.Panel title='Category #3'>
                 <h2>Content #3 here</h2>
               </Tabs.Panel>

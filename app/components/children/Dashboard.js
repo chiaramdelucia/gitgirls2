@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    console.log("Dashboard PROPS",this.props);
+    // console.log("Dashboard PROPS",this.props);
     return (
       <div>
         <div className="container">
