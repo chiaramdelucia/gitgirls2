@@ -85,3 +85,20 @@ a {
 .main-img {
 
 border:2px solid #fff; box-shadow: 8px 8px 10px #aaa; }
+
+.panel {
+  background-color: #2578a0;
+  box-shadow: 8px 8px 10px #aaa;
+}
+
+h2 {
+  font-family: 'Oxygen', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+.well {
+  background-color: #2578a0;
+  box-shadow: 8px 8px 10px #aaa;
+  
+}

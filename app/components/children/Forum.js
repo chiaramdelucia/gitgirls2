@@ -13,10 +13,10 @@ class Forum extends React.Component {
 
     return (
       <div className="row">
-      <div className ='well'>
-        <div className="row">
+     
+       
 
-          <div className="col-lg-12">
+          <div className="col-md-12">
 
             <div className="panel panel-default">
               <div className="panel-heading">
@@ -24,7 +24,7 @@ class Forum extends React.Component {
               </div>
             </div>
 
-            <div className="container"><h2>Forum</h2></div>
+            <div className="container"><h2>Forum - Select your area</h2></div>
               <div id="exTab3" className="container"> 
               <ul  className="nav nav-pills">
                 <li><a href={"#/" + this.props.condition + "/NJ"} data-toggle="tab">NJ</a></li>
@@ -44,8 +44,8 @@ class Forum extends React.Component {
           </div> 
 
         </div>
-      </div>
-      </div>
+    
+      
       
     );
   }

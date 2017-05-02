@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
       <div>
         <div className="container">
           <div className="row">  
-            <div className="col-md-3">
+            <div className="col-md-4">
               <img className='logoMain' src="./images/breast.png" alt="breast" />
             </div>
             <div className="col-md-4">
