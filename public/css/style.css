@@ -12,6 +12,10 @@ body {
 	
 }
 
+#transparent {
+  background: transparent;
+}
+
 .button {
   display: inline-block;
   border-radius: 4px;

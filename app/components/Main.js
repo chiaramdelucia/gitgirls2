@@ -33,7 +33,7 @@ class Main extends React.Component {
             <p><button className='button mainBtn'><a href="#/breast"><span><img className="breastMain" src="./images/breast.png" alt="breast"/>Breast</span></a></button></p>
             
             <p>
-              <button className="button mainBtn"><a href="#/ovarian"><span><img className="ovMain" src="./images/ovary icon.png" alt="ovary"/>Ovarian</span></a></button>
+              <button className="button mainBtn"><a href="#/ovarian"><span><img className="ovMain" src="./images/ovarian.png" alt="ovary"/>Ovarian</span></a></button>
 
             </p>
             <p>
@@ -44,7 +44,7 @@ class Main extends React.Component {
               <button className="button mainBtn"><a href="#/prostate"><span><img className="prosMain" src="./images/prostate.png" alt="prostate"/>Prostate</span></a></button>
             </p>
             <p>
-              <button className="button mainBtn"><a href="#/lung"><span><img className="lungMain" src="./images/lung icon.png" alt="lung"/>Lung</span></a></button>
+              <button className="button mainBtn"><a href="#/lung"><span><img className="lungMain" src="./images/lung.png" alt="lung"/>Lung</span></a></button>
             </p>
           </div>
 

@@ -79,7 +79,7 @@ render () {
         <div className="col-lg-12">
           <div className="panel panel-default">
             <div className="panel-heading">
-              <h3 className="panel-title">DoctorForm</h3>
+              <h3 className="panel-title">Doctor Recommendation</h3>
             </div>
             <div className="panel-body">
           <div><h2>{this.props.condition}</h2></div>
