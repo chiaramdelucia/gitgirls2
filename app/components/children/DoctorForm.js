@@ -79,7 +79,7 @@ render () {
         <div className="col-lg-12">
           <div className="panel panel-default">
             <div className="panel-heading">
-              <h3 className="panel-title">Doctor Recommendation</h3>
+              <h3 className="panel-title"><span><i class="fa fa-user-md" aria-hidden="true"></i>Doctor Recommendation </span></h3>
             </div>
             <div className="panel-body">
           <div><h2>{this.props.condition}</h2></div>
@@ -122,7 +122,7 @@ render () {
                     <span><button className="btn btn-primary" type="submit" onClick={this.handleSubmitModal}>
                     Submit
                     </button>
-                    <button onClick={this.handleCloseModal}>Close Modal</button></span>
+                    <button onClick={this.handleCloseModal}>Close</button></span>
                  
                 </ReactModal>
               </div>

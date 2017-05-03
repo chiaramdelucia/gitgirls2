@@ -17,12 +17,12 @@ class Forum extends React.Component {
        
 
           <div className="col-md-12">
-
+          
             <div className="panel panel-default">
               <div className="panel-heading">
                 <h3 className="panel-title">Chat about {this.props.condition}</h3>
               </div>
-            </div>
+           
 
             <div className="container"><h2>Forum - Select your area</h2></div>
               <div id="exTab3" className="container"> 
@@ -39,7 +39,7 @@ class Forum extends React.Component {
            
 
               </div>
-
+              </div>
 
           </div> 
 
