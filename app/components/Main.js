@@ -30,21 +30,21 @@ class Main extends React.Component {
 
             <h4> Click on a topic below to learn more, connect and share your experiences</h4>
 
-            <p><button className='button mainBtn'><a href="#/breast"><span><img className="breastMain" src="./images/breast.png" alt="breast"/>Breast</span></a></button></p>
+            <p><button className='button mainBtn'><a href="#/Breast"><span><img className="breastMain" src="./images/breast.png" alt="breast"/>Breast</span></a></button></p>
             
             <p>
-              <button className="button mainBtn"><a href="#/ovarian"><span><img className="ovMain" src="./images/ovary icon.png" alt="ovary"/>Ovarian</span></a></button>
+              <button className="button mainBtn"><a href="#/Ovarian"><span><img className="ovMain" src="./images/ovarian.png" alt="ovary"/>Ovarian</span></a></button>
 
             </p>
             <p>
-              <button className="button mainBtn"><a href="#/colon"><span><img className="colonMain" src="./images/colon.png" alt="colon"/>Colon</span></a></button>
+              <button className="button mainBtn"><a href="#/Colon"><span><img className="colonMain" src="./images/colon.png" alt="colon"/>Colon</span></a></button>
             </p>
 
             <p>
-              <button className="button mainBtn"><a href="#/prostate"><span><img className="prosMain" src="./images/prostate.png" alt="prostate"/>Prostate</span></a></button>
+              <button className="button mainBtn"><a href="#/Prostate"><span><img className="prosMain" src="./images/prostate.png" alt="prostate"/>Prostate</span></a></button>
             </p>
             <p>
-              <button className="button mainBtn"><a href="#/lung"><span><img className="lungMain" src="./images/lung icon.png" alt="lung"/>Lung</span></a></button>
+              <button className="button mainBtn"><a href="#/Lung"><span><img className="lungMain" src="./images/lung.png" alt="lung"/>Lung</span></a></button>
             </p>
           </div>
 

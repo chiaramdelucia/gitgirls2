@@ -5,11 +5,15 @@ body {
 
 }
 
-
-
 .header {
 	background-color: #2578a0;
 	
+}
+
+
+#transparent {
+  background: transparent;
+  float: right;
 }
 
 .button {
@@ -85,3 +89,37 @@ a {
 .main-img {
 
 border:2px solid #fff; box-shadow: 8px 8px 10px #aaa; }
+
+.panel {
+  background-color: #2578a0;
+  box-shadow: 8px 8px 10px #aaa;
+}
+
+h2 {
+  font-family: 'Oxygen', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+h3 {
+  font-family: 'Oxygen', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+.well {
+  background-color: #2578a0;
+  box-shadow: 8px 8px 10px #aaa;
+  
+}
+
+.btn.btn-open {
+  background-color: white;
+}
+
+.btn.btn-default {
+  background-color: #dd673f;
+  color: white;
+}
+
+

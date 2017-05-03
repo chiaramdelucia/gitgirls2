@@ -19,16 +19,16 @@ class Dashboard extends React.Component {
       <div>
         <div className="container">
           <div className="row">  
-            <div className="col-md-3">
-              <img className='logoMain' src="./images/breast.png" alt="breast" />
+            <div className="col-md-4">
+              <img className='logoMain' src={"./images/" + this.props.params.condition + ".png"} alt="breast" />
             </div>
             <div className="col-md-4">
-              <h1>Breast Cancer</h1>
-                <h3>Learn and support fellow surviors living with or have fought Breast Cancer</h3>
+              <h1>{this.props.params.condition} Cancer</h1>
+                <h3>Learn and support fellow surviors living with or have fought {this.props.params.condition} Cancer</h3>
             </div>
 
             <div className="col-md-4">
-              <img className='logoMain' src="./images/logo.png" alt="logo"/>  
+              <button id="transparent"><a href="/"><span ><img className='logoMain' src="./images/logo.png" alt="logo"/></span></a></button>  
             </div>
           </div>
         </div>
@@ -38,20 +38,20 @@ class Dashboard extends React.Component {
             <div className="col-md-4">
 
               <p>
-                <button className="button Main mainBtn"><a href="/"><span><img className='ovMain' src="./images/logo.png" alt="logo"/>Home</span></a></button>
+                <button className="button Main mainBtn"><a href="#/Breast"><span><img className='ovMain' src="./images/breast.png" alt="logo"/>Breast</span></a></button>
               </p>
               <p>
-                <button className="button mainBtn"><a href='#/ovarian'><span><img className='ovMain' src="./images/ovary icon.png" alt="ovary"/>Ovarian</span></a></button>
+                <button className="button mainBtn"><a href='#/Ovarian'><span><img className='ovMain' src="./images/ovarian.png" alt="ovary"/>Ovarian</span></a></button>
               </p>
               <p>
-                <button className="button mainBtn"><a href="#/colon"><span><img className='colonMain' src="./images/colon.png" alt="colon"/>Colon</span></a></button>
+                <button className="button mainBtn"><a href="#/Colon"><span><img className='colonMain' src="./images/colon.png" alt="colon"/>Colon</span></a></button>
               </p>
 
               <p>
-                <button className="button mainBtn"><a href='#/prostate'><span><img className='prosMain' src="./images/prostate.png" alt="prostate"/>Prostate</span></a></button>
+                <button className="button mainBtn"><a href='#/Prostate'><span><img className='prosMain' src="./images/prostate.png" alt="prostate"/>Prostate</span></a></button>
               </p>
               <p>
-                <button className="button mainBtn"><a href='#/lung'><span><img className='lungMain' src="./images/lung icon.png" alt="lung"/>Lung</span></a></button>
+                <button className="button mainBtn"><a href='#/Lung'><span><img className='lungMain' src="./images/lung.png" alt="lung"/>Lung</span></a></button>
               </p>
             </div>
             <div className="col-lg-8">
