@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import formhelp from '../utils/formhelp.js'
+// import style from ''
 
 class DoctorForm extends React.Component {
 
@@ -79,12 +80,14 @@ render () {
         <div className="col-lg-12">
           <div className="panel panel-default">
             <div className="panel-heading">
-              <h3 className="panel-title">DoctorForm</h3>
+              <h3 className="panel-title"><span><i className="fa fa-user-md" aria-hidden="true"></i>Doctor Recommendation for {this.props.condition} Cancer</span></h3>
+              
+
             </div>
             <div className="panel-body">
-          <div><h2>{this.props.condition}</h2></div>
+          <div><h3></h3></div>
               <div>
-                <button onClick={this.handleOpenModal}>Add Doctor</button>
+                <button className="btn btn-open" onClick={this.handleOpenModal}>Add Doctor</button>
                 <div>{this.state.info.fullname}</div>
                   {confilter.map((result, i) => {
                     return <div key={i}><p>Name : {result.fullname}</p><p>Website: {result.website}</p><p>Phone: {result.phonenumber}</p><p>Known Hospital Affiliation: {result.hospital}</p><p>Reason for Recommendation: {result.reason}</p></div>
@@ -122,7 +125,9 @@ render () {
                     <span><button className="btn btn-primary" type="submit" onClick={this.handleSubmitModal}>
                     Submit
                     </button>
-                    <button onClick={this.handleCloseModal}>Close Modal</button></span>
+
+                    <button className="btn btn-default" onClick={this.handleCloseModal}>Close</button></span>
+
                  
                 </ReactModal>
               </div>

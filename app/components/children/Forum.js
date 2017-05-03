@@ -19,10 +19,9 @@ class Forum extends React.Component {
     return (
       <div className="row">
         <div className ='well'>
-
           <div id="exTab3" className="container"> 
-
             <div className='row'>
+
               <div className='col-md-12'>
                   <h2>Forum</h2>
                   <ul  className="nav nav-tabs">
@@ -32,22 +31,16 @@ class Forum extends React.Component {
                     <li><a href={"#/" + this.props.condition + "/CT"} data-toggle="tab" style = {customStyles.content}>CT</a></li>
                   </ul>
               </div>
-            </div>
+           
 
-            <div className = 'tab-content'>
-              
-                {this.props.children}
-              
-            </div>
-         
+              <div className = 'tab-content'>
+                  {this.props.children}      
+              </div>
 
+            </div>
           </div>
-
         </div> 
       </div>
-
-
-  
       
     );
   }

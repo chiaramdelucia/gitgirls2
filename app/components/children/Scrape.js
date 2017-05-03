@@ -46,7 +46,7 @@ class Scrape extends React.Component {
 
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h3 className="panel-title">Scrapes</h3>
+                <h3 className="panel-title">In the News</h3>
               </div>
               <div className="panel-body"> 
                 <Tabs>
