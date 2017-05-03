@@ -71,7 +71,7 @@ handleInputChange(event) {
 }
 
 render () {
-  console.log("Doctor PROPS",this.props);
+  // console.log("Doctor PROPS",this.props);
   const confilter = this.state.info.filter((c) => {  
         return c.condition === this.props.condition});
   return (

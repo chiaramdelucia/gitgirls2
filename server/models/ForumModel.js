@@ -21,11 +21,7 @@ var ForumSchema = new Schema({
 	},
 	comment: [{
 		type: Schema.Types.ObjectId,
-		ref: 'Comment'
-	}],
-	username: [{
-		type: Schema.Types.ObjectId,
-		ref: 'Comment'
+		ref: 'Comment',
 	}],
 	location: String,
 	condition: String

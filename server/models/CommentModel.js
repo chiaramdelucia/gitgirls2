@@ -6,11 +6,11 @@ const CommentSchema = new Schema({
 	comment: {
 		type: String
 	},
-	username: String
-
+	username: {
+		type: String
+	}
 });
 
 const Comment = mongoose.model('Comment', CommentSchema);
-
 
 module.exports = Comment;

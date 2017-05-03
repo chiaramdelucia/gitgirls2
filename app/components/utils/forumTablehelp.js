@@ -6,7 +6,8 @@ var forumTablehelp = {
 	showInfo: function() {
 		return axios.get('/forumtable')
 			.then(function(response) {
-				// console.log("this is forum;table " + response.data);
+				console.log("forumTablehelp showInfo(response.data.comment): " + response.data[0].comment[0]);
+				console.log('forumTablehelp showInfo(response.data): ', response.data[0])
 				return response.data
 			})
 			.catch(function (error) {
@@ -15,7 +16,7 @@ var forumTablehelp = {
 	},
 
 	postInfo: function(data) {
-		console.log(data)
+		// console.log(data)
 		// console.log("data area" + data.area)
 		return axios.post('/forumpost', {
 			title:data.title, 
@@ -26,7 +27,7 @@ var forumTablehelp = {
 			condition: data.condition
 		})
 			.then((response) => {
-				console.log("this is forum;table " + response.data);
+				// console.log("this is forum;table " + response.data)data;
 				return response.data
 			});
 	}

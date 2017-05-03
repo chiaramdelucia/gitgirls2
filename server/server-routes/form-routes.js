@@ -8,7 +8,7 @@ app.get("/doctable", function(req, res) {
     // This GET request will search for the latest DocInfo
 
     DocInfo.find({}).exec(function(err, doc) {
-        console.log(doc)
+        // console.log(doc)
         if (err) {
             console.log(err);
         } else {

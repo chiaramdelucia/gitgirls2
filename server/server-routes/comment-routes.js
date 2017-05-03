@@ -1,38 +1,38 @@
 const axios = require('axios');
 const Comment = require('../models/CommentModel.js');
+const Forum = require('../models/ForumModel.js');	
 
 
 module.exports = function(app){
 
-	app.get("/forumtable/:id", function(req, res) {
-	  // This GET request will search for the latest Forum
-	  Comment.find()
-	  	.then(function(doc){
-	  		console.log("/forumtable/comment doc: " + doc)
-	  		res.send(doc);
 
-	  	})
-	});
+	app.post('/forumpost/:id', function(req, res){
+		console.log('commentRoutes req.body: ', req.body)
+		console.log('commentRoutes req.params: ', req.params);
 
-	app.post('/forumpost/:id', function(request, response){
-		console.log(request.body.body);
+		var newComment = {
+			comment: req.body.comment,
+			username: req.body.username
+		}
 
-		var comment = {};
-		comment.body = request.body.body
+		var comment = new Comment(newComment);
 
-		var newComment = new Comment(comment);
+		comment.save(function(err, doc){
 
-		newComment.save(function(error, comment){
-			console.log('comment ' + comment)
+			if (err) throw err;
+			console.log('commentRoutes Save comment ' + doc);
 
-			res.send(comment)
+			Forum.update({'_id': req.params.id},{$push: {'comment': doc._id }})
+				.exec(function(err, doc){
+					if (err) throw err;
+					res.send(comment);
+
+				})
+
+
 			})
-			
 
-		})
- 
-		response.redirect('/saved')
-	})
+	});
 
 
 }
