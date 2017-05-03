@@ -48,6 +48,7 @@ app.get('/', function(req,res){
 require('./server/server-routes/form-routes.js')(app);
 require('./server/server-routes/scrape-routes.js')(app);
 require('./server/server-routes/forumTable-routes.js')(app);
+require('./server/server-routes/comment-routes.js')(app);
 
 
 // Starting our express server
