@@ -5,12 +5,11 @@ body {
 
 }
 
-
-
 .header {
 	background-color: #2578a0;
 	
 }
+
 
 #transparent {
   background: transparent;
@@ -102,8 +101,25 @@ h2 {
   color: white;
 }
 
+h3 {
+  font-family: 'Oxygen', sans-serif;
+  text-align: center;
+  color: white;
+}
+
 .well {
   background-color: #2578a0;
   box-shadow: 8px 8px 10px #aaa;
   
 }
+
+.btn.btn-open {
+  background-color: white;
+}
+
+.btn.btn-default {
+  background-color: #dd673f;
+  color: white;
+}
+
+
