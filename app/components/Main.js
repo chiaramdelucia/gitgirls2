@@ -18,7 +18,7 @@ class Main extends React.Component {
       
           <div className="col-md-9">
             <h1>Cancer Alliance</h1>
-            <h3><b>HAVE AN ALLY | BE AN ALLY</b></h3>
+            <h3 id="tagLine"><b>HAVE AN ALLY | BE AN ALLY</b></h3>
           </div>
         </div>
       </div>
@@ -54,10 +54,14 @@ class Main extends React.Component {
             <h4> Cancer Alliance is a place where you can talk with and support other surviors with your specific disease.  Our mission is educating and saving lives by empowering those living with and fighting cancer. </h4>
           </div>
         </div>
-      </div>  
       </div>
+
+      </div>
+
       <div className="container">{this.props.children}</div>
-      </div>
+
+    </div>
+
     );
   }
 }

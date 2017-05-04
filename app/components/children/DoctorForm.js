@@ -72,7 +72,7 @@ handleInputChange(event) {
 }
 
 render () {
-  console.log("Doctor PROPS",this.props);
+  // console.log("Doctor PROPS",this.props);
   const confilter = this.state.info.filter((c) => {  
         return c.condition === this.props.condition});
   return (
@@ -80,8 +80,10 @@ render () {
         <div className="col-lg-12">
           <div className="panel panel-default">
             <div className="panel-heading">
-              <h3 className="panel-title"><span><i className="fa fa-user-md" aria-hidden="true"></i>Doctor Recommendation for {this.props.condition} Cancer</span></h3>
-              
+
+              <h3 className="panel-title"><span><img className="doctor" src="./images/Doctor.png" alt="doctor"></img>Doctor Recommendation for {this.props.condition} Cancer</span></h3>
+            
+
 
             </div>
             <div className="panel-body">
