@@ -30,7 +30,7 @@ class Main extends React.Component {
 
             <h4> Click on a topic below to learn more, connect and share your experiences</h4>
 
-            <p><button className='button mainBtn'><a href="#/breast"><span><img className="breastMain" src="./images/breast.png" alt="breast"/>Breast</span></a></button></p>
+            <p><button className='button mainBtn'><a href="#/Breast"><span><img className="breastMain" src="./images/breast.png" alt="Breast"/>Breast</span></a></button></p>
             
             <p>
               <button className="button mainBtn"><a href="#/ovarian"><span><img className="ovMain" src="./images/ovarian.png" alt="ovary"/>Ovarian</span></a></button>
