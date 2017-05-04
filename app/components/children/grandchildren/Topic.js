@@ -84,7 +84,7 @@ class Topic extends React.Component {
           this.state.posts.forEach((element) => {  
             if(element._id == id){
               this.setState({
-                posts: this.state.posts.concat(comments)
+                posts: this.state.posts.concat([comments])
               })
               console.log(this.state)
             }
@@ -109,10 +109,11 @@ class Topic extends React.Component {
   }
 
   render() {
-        // console.log("TPIC PROPS",this.props);
+            console.log("TPIC PROPS",this.props);
       const routeFilter =  this.state.posts.filter((post) => {return post.location == this.props.params.location && post.condition == this.props.params.condition});
         const one = routeFilter.filter((c) => {return c.category == 'nj'})
         const two = routeFilter.filter((c) => {return c.category == 'Testing'})
+
     return (    
       <div role='tab-pane' className="tab-pane active">
            <h3>{this.props.params.location}</h3>
@@ -127,7 +128,15 @@ class Topic extends React.Component {
                     // console.log('i: ', i._id)
                     return <div key={i} className='well'>
                       <h5>Title: {result.title}</h5>
-                      <p>Post: {result.location} - {result.condition}</p> 
+                      <p>Post: {result.location} - {result.condition}</p>
+                      <p>Author: {result.author}</p>
+                      
+                      {result.comment.map((data,i)=> {return
+                        <div key={i}> 
+                            <p>{data.username}</p>
+                            <p>{data.comment}</p>
+                        </div>
+                      })}
                       <ul> Comments </ul> 
                         <li> </li>
                         <input type='text' name='username' placeholder='Username' value={this.state.username} onChange={this.handleInputChange}></input>
@@ -136,14 +145,14 @@ class Topic extends React.Component {
                         <button type="submit" onClick={this.handleComments(result._id)}>Submit</button>
                     </div>
 
-                  })} 
+                  })}
 
                 </ul>
               </Tabs.Panel>
               <Tabs.Panel title='Category #2'>
                 <h2>Content #2 here</h2>
                 <ul>
-                {two.map((result,i)=>{
+                {/*{two.map((result,i)=>{
 
                     // console.log(result)
                     return <div key={i} className='well'>
@@ -154,7 +163,7 @@ class Topic extends React.Component {
                     <textarea type='text' name='comment' value={this.state.comment} placeholder='Comments' onChange={this.handleInputChange}></textarea>
                     </form>
                     </div>
-                  })} 
+                  })} */}
                 </ul>
               </Tabs.Panel>
 
@@ -210,3 +219,6 @@ class Topic extends React.Component {
 }
 
 export default Topic;
+
+
+

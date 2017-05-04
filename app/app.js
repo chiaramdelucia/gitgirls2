@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 
 
 // Grabs the Routes
-import routes from "./config/routes";
+import App from "./components";
 
 // Renders the contents according to the route page.
-ReactDOM.render(routes, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById("app"));

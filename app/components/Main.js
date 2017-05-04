@@ -1,8 +1,8 @@
 import React from "react";
 
 class Main extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     
   }
   
