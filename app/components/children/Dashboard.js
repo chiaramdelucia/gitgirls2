@@ -14,13 +14,16 @@ class Dashboard extends React.Component {
   }
 
   render() {
+
     console.log("Dashboard PROPS",this.props);
+    console.log(this.props.params.condition)
+
     return (
       <div>
         <div className="container">
           <div className="row">  
             <div className="col-md-4">
-              <img className='logoMain' src={"./images/" + this.props.params.condition + ".png"} alt="breast" />
+              <img className='logoMain' src={"./images/" + this.props.params.condition + ".png"} alt='breast' />
             </div>
             <div className="col-md-4">
               <h1>{this.props.params.condition} Cancer</h1>
@@ -38,26 +41,26 @@ class Dashboard extends React.Component {
             <div className="col-md-4">
 
               <p>
-                <button className="button Main mainBtn"><a href="#/Breast"><span><img className='ovMain' src="./images/breast.png" alt="logo"/>Breast</span></a></button>
+                <button className="button Main mainBtn"><a href="#/breast"><span><img className='ovMain' src="./images/breast.png" alt="logo"/>Breast</span></a></button>
               </p>
               <p>
-                <button className="button mainBtn"><a href='#/Ovarian'><span><img className='ovMain' src="./images/ovarian.png" alt="ovary"/>Ovarian</span></a></button>
+                <button className="button mainBtn"><a href='#/ovarian'><span><img className='ovMain' src="./images/ovarian.png" alt="ovary"/>Ovarian</span></a></button>
               </p>
               <p>
-                <button className="button mainBtn"><a href="#/Colon"><span><img className='colonMain' src="./images/colon.png" alt="colon"/>Colon</span></a></button>
+                <button className="button mainBtn"><a href="#/colon"><span><img className='colonMain' src="./images/colon.png" alt="colon"/>Colon</span></a></button>
               </p>
 
               <p>
-                <button className="button mainBtn"><a href='#/Prostate'><span><img className='prosMain' src="./images/prostate.png" alt="prostate"/>Prostate</span></a></button>
+                <button className="button mainBtn"><a href='#/prostate'><span><img className='prosMain' src="./images/prostate.png" alt="prostate"/>Prostate</span></a></button>
               </p>
               <p>
-                <button className="button mainBtn"><a href='#/Lung'><span><img className='lungMain' src="./images/lung.png" alt="lung"/>Lung</span></a></button>
+                <button className="button mainBtn"><a href='#/lung'><span><img className='lungMain' src="./images/lung.png" alt="lung"/>Lung</span></a></button>
               </p>
             </div>
             <div className="col-lg-8">
-              <div>
+              <div className='well'>
                 <h3>Condition: {this.props.params.condition}</h3>
-                  
+
               </div>
               <Forum condition={this.props.params.condition} >
                 {this.props.children}

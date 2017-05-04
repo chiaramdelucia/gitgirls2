@@ -6,14 +6,13 @@ module.exports = function(app){
 
 	app.get("/forumtable", function(req, res) {
 	  // This GET request will search for the latest Forum
-	  Forum.find()
+	  Forum.find({})
+	  	.populate('comment')
 	  	.then(function(doc){
 	  		console.log("/forumtable doc: " + doc)
 	  		res.send(doc);
-
 	  	})
 	});
-
 
 	app.post("/forumpost", function(req, res) {
 		console.log("/forumpost req: " + req.body.location)
