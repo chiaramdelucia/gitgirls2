@@ -60,6 +60,7 @@ class Dashboard extends React.Component {
             <div className="col-lg-8">
               <div className='well'>
                 <h3>Condition: {this.props.params.condition}</h3>
+
               </div>
               <Forum condition={this.props.params.condition} >
                 {this.props.children}
