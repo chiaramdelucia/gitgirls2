@@ -206,7 +206,7 @@ class Topic extends React.Component {
 
           {/* Submit new Post to Forum */}
             <div>
-              <button onClick={this.handleOpenModal}>Add Post</button>
+              <button className="btn btn-open" onClick={this.handleOpenModal}>Add Post</button>
                 <ReactModal 
                   isOpen={this.state.showModal}
                   contentLabel="Minimal Modal Example"
