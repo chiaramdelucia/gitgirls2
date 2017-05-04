@@ -10,7 +10,6 @@ body {
 	
 }
 
-
 #transparent {
   background: transparent;
   float: right;
@@ -74,6 +73,7 @@ h1 {
 
 	font-family: 'Paytone One', sans-serif;
 	text-align: center;
+  text-shadow: -3px -3px 6px rgba(150, 150, 150, 1);
 }
 
 h3 {
@@ -123,4 +123,22 @@ h3 {
   color: white;
 }
 
+#tagLine {
+  text-shadow: -3px -3px 6px rgba(150, 150, 150, 1);
+}
 
+.doctor {
+  height: 50px;
+  width: 50px;
+}
+
+.news {
+  height: 50px;
+  width: 50px;
+}
+
+.forum {
+  height: 50px;
+  width: 50px;
+
+}
