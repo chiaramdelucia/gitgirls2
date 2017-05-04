@@ -20,7 +20,7 @@ class Forum extends React.Component {
           
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h3 className="panel-title">Chat about {this.props.condition}</h3>
+                <h3 className="panel-title"><span><img className="forum" src="./images/Forum.png" alt="forum"></img>Chat about {this.props.condition}</span></h3>
               </div>
            
 

@@ -18,7 +18,7 @@ class Main extends React.Component {
       
           <div className="col-md-9">
             <h1>Cancer Alliance</h1>
-            <h3><b>HAVE AN ALLY | BE AN ALLY</b></h3>
+            <h3 id="tagLine"><b>HAVE AN ALLY | BE AN ALLY</b></h3>
           </div>
         </div>
       </div>
