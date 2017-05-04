@@ -4,8 +4,7 @@ const Forum = require('../models/ForumModel.js');
 
 
 module.exports = function(app){
-
-
+	
 	app.post('/forumpost/:id', function(req, res){
 		console.log('commentRoutes req.body: ', req.body)
 		console.log('commentRoutes req.params: ', req.params);
