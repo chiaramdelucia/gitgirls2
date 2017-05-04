@@ -43,8 +43,8 @@ class Topic extends React.Component {
       console.log('did mount(data): ', data)
       this.setState({
         posts: data,          
-      })
-    }) 
+      });
+    }); 
   }
     
   handleOpenModal () {
@@ -75,25 +75,24 @@ class Topic extends React.Component {
 
   handleComments(id) {
     return () => {
-      this.setState({
-        comment: '',
-        username: ''
-      });
+
       commentHelp.postComment({ data: this.state, id })
-        .then((comments) => {
+        .then((comment) => {
+          console.log('id: ', id)
           this.state.posts.forEach((element) => {  
             if(element._id == id){
               this.setState({
-                posts: this.state.posts.concat(comments)
-              })
+                posts: this.state.posts.concat([comment]),
+                comment: '',
+                username: ''
+              });
               console.log(this.state)
             }
-          })        
+          });        
         })
         .catch(console.error)
     }
   }
-
 
   handleInputChange(event) {
     const target = event.target;
@@ -111,18 +110,57 @@ class Topic extends React.Component {
   render() {
         // console.log("TPIC PROPS",this.props);
       const routeFilter =  this.state.posts.filter((post) => {return post.location == this.props.params.location && post.condition == this.props.params.condition});
-        const one = routeFilter.filter((c) => {return c.category == 'nj'})
-        const two = routeFilter.filter((c) => {return c.category == 'Testing'})
+        const one = routeFilter.filter((c) => {return c.category == 'nj'});
+        const two = routeFilter.filter((c) => {return c.category == 'Testing'});
+        
     return (    
+    
       <div role='tab-pane' className="tab-pane active">
            <h3>{this.props.params.location}</h3>
            <h3>{this.props.params.condition}</h3>
+           <div className='tab-content'>
             <Tabs>
               <Tabs.Panel title='Category #1'>
                 <h2>Content #1 here</h2>
                 <ul>
 
                 {one.map((result,i)=>{
+                    // console.log(result._id)
+                    // console.log('i: ', i._id)
+                    return <div key={i} className='panel-body'>
+                      <h5>Title: {result.title}</h5>
+                      <h6>Author: {result.author}</h6>
+                      <p>Post: {result.content}</p>
+                      
+                      
+                        <form>
+                          <input type='text' name='username' placeholder='Username' value={this.state.username} onChange={this.handleInputChange}></input>
+                          <br></br> 
+                          <textarea type='text' name='comment' value={this.state.comment} placeholder='Comments' onChange={this.handleInputChange}></textarea>
+                          <input type='hidden' name={result._id} value={result._id}></input>
+                          <button type="submit" onClick={this.handleComments(result._id)}>Submit</button> 
+                          
+                        </form>
+                      
+                      <h5>Comments</h5>
+                      {result.comment.map((result,i)=>{
+                      return <div key ={i}><h4>{result.username}</h4> 
+                        <p>{result.comment}</p>
+
+                        </div>
+                      })}
+                      
+                    </div>
+
+                  })} 
+
+                </ul>
+              </Tabs.Panel>
+
+              <Tabs.Panel title='Category #2'>
+                <h2>Content #2 here</h2>
+                <ul>
+                {two.map((result,i)=>{
                     // console.log(result._id)
                     // console.log('i: ', i._id)
                     return <div key={i} className='well'>
@@ -140,29 +178,31 @@ class Topic extends React.Component {
 
                 </ul>
               </Tabs.Panel>
-              <Tabs.Panel title='Category #2'>
-                <h2>Content #2 here</h2>
-                <ul>
-                {two.map((result,i)=>{
-
-                    // console.log(result)
-                    return <div key={i} className='well'>
-                    <h5>{result.title}</h5>
-                    <p>{result.location} - {result.condition}</p>
-                    <form>
-                    <input type='text' name='username' placeholder='Username' onChange={this.handleInputChange}></input>
-                    <textarea type='text' name='comment' value={this.state.comment} placeholder='Comments' onChange={this.handleInputChange}></textarea>
-                    </form>
-                    </div>
-                  })} 
-                </ul>
-              </Tabs.Panel>
 
 
-              <Tabs.Panel title='Category #3'>
+              {/* <Tabs.Panel title='Category #3'>
                 <h2>Content #3 here</h2>
-              </Tabs.Panel>
+                <ul>                
+                {three.map((result,i)=>{
+                    // console.log(result._id)
+                    // console.log('i: ', i._id)
+                    return <div key={i} className='well'>
+                      <h5>Title: {result.title}</h5>
+                      <p>Post: {result.location} - {result.condition}</p> 
+                      <ul> Comments </ul> 
+                        <li> </li>
+                        <input type='text' name='username' placeholder='Username' value={this.state.username} onChange={this.handleInputChange}></input>
+                        <br></br> 
+                        <textarea type='text' name='comment' value={this.state.comment} placeholder='Comments' onChange={this.handleInputChange}></textarea>
+                        <button type="submit" onClick={this.handleComments(result._id)}>Submit</button>
+                    </div>
+
+                  })} 
+
+                </ul>
+              </Tabs.Panel>*/}
             </Tabs>
+            </div>
 
           {/* Submit new Post to Forum */}
             <div>
@@ -203,6 +243,8 @@ class Topic extends React.Component {
                 </ReactModal>
             </div>
     </div>
+
+
       
     );
 
