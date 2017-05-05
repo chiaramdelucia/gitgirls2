@@ -1,5 +1,5 @@
 .tabs-menu {
-  display: table;
+  display: inline-block;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -8,6 +8,7 @@
 .tabs-menu-item {
   float: left;
   margin-right: 20px;
+
 }
 
 .tabs-menu-item a {
