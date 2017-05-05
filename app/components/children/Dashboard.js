@@ -32,7 +32,7 @@ class Dashboard extends React.Component {
 
     return (
       <div>
-        <div className="container">
+        <div className="container top">
           <div className="row">  
             <div className="col-md-4">
               <img className='logoMain' src={"./images/"+ this.props.match.params.condition + ".png"} alt='condition' />

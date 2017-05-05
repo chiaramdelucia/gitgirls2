@@ -292,6 +292,15 @@ html{
   margin-bottom: 20px;
 
 }
+.top{
+  padding-top: 0px;
+  margin-top: 0px;
+}
+nav.navbar.navbar-static-top{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+
+}
 
 
 
