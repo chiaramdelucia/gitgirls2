@@ -9,7 +9,8 @@ module.exports = function(app){
 	  Forum.find({})
 	  	.populate('comment')
 	  	.then(function(doc){
-	  		console.log("/forumtable doc: " + doc)
+	  		// console.log("/forumtable doc: " + doc)
+	  			
 	  		res.send(doc);
 	  	})
 	});
