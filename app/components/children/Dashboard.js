@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
+    
   }
 
   componentDidUpdate(){
@@ -39,7 +40,7 @@ class Dashboard extends React.Component {
             </div>
 
             <div className="col-md-4">
-              <button id="transparent"><a href="/"><span ><img className='logoMain' src="./images/logo.png" alt="logo"/></span></a></button>  
+              <button id="transparent"><Link to="/"><span ><img className='logoMain' src="./images/logo.png" alt="logo"/></span></Link></button>  
             </div>
           </div>
         </div>
@@ -75,9 +76,9 @@ class Dashboard extends React.Component {
               </Forum>
               <Scrape condition={this.props.match.params.condition}/>
               <DoctorForm condition={this.props.match.params.condition}></DoctorForm>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }

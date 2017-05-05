@@ -26,8 +26,8 @@ class Topic extends React.Component {
       category:'',
       author:'',
       content: '',
-      location: this.props.match.params.location,
-      condition: this.props.match.params.condition,
+      location: this.props.params.location,
+      condition: this.props.params.condition,
       posts: [],
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -67,8 +67,8 @@ class Topic extends React.Component {
     .then((forum) => {
       this.setState({
         posts: this.state.posts.concat([forum]),
-        location: this.props.match.params.location,
-        condition:this.props.match.params.condition
+        location: this.props.params.location,
+        condition:this.props.params.condition
       });
     });
   }
@@ -82,7 +82,6 @@ class Topic extends React.Component {
           this.state.posts.forEach((element) => {  
             if(element._id == id){
               this.setState({
-
                 posts: this.state.posts.concat([comment]),
                 comment: '',
                 username: ''
@@ -99,8 +98,8 @@ class Topic extends React.Component {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
-    const location = this.props.match.params.location;
-    const condition = this.props.match.params.condition;
+    const location = this.props.params.location;
+    const condition = this.props.params.condition;
     this.setState({
       [name]: value,
       location: location,
@@ -109,30 +108,19 @@ class Topic extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
-            console.log("TPIC PROPS",this.props);
-      const routeFilter =  this.state.posts.filter((post) => {return post.location == this.props.match.params.location && post.condition == this.props.match.params.condition});
-        const one = routeFilter.filter((c) => {return c.category == 'nj'})
-        const two = routeFilter.filter((c) => {return c.category == 'Testing'})
 
-=======
         // console.log("TPIC PROPS",this.props);
       const routeFilter =  this.state.posts.filter((post) => {return post.location == this.props.params.location && post.condition == this.props.params.condition});
         const one = routeFilter.filter((c) => {return c.category == 'nj'});
         const two = routeFilter.filter((c) => {return c.category == 'Testing'});
         
->>>>>>> master
     return (    
     
       <div role='tab-pane' className="tab-pane active">
-<<<<<<< HEAD
-           <h3>{this.props.match.params.location}</h3>
-           <h3>{this.props.match.params.condition}</h3>
-=======
            <h3>{this.props.params.location}</h3>
            <h3>{this.props.params.condition}</h3>
            <div className='tab-content'>
->>>>>>> master
+
             <Tabs>
               <Tabs.Panel title='Category #1'>
                 <h2>Content #1 here</h2>
@@ -200,13 +188,8 @@ class Topic extends React.Component {
 
                 </ul>
               </Tabs.Panel>
-<<<<<<< HEAD
-              <Tabs.Panel title='Category #2'>
-                <h2>Content #2 here</h2>
-                <ul>
-                {/*{two.map((result,i)=>{
-=======
->>>>>>> master
+
+
 
 
               {/* <Tabs.Panel title='Category #3'>
@@ -225,12 +208,8 @@ class Topic extends React.Component {
                         <textarea type='text' name='comment' value={this.state.comment} placeholder='Comments' onChange={this.handleInputChange}></textarea>
                         <button type="submit" onClick={this.handleComments(result._id)}>Submit</button>
                     </div>
-<<<<<<< HEAD
-                  })} */}
-                </ul>
-              </Tabs.Panel>
-=======
->>>>>>> master
+
+
 
                   })} 
 
