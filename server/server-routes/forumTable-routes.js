@@ -16,7 +16,7 @@ module.exports = function(app){
 	});
 
 	app.post("/forumpost", function(req, res) {
-		console.log("/forumpost req: " + req.body.location)
+		console.log("/forumpost req: " + req.body.category)
 
 		var post = {
 			title: req.body.title,

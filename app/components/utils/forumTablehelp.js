@@ -14,6 +14,7 @@ var forumTablehelp = {
 	},
 
 	postInfo: function(data) {
+		console.log('data postInfo: ',data)
 		return axios.post('/forumpost', {
 			title:data.title, 
 			category:data.category, 

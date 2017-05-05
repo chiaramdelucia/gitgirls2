@@ -23,7 +23,7 @@ class Topic extends React.Component {
     this.state = {
       showModal: false,
       title:'',
-      category:'',
+      category:'localSupport',
       author:'',
       content: '',
       location: this.props.params.location,
@@ -41,20 +41,22 @@ class Topic extends React.Component {
     this.getPosts();
   }
 
-  componentDidMount () {
-    console.log("mounted this.posts", this.state.posts);
-   // this.getPosts()
-  }
+  // componentDidMount () {
+  //   console.log("mounted this.posts", this.state.posts);
+  //  // this.getPosts()
+  // }
+
   getPosts(){
       forumTable.showInfo().then((posts) => {
-      console.log('did mount(data): ', posts)
-      this.setState({posts});
+        console.log('did mount(data): ', posts)
+        this.setState({posts});
     }); 
 
     }
 
   handleOpenModal () {
     this.setState({ showModal: true });
+
   }
   
   handleCloseModal () {
@@ -62,12 +64,9 @@ class Topic extends React.Component {
   }
 
   handleSubmitModal() {
+
     this.setState({
       showModal:false,
-      title: '',
-      category: '',
-      author: '',
-      content: '',
     });
     forumTable.postInfo(this.state)
     .then((forum) => {
@@ -96,7 +95,7 @@ class Topic extends React.Component {
                 comment: '',
                 username: ''
               });
-              console.log(this.state)
+              console.log('after submit mdoal', this.state)
             }
           });        
         })
@@ -106,7 +105,7 @@ class Topic extends React.Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === 'dropdown' ? target.select : target.value;
     const name = target.name;
     const location = this.props.params.location;
     const condition = this.props.params.condition;
@@ -115,51 +114,60 @@ class Topic extends React.Component {
       location: location,
       condition: condition
     });
+
   }
 
   render() {
         // console.log("TPIC PROPS",this.props);
       const routeFilter =  this.state.posts.filter((post) => {return post.location == this.props.params.location && post.condition == this.props.params.condition});
-        const one = routeFilter.filter((c) => {return c.category == 'nj'});
-        const two = routeFilter.filter((c) => {return c.category == 'Testing'});
+        const localSupport = routeFilter.filter((c) => {return c.category == 'localSupport'});
+        const hospitalDoctor = routeFilter.filter((c) => {return c.category == 'hospitalDoctor'});
+        const painMgmt = routeFilter.filter((c) => {return c.category == 'painMgmt'});
+        const chemo = routeFilter.filter((c) => {return c.category == 'chemo'});
+        const radiation = routeFilter.filter((c) => {return c.category == 'radiation'});
+        const alt = routeFilter.filter((c) => {return c.category == 'alt'});        
         
     return (    
     
       <div role='tab-pane' className="tab-pane active">
-           <h3>{this.props.params.location}</h3>
-           <h3>{this.props.params.condition}</h3>
            <div className='tab-content'>
             <Tabs>
-              <Tabs.Panel title='Category #1'>
-                <h2>Content #1 here</h2>
+              <Tabs.Panel title='Local Support'>
                 <ul>                
-                {one.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
+                {localSupport.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
                 </ul>
               </Tabs.Panel>
 
-              <Tabs.Panel title='Category #2'>
-                <h2>Content #2 here</h2>
+              <Tabs.Panel title='Hospitals & Doctors'>
+                
                 <ul>
-                {two.map((result,i)=>{
-                    // console.log(result._id)
-                    // console.log('i: ', i._id)
-                    return <div key={i} className='well'>
-                      <h5>Title: {result.title}</h5>
-                      <p>Post: {result.location} - {result.condition}</p> 
-                      <ul> Comments </ul> 
-                        <li> </li>
-                        <input type='text' name='username' placeholder='Username' value={this.state.username} onChange={this.handleInputChange}></input>
-                        <br></br> 
-                        <textarea type='text' name='comment' value={this.state.comment} placeholder='Comments' onChange={this.handleInputChange}></textarea>
-                        <button type="submit" onClick={this.handleComments(result._id)}>Submit</button>
-                    </div>
-
-                  })} 
-
+                {hospitalDoctor.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
                 </ul>
               </Tabs.Panel>
 
-            </Tabs>
+              <Tabs.Panel title='Pain Managment'>                
+                <ul>
+                {painMgmt.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
+                </ul>
+              </Tabs.Panel>
+
+            <Tabs.Panel title='Chemo Therapy'>               
+                <ul>
+                {chemo.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
+                </ul>
+            </Tabs.Panel>
+            <Tabs.Panel title='Radiation Therapy'>               
+                <ul>
+                {radiation.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
+                </ul>
+            </Tabs.Panel>
+            <Tabs.Panel title='Alternative Therapy'>               
+                <ul>
+                {alt.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
+                </ul>
+            </Tabs.Panel>
+            </Tabs>            
+
             </div>
 
           {/* Submit new Post to Forum */}
@@ -168,14 +176,22 @@ class Topic extends React.Component {
                 <ReactModal 
                   isOpen={this.state.showModal}
                   contentLabel="Minimal Modal Example">
-                <form>                    
+                                  
                     <div>
                       <label htmlFor="title">Title: </label>
                       <input type ='text' name ='title' value={this.state.title} onChange={this.handleInputChange}></input> 
                     </div>
                     <div>
                       <label htmlFor="category">Category: </label>
-                      <input type ='text' name ='category' value={this.state.category} onChange={this.handleInputChange}></input> 
+                      <select name = 'category' value = {this.state.category} onChange ={this.handleInputChange}>
+                        <option value='localSupport'>Local Support</option>
+                        <option value='hospitalDoctor'>Hospitals & Doctors</option>
+                        <option value='painMgmt'>Pain Management</option>
+                        <option value='chemo'>Chemo Therapy</option>
+                        <option value='radiation'>Radiation Therapy</option>
+                        <option value='alt'>Alternative Therapy</option>
+                      </select>
+
                     </div>
                     <div>
                       <label htmlFor="author">Author: </label>
@@ -194,7 +210,7 @@ class Topic extends React.Component {
                     <button className="btn btn-default" onClick={this.handleCloseModal}>Cancel</button>
                       
                     </div>
-                  </form>
+                 
                 </ReactModal>
             </div>
       </div> 
@@ -266,6 +282,7 @@ class CommentForm extends React.Component{
         commentHelp.postComment({ data: this.state, id:this.props.post._id })
         .then(res=>{console.log("commentformresponse", res)
         this.props.commentHandler(res);
+        this.setState({username:'', comment: ''})
       })
 
   }
