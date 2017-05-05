@@ -18,8 +18,8 @@ class Topic extends React.Component {
       category:'localSupport',
       author:'',
       content: '',
-      location: this.props.params.location,
-      condition: this.props.condition,
+      location: this.props.match.params.location,
+      condition: this.props.match.params.condition,
       posts: [],
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -64,8 +64,8 @@ class Topic extends React.Component {
     .then((forum) => {
       this.setState({
         posts: this.state.posts.concat([forum]),
-        location: this.props.params.location,
-        condition:this.props.params.condition
+        location: this.props.match.params.location,
+        condition:this.props.match.params.condition
       });
     });
   }
@@ -99,8 +99,8 @@ class Topic extends React.Component {
     const target = event.target;
     const value = target.type === 'dropdown' ? target.select : target.value;
     const name = target.name;
-    const location = this.props.params.location;
-    const condition = this.props.params.condition;
+    const location = this.props.match.params.location;
+    const condition = this.props.match.params.condition;
     this.setState({
       [name]: value,
       location: location,
@@ -110,9 +110,8 @@ class Topic extends React.Component {
   }
 
   render() {
-
-        console.log("TPIC PROPS",this.props);
-      const routeFilter =  this.state.posts.filter((post) => {return post.location == this.props.params.location && post.condition == this.props.params.condition});
+        // console.log("TPIC PROPS",this.props);
+      const routeFilter =  this.state.posts.filter((post) => {return post.location == this.props.match.params.location && post.condition == this.props.match.params.condition});
         const localSupport = routeFilter.filter((c) => {return c.category == 'localSupport'});
         const hospitalDoctor = routeFilter.filter((c) => {return c.category == 'hospitalDoctor'});
         const painMgmt = routeFilter.filter((c) => {return c.category == 'painMgmt'});
@@ -125,7 +124,6 @@ class Topic extends React.Component {
       <div role='tab-pane' className="tab-pane active">
 
            <div className='tab-content'>
-
             <Tabs>
               <Tabs.Panel title='Local Support'>
                 <ul>                
@@ -134,7 +132,7 @@ class Topic extends React.Component {
               </Tabs.Panel>
 
               <Tabs.Panel title='Hospitals & Doctors'>
-            
+                
                 <ul>
                 {hospitalDoctor.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
                 </ul>
@@ -208,8 +206,8 @@ class Topic extends React.Component {
                         </div>
 
                         <div className="form-row">
-                          <input type='hidden' name='location' value={this.props.params.location} onChange={this.handleInputChange}></input>
-                          <input type='hidden' name='condition' value={this.props.params.condition} onChange={this.handleInputChange}></input>   
+                          <input type='hidden' name='location' value={this.props.match.params.location} onChange={this.handleInputChange}></input>
+                          <input type='hidden' name='condition' value={this.props.match.params.condition} onChange={this.handleInputChange}></input>   
                         </div>                    
                         <div className='form-row'>
                           <span> 
@@ -350,4 +348,3 @@ class CommentForm extends React.Component{
 }
 
 export default Topic;
-

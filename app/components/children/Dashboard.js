@@ -2,8 +2,8 @@ import React from 'react'
 import Forum from './Forum.js'
 import Scrape from './Scrape.js'
 import DoctorForm from './DoctorForm.js'
-import {Link} from 'react-router-dom';
-
+import {Link,Route} from 'react-router-dom';
+import Topic from './grandchildren/Topic.js'
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -73,6 +73,7 @@ class Dashboard extends React.Component {
             <div className="col-lg-8">
               <Forum condition={this.props.match.params.condition}>
                 {this.props.children}
+                
               </Forum>
               <Scrape condition={this.props.match.params.condition}/>
               <DoctorForm condition={this.props.match.params.condition}></DoctorForm>
