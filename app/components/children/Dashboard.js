@@ -55,18 +55,18 @@ class Dashboard extends React.Component {
                 <button className="button mainBtn"><Link to='/prostate'><span><img className='prosMain' src="./images/prostate.png" alt="prostate"/>Prostate</span></Link></button>
               </p>
               <p>
-                <button className="button mainBtn"><Link to='#/lung'><span><img className='lungMain' src="./images/lung.png" alt="lung"/>Lung</span></Link></button>
+                <button className="button mainBtn"><Link to='/lung'><span><img className='lungMain' src="./images/lung.png" alt="lung"/>Lung</span></Link></button>
               </p>
             </div>
             <div className="col-lg-8">
               <div className='well'>
                 <h3>Condition: {this.props.match.params.condition}</h3>
               </div>
-              {/*<Forum condition={this.props.match.params.condition} >
-                {this.props.children}
-              </Forum>*/}
+              <Forum condition={this.props.match.params.condition}>
+               
+              </Forum>
               <Scrape condition={this.props.match.params.condition}/>
-              <DoctorForm condition={this.props.match.params.condition}>{this.props.children}</DoctorForm>
+              <DoctorForm condition={this.props.match.params.condition}></DoctorForm>
           </div>
         </div>
       </div>
