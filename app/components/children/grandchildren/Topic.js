@@ -19,7 +19,7 @@ class Topic extends React.Component {
       author:'',
       content: '',
       location: this.props.params.location,
-      condition: this.props.params.condition,
+      condition: this.props.condition,
       posts: [],
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -111,7 +111,7 @@ class Topic extends React.Component {
 
   render() {
 
-        // console.log("TPIC PROPS",this.props);
+        console.log("TPIC PROPS",this.props);
       const routeFilter =  this.state.posts.filter((post) => {return post.location == this.props.params.location && post.condition == this.props.params.condition});
         const localSupport = routeFilter.filter((c) => {return c.category == 'localSupport'});
         const hospitalDoctor = routeFilter.filter((c) => {return c.category == 'hospitalDoctor'});
@@ -350,5 +350,4 @@ class CommentForm extends React.Component{
 }
 
 export default Topic;
-<<<<<<< HEAD
 

@@ -95,8 +95,7 @@ export default class App extends Component {
                 <PublicRoute authed={this.state.authed} path='/signup' component={Signup} />
                 <PrivateRoute authed={this.state.authed} path='/account' component={Account} />
                 <Route path='/:condition' component={Dashboard}/>
-                {/*<Route path='/:condition/:location'component={Topic}/>*/}
-
+                <Route path='/:condition/NJ' component={Topic}/>
 
                 <Route render={() => <h3>No Match</h3>} />
               </Switch>
