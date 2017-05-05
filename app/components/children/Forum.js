@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Link, Route} from 'react-router-dom';
+import Topic from './grandchildren/Topic'
 
 const customStyles = {
   content : {
@@ -9,8 +11,8 @@ const customStyles = {
 
 
 class Forum extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -31,17 +33,18 @@ class Forum extends React.Component {
        
 
                   <ul  className="nav nav-tabs">
-                    <li><a href={"#/" + this.props.condition + "/NJ"} data-toggle="tab" style = {customStyles.content}>NJ</a></li>
-                    <li><a href={"#/" + this.props.condition + "/NY"} data-toggle="tab" style = {customStyles.content}>NY</a></li>
-                    <li><a href={"#/" + this.props.condition + "/PA"} data-toggle="tab" style = {customStyles.content}>PA</a></li>
-                    <li><a href={"#/" + this.props.condition + "/CT"} data-toggle="tab" style = {customStyles.content}>CT</a></li>
+                    <li><Link to={"/" + this.props.condition + "/NJ"} data-toggle="tab" style = {customStyles.content}>NJ</Link></li>
+                    <li><Link to={"/" + this.props.condition + "/NY"} data-toggle="tab" style = {customStyles.content}>NY</Link></li>
+                    <li><Link to={"/" + this.props.condition + "/PA"} data-toggle="tab" style = {customStyles.content}>PA</Link></li>
+                    <li><Link to={"/" + this.props.condition + "/CT"} data-toggle="tab" style = {customStyles.content}>CT</Link></li>
                   </ul>
 
               </div>
            
-
+              
               <div className = 'tab-content'>
-                  {this.props.children}    
+                  {this.props.children}   
+                  <Route path='/:condition/:location' component={Topic}/>
               </div>
 
             </div>

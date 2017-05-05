@@ -2,7 +2,16 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import formhelp from '../utils/formhelp.js'
 // import style from ''
-
+const customModal = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 class DoctorForm extends React.Component {
 
 constructor (props) {
@@ -98,79 +107,70 @@ render () {
                 <ReactModal
                   isOpen={this.state.showModal}
                   contentLabel="Minimal Modal Example"
+                  style={customModal}
                 >
                   
-      <div className="main-content">
+                  <div className="main-content">
 
+                    <div className="form-register-with-email">
 
+                      <div className="form-white-background">
 
+                        <div className="form-title-row">
+                            <h1>Add a Doctor</h1>
+                        </div>
 
-            <div className="form-register-with-email">
+                        <div className="form-row">
+                            <label>
+                                <span>Name</span>
+                                <input type="text" name="fullname" value={this.state.fullname} onChange={this.handleInputChange}></input>
+                            </label>
+                        </div>
 
-                <div className="form-white-background">
+                        <div className="form-row">
+                            <label>
+                                <span>Website</span>
+                                <input type="text" name="website" value={this.state.website} onChange={this.handleInputChange}>
+                                </input>
+                            </label>
+                        </div>
 
-                    <div className="form-title-row">
-                        <h1>Add a Doctor</h1>
+                        <div className="form-row">
+                            <label>
+                                <span>Phone Number</span>
+                                <input type="text" name="phonenumber" value={this.state.phonenumber} onChange={this.handleInputChange}>
+                                </input>
+                            </label>
+                        </div>
+
+                        <div className="form-row">
+                            <label>
+                                <span>Hospital Affiliation</span>
+                                <input type="text" name="hospital" value={this.state.hospital} onChange={this.handleInputChange}>
+                                </input>
+                            </label>
+                        </div>
+
+                        <div className="form-row">
+                            <label>
+                                <span>Reason for Recommendation</span>
+                                <input type="text" name="reason" value={this.state.reason} onChange={this.handleInputChange}>
+                                </input>
+                            </label>
+                        </div>
+
+                        <div className="form-row">
+                          <span>
+                              <button className="btn btn-primary" type="submit" onClick={this.handleSubmitModal}>
+                          Submit
+                          </button>
+
+                          <button className="btn btn-default" onClick={this.handleCloseModal}>Close</button>
+                          </span>
+                        </div>
+                      </div>
                     </div>
-
-                    <div className="form-row">
-                        <label>
-                            <span>Name</span>
-                            <input type="text" name="fullname" value={this.state.fullname} onChange={this.handleInputChange}></input>
-                        </label>
-                    </div>
-
-                    <div className="form-row">
-                        <label>
-                            <span>Website</span>
-                            <input type="text" name="website" value={this.state.website} onChange={this.handleInputChange}>
-                            </input>
-                        </label>
-                    </div>
-
-                    <div className="form-row">
-                        <label>
-                            <span>Phone Number</span>
-                            <input type="text" name="phonenumber" value={this.state.phonenumber} onChange={this.handleInputChange}>
-                            </input>
-                        </label>
-                    </div>
-
-                    <div className="form-row">
-                        <label>
-                            <span>Hospital Affiliation</span>
-                            <input type="text" name="hospital" value={this.state.hospital} onChange={this.handleInputChange}>
-                            </input>
-                        </label>
-                    </div>
-
-                    <div className="form-row">
-                        <label>
-                            <span>Reason for Recommendation</span>
-                            <input type="text" name="reason" value={this.state.reason} onChange={this.handleInputChange}>
-                            </input>
-                        </label>
-                    </div>
-
-                    <div className="form-row">
-                      <span>
-                          <button className="btn btn-primary" type="submit" onClick={this.handleSubmitModal}>
-                      Submit
-                      </button>
-
-                      <button className="btn btn-default " onClick={this.handleCloseModal}>Close</button>
-                      </span>
-                    </div>
-
-                </div>
-
-            </div>
-
-    </div>
-                  
-                    
-
-                 
+                  </div>
                 </ReactModal>
               </div>
             </div>
