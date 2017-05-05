@@ -21,7 +21,7 @@ export default (
   <Router history={hashHistory}>
     <Route path="/" component={Wrapper}>
     	<Route path="/main" component={Main}/>
-		<Route path=":condition" component={Dashboard}>
+		<Route path="/:condition" component={Dashboard}>
 	  		<Route path='/:condition/:location' component={Topic} />	
 		</Route>
 		<IndexRoute component={Main} />

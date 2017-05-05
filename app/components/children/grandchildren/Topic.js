@@ -26,8 +26,8 @@ class Topic extends React.Component {
       category:'',
       author:'',
       content: '',
-      location: this.props.params.location,
-      condition: this.props.params.condition,
+      location: this.props.match.params.location,
+      condition: this.props.match.params.condition,
       posts: [],
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -67,8 +67,8 @@ class Topic extends React.Component {
     .then((forum) => {
       this.setState({
         posts: this.state.posts.concat([forum]),
-        location: this.props.params.location,
-        condition:this.props.params.condition
+        location: this.props.match.params.location,
+        condition:this.props.match.params.condition
       });
     });
   }
@@ -99,8 +99,8 @@ class Topic extends React.Component {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
-    const location = this.props.params.location;
-    const condition = this.props.params.condition;
+    const location = this.props.match.params.location;
+    const condition = this.props.match.params.condition;
     this.setState({
       [name]: value,
       location: location,
@@ -110,14 +110,14 @@ class Topic extends React.Component {
 
   render() {
             console.log("TPIC PROPS",this.props);
-      const routeFilter =  this.state.posts.filter((post) => {return post.location == this.props.params.location && post.condition == this.props.params.condition});
+      const routeFilter =  this.state.posts.filter((post) => {return post.location == this.props.match.params.location && post.condition == this.props.match.params.condition});
         const one = routeFilter.filter((c) => {return c.category == 'nj'})
         const two = routeFilter.filter((c) => {return c.category == 'Testing'})
 
     return (    
       <div role='tab-pane' className="tab-pane active">
-           <h3>{this.props.params.location}</h3>
-           <h3>{this.props.params.condition}</h3>
+           <h3>{this.props.match.params.location}</h3>
+           <h3>{this.props.match.params.condition}</h3>
             <Tabs>
               <Tabs.Panel title='Category #1'>
                 <h2>Content #1 here</h2>
@@ -200,8 +200,8 @@ class Topic extends React.Component {
                       <textarea type ='text' name ='content' value={this.state.content} onChange={this.handleInputChange} style={customStyles.content}></textarea> 
                     </div>
                     <div>
-                      <input type='hidden' name='location' value={this.props.params.location} onChange={this.handleInputChange}></input>
-                      <input type='hidden' name='condition' value={this.props.params.condition} onChange={this.handleInputChange}></input>                    </div>
+                      <input type='hidden' name='location' value={this.props.match.params.location} onChange={this.handleInputChange}></input>
+                      <input type='hidden' name='condition' value={this.props.match.params.condition} onChange={this.handleInputChange}></input>                    </div>
                     
                     <div>
                       <button onClick={this.handleCloseModal}>Cancel</button>
