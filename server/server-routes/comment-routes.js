@@ -15,7 +15,7 @@ module.exports = function(app){
 		}
 
 		var comment = new Comment(newComment);
-
+		console.log("comment", comment);
 		comment.save(function(err, doc){
 
 			if (err) throw err;
@@ -32,6 +32,17 @@ module.exports = function(app){
 			})
 
 	});
+
+	app.get('/forumpost/:id', (req, res)=>{
+
+		 Forum.findById(req.params.id)
+	  	.populate('comment')
+	  	.exec()
+	  	.then(function(doc){	  		// console.log("/forumtable doc: " + doc)
+	  			
+	  		res.json(doc);
+	  	})
+	})
 
 
 }

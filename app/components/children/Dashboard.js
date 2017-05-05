@@ -17,6 +17,7 @@ class Dashboard extends React.Component {
 
   render() {
 
+
     console.log("Dashboard PROPS",this.props);
     console.log(this.props.match.params.condition)
 
@@ -25,6 +26,7 @@ class Dashboard extends React.Component {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
     this.props.match.params.condition = capitalizeFirstLetter(this.props.match.params.condition);
+
 
 
     return (
@@ -38,13 +40,14 @@ class Dashboard extends React.Component {
               <h1>{this.props.match.params.condition} Cancer</h1>
                 <h3>Learn and support fellow surviors living with or have fought {this.props.match.params.condition} Cancer</h3>
             </div>
+         
 
             <div className="col-md-4">
               <button id="transparent"><Link to="/"><span ><img className='logoMain' src="./images/logo.png" alt="logo"/></span></Link></button>  
             </div>
           </div>
         </div>
-
+ <hr></hr>
         <div className="container">
           <div className="row">  
             <div className="col-md-4">
@@ -66,13 +69,10 @@ class Dashboard extends React.Component {
                 <button className="button mainBtn"><Link to='/lung'><span><img className='lungMain' src="./images/lung.png" alt="lung"/>Lung</span></Link></button>
               </p>
             </div>
+            
             <div className="col-lg-8">
-              <div className='well'>
-                <h3>Condition: {this.props.match.params.condition}</h3>
-
-              </div>
               <Forum condition={this.props.match.params.condition}>
-               
+                {this.props.children}
               </Forum>
               <Scrape condition={this.props.match.params.condition}/>
               <DoctorForm condition={this.props.match.params.condition}></DoctorForm>

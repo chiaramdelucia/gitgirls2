@@ -9,13 +9,14 @@ module.exports = function(app){
 	  Forum.find({})
 	  	.populate('comment')
 	  	.then(function(doc){
-	  		console.log("/forumtable doc: " + doc)
+	  		// console.log("/forumtable doc: " + doc)
+	  			
 	  		res.send(doc);
 	  	})
 	});
 
 	app.post("/forumpost", function(req, res) {
-		console.log("/forumpost req: " + req.body.location)
+		console.log("/forumpost req: " + req.body.category)
 
 		var post = {
 			title: req.body.title,
