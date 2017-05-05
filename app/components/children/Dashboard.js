@@ -15,8 +15,15 @@ class Dashboard extends React.Component {
 
   render() {
 
-    // console.log("Dashboard PROPS",this.props);
-    // console.log(this.props.params.condition)
+
+    console.log("Dashboard PROPS",this.props);
+    console.log(this.props.params.condition);
+
+    function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+    this.props.params.condition = capitalizeFirstLetter(this.props.params.condition);
+
 
     return (
       <div>
