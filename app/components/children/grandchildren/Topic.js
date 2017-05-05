@@ -6,15 +6,7 @@ import commentHelp from '../../utils/commenthelp.js';
 import axios from 'axios'
 
 
-const customStyles = {
-  content : {
-    width: '200px',
-    height: '200px',
-    overflow: 'scroll',
-    color: 'black'
-  }
-};
-// one.map(res=><Post post={res}/>)
+
 
 
 class Topic extends React.Component {
@@ -130,6 +122,7 @@ class Topic extends React.Component {
     return (    
     
       <div role='tab-pane' className="tab-pane active">
+
            <div className='tab-content'>
             <Tabs>
               <Tabs.Panel title='Local Support'>
@@ -177,42 +170,59 @@ class Topic extends React.Component {
                   isOpen={this.state.showModal}
                   contentLabel="Minimal Modal Example">
                                   
-                    <div>
-                      <label htmlFor="title">Title: </label>
-                      <input type ='text' name ='title' value={this.state.title} onChange={this.handleInputChange}></input> 
-                    </div>
-                    <div>
-                      <label htmlFor="category">Category: </label>
-                      <select name = 'category' value = {this.state.category} onChange ={this.handleInputChange}>
-                        <option value='localSupport'>Local Support</option>
-                        <option value='hospitalDoctor'>Hospitals & Doctors</option>
-                        <option value='painMgmt'>Pain Management</option>
-                        <option value='chemo'>Chemo Therapy</option>
-                        <option value='radiation'>Radiation Therapy</option>
-                        <option value='alt'>Alternative Therapy</option>
-                      </select>
+                  <div className="main-content">
+                    <div className="form-register-with-email">
+                      <div className="form-white-background">
 
+                        <div className="form-title-row">
+                          <h1>Add a Post</h1>
+                        </div>
+
+
+                        <div className="form-row">    
+                          <label><span>Title: </span></label>
+                          <input type ='text' name ='title' value={this.state.title} onChange={this.handleInputChange}></input> 
+                        </div>
+                        <div className="form-row">
+                          <label><span>Category: </span></label>
+                          <select name = 'category' value = {this.state.category} onChange ={this.handleInputChange}>
+                            <option value='localSupport'>Local Support</option>
+                            <option value='hospitalDoctor'>Hospitals & Doctors</option>
+                            <option value='painMgmt'>Pain Management</option>
+                            <option value='chemo'>Chemo Therapy</option>
+                            <option value='radiation'>Radiation Therapy</option>
+                            <option value='alt'>Alternative Therapy</option>
+                          </select>
+                        </div>
+
+                        <div className="form-row">
+                          <label><span>Author: </span></label>
+                          <input type ='text' name ='author' value={this.state.author} onChange={this.handleInputChange}></input> 
+                        </div>
+
+                        <div className="form-row">
+                          <label><span>Post: </span></label>
+                          <textarea type ='text' name ='content' value={this.state.content} onChange={this.handleInputChange}></textarea> 
+                        </div>
+
+                        <div className="form-row">
+                          <input type='hidden' name='location' value={this.props.params.location} onChange={this.handleInputChange}></input>
+                          <input type='hidden' name='condition' value={this.props.params.condition} onChange={this.handleInputChange}></input>   
+                        </div>                    
+                        <div className='form-row'>
+                          <span> 
+                            <button className="btn btn-primary" type='submit' value='Submit' onClick={this.handleSubmitModal}>Submit</button>
+                            <button className="btn btn-default" onClick={this.handleCloseModal}>Close</button>
+                          </span>
+                        </div>
+                      </div>  
                     </div>
-                    <div>
-                      <label htmlFor="author">Author: </label>
-                      <input type ='text' name ='author' value={this.state.author} onChange={this.handleInputChange}></input> 
-                    </div>
-                    <div>
-                      <label htmlFor="content">Post: </label>
-                      <textarea type ='text' name ='content' value={this.state.content} onChange={this.handleInputChange} style={customStyles.content}></textarea> 
-                    </div>
-                    <div>
-                      <input type='hidden' name='location' value={this.props.params.location} onChange={this.handleInputChange}></input>
-                      <input type='hidden' name='condition' value={this.props.params.condition} onChange={this.handleInputChange}></input>   
-                    </div>                    
-                    <div>
-                    <input className="btn btn-primary" type='submit' value='Submit' onClick={this.handleSubmitModal}></input>
-                    <button className="btn btn-default" onClick={this.handleCloseModal}>Cancel</button>
-                      
-                    </div>
+                  </div>
                  
                 </ReactModal>
+            
             </div>
+
       </div> 
     );
   }
@@ -265,10 +275,21 @@ class CommentForm extends React.Component{
  constructor(props){
   super(props);
   this.state={
+    showModal: false,
     username:'',
     comment:''
   }
+  console.log('commentform state: ', this.state)
  }
+
+  handleOpenModal () {
+    this.setState({ showModal: true });
+
+  }
+  
+  handleCloseModal () {
+    this.setState({ showModal: false });
+  }
 
   handleInputChange(event) {
     const target = event.target;
@@ -282,24 +303,45 @@ class CommentForm extends React.Component{
         commentHelp.postComment({ data: this.state, id:this.props.post._id })
         .then(res=>{console.log("commentformresponse", res)
         this.props.commentHandler(res);
-        this.setState({username:'', comment: ''})
+        this.setState({username:'', comment: '', showModal:false})
       })
 
   }
 
  render(){
   const result = this.props.post;
-    return ( <form onSubmit={e=> this.handleSubmit(e)}>
-          <input type='text' name='username' placeholder='Username' value={this.state.username} onChange={
-          e=>this.handleInputChange(e)}>
-          </input>
-           <br></br> 
-           <textarea type='text' name='comment' value={this.state.comment} placeholder='Comments' onChange={e=>this.handleInputChange(e)}>
-           </textarea>
-           <input type='hidden' name={result._id} value={result._id}>
-           </input>
-          { <button type="submit" >Submit</button> }
-          </form>
+    return ( <div>
+              <button className="btn btn-open" onClick={e=>this.handleOpenModal(e)}>Add a Comment</button>
+                <ReactModal 
+                  isOpen={this.state.showModal}
+                  contentLabel="Minimal Modal Example">
+                  <div className="main-content">
+                    <div className="form-register-with-email">
+                      <div className="form-white-background">
+
+                        <div className="form-title-row">
+                          <h1>Add a Comment</h1>
+                        </div>
+                        <form onSubmit={e=> this.handleSubmit(e)}>
+                          <div className='form-row'>
+                            <label><span>Username: </span></label>
+                            <input type='text' name='username' placeholder='Username' value={this.state.username} onChange={e=>this.handleInputChange(e)}>
+                            </input>
+                          </div>
+                          <div className='form-row'>
+                            <textarea type='text' name='comment' value={this.state.comment} placeholder='Comments' onChange={e=>this.handleInputChange(e)}>
+                            </textarea>
+                          </div>
+                          <input type='hidden' name={result._id} value={result._id}>
+                          </input>
+                         <button className='btn btn-primary' type="submit" >Submit</button>
+                         <button className="btn btn-default" onClick={this.handleCloseModal}>Close</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+            </ReactModal>
+          </div>
           );
   }
 

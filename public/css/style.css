@@ -220,6 +220,17 @@ html{
     border: 1px solid #dbdbdb;
 }
 
+.form-register-with-email textarea{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 400px;
+    height: 100px;
+    overflow:scroll;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 7px 18px;
+    border: 1px solid #dbdbdb;
+}
+
 .form-register-with-email .form-checkbox input{
     margin-left: 128px;
     margin-right: 10px;
