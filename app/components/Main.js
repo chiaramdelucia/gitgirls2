@@ -20,7 +20,7 @@ class Main extends React.Component {
       
           <div className="col-md-9">
             <h1>Cancer Alliance</h1>
-            <h3><b>HAVE AN ALLY | BE AN ALLY</b></h3>
+            <h3 id="tagLine"><b>HAVE AN ALLY | BE AN ALLY</b></h3>
           </div>
         </div>
       </div>
@@ -31,6 +31,7 @@ class Main extends React.Component {
           <div className="col-md-4">
 
             <h4> Click on a topic below to learn more, connect and share your experiences</h4>
+
 
             <p><button className='button mainBtn'><Link to="/breast"><span><img className="breastMain" src="./images/breast.png" alt="breast"/>Breast</span></Link></button></p>
             

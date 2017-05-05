@@ -19,6 +19,13 @@ class Dashboard extends React.Component {
     console.log("Dashboard PROPS",this.props);
     console.log(this.props.match.params.condition)
 
+
+    function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+    this.props.match.params.condition = capitalizeFirstLetter(this.props.match.params.condition);
+
+
     return (
       <div>
         <div className="container">
@@ -61,6 +68,7 @@ class Dashboard extends React.Component {
             <div className="col-lg-8">
               <div className='well'>
                 <h3>Condition: {this.props.match.params.condition}</h3>
+
               </div>
               <Forum condition={this.props.match.params.condition}>
                
