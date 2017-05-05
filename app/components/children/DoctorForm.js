@@ -23,7 +23,7 @@ this.handleCloseModal = this.handleCloseModal.bind(this);
 this.handleSubmitModal = this.handleSubmitModal.bind(this);
 this.handleInputChange = this.handleInputChange.bind(this);
 }
-componentDidMount () {
+componentWillMount () {
   formhelp.showInfo()
     .then((data) => {
     // console.log('did mount' + '' + data)
