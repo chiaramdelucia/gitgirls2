@@ -15,18 +15,18 @@ class Dashboard extends React.Component {
     //do some stuff to load info about condition here, and set state data so u can pass it down to other components!    
   }
 
+//     function capitalizeFirstLetter(string) {
+//     return string.charAt(0).toUpperCase() + string.slice(1);
+// }
+//      var CapCondition = capitalizeFirstLetter(this.props.match.params.condition);
+//      console.log(CapCondition)
+
   render() {
 
 
     console.log("Dashboard PROPS",this.props);
     console.log(this.props.match.params.condition)
 
-
-//     function capitalizeFirstLetter(string) {
-//     return string.charAt(0).toUpperCase() + string.slice(1);
-// }
-//      var CapCondition = capitalizeFirstLetter(this.props.match.params.condition);
-//      console.log(CapCondition)
 
 
 
