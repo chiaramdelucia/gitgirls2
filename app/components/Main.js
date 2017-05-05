@@ -22,7 +22,7 @@ class Main extends React.Component {
           </div>
         </div>
       </div>
-
+<hr></hr>
 
       <div className="container">
         <div className="row">  

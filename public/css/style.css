@@ -149,6 +149,12 @@ h3 {
 
 }
 
+hr {
+     height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
 
 /*BELOW HERE IS FOR THE FORMS IN THE MODALS*/
 
