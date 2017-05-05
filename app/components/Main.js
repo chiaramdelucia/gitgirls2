@@ -12,7 +12,7 @@ class Main extends React.Component {
     return (
     <div>
     <div>
-      <div className="container">
+      <div className="container top">
         <div className="row">  
           <div className="col-md-3">
             <img className="logoMain" src="./images/logo.png" alt="logo"/>
