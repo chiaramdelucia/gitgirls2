@@ -36,13 +36,14 @@ class Dashboard extends React.Component {
               <h1>{this.props.params.condition} Cancer</h1>
                 <h3>Learn and support fellow surviors living with or have fought {this.props.params.condition} Cancer</h3>
             </div>
+         
 
             <div className="col-md-4">
               <button id="transparent"><a href="/"><span ><img className='logoMain' src="./images/logo.png" alt="logo"/></span></a></button>  
             </div>
           </div>
         </div>
-
+ <hr></hr>
         <div className="container">
           <div className="row">  
             <div className="col-md-4">
