@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
         <div className="container">
           <div className="row">  
             <div className="col-md-4">
-              <img className='logoMain' src={"./images/Breast.png"} alt='condition' />
+              <img className='logoMain' src={"./images/"+ this.props.match.params.condition + ".png"} alt='condition' />
             </div>
             <div className="col-md-4">
               <h1>{CapCondition} Cancer</h1>
