@@ -90,19 +90,25 @@ render () {
           <div className="panel panel-default">
             <div className="panel-heading">
 
-              <h3 className="panel-title"><span><img className="doctor" src="./images/Doctor.png" alt="doctor"></img>Doctor Recommendation for {this.props.condition} Cancer</span></h3>
+              <h3 className="panel-title"><span><img className="doctor" src="./images/Doctor.png" alt="doctor"></img>Doctor Recommendations</span></h3>
             
 
 
             </div>
             <div className="panel-body">
-          <div><h3></h3></div>
+          
               <div>
                 <button className="btn btn-open" onClick={this.handleOpenModal}>Add Doctor</button>
-                <div>{this.state.info.fullname}</div>
+                <br />
+                <br />
+                {/*<div>{this.state.info.fullname}</div>*/}
+                
                   {confilter.map((result, i) => {
-                    return <div key={i}><p>Name : {result.fullname}</p><p>Website: {result.website}</p><p>Phone: {result.phonenumber}</p><p>Known Hospital Affiliation: {result.hospital}</p><p>Reason for Recommendation: {result.reason}</p></div>
+                    return <div className="well catwell" key={i}><p><strong>Name :  </strong>{result.fullname}</p><p><strong>Website:  </strong>{result.website}</p><p><strong>Phone:  </strong>{result.phonenumber}</p><p><strong>Known Hospital Affiliation:  </strong>{result.hospital}</p><p><strong>Reason for Recommendation:  </strong>{result.reason}</p></div>
                    })}
+                
+
+                  
 
                 <ReactModal
                   isOpen={this.state.showModal}
