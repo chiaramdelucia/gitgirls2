@@ -121,18 +121,17 @@ class Topic extends React.Component {
         
     return (    
     
-      <div role='tab-pane' className="tab-pane active">
-
-           <div className='tab-content'>
+      <div className="row">
+       <div className='col-md-12'>
+           
             <Tabs>
               <Tabs.Panel title='Local Support'>
-                <ul>                
+                <div>                
                 {localSupport.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
-                </ul>
+                </div>
               </Tabs.Panel>
 
               <Tabs.Panel title='Hospitals & Doctors'>
-                
                 <ul>
                 {hospitalDoctor.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
                 </ul>
@@ -161,7 +160,7 @@ class Topic extends React.Component {
             </Tabs.Panel>
             </Tabs>            
 
-            </div>
+            
 
           {/* Submit new Post to Forum */}
             <div>
@@ -222,7 +221,7 @@ class Topic extends React.Component {
                 </ReactModal>
             
             </div>
-
+        </div>
       </div> 
     );
   }
@@ -250,24 +249,28 @@ class Post extends React.Component{
     const result= this.props.post;
     // console.log(this.props.commentHandler);
     return (<div className='panel-body'>
-            <h5>Title: {result.title}</h5>
-            <h6>Author: {result.author}</h6>
-            <p>Post: {result.content}</p>
+      <div className='row'>
+              <div className='col-md-12 forumPost'>
+                <h2>Post: {result.title}</h2>
+                <h3>Authored By: {result.author}</h3>
+                <div>{result.content}</div>
+              </div>  
+            </div>
+            <div className='row'>
+              <div className="col-md-6">
+                <h2>Comments</h2>
+                {this.state.comment.map((result,i)=>{
+                return (<div key={i}>
+                        <h4>{result.username}</h4> 
+                        <div>{result.comment}</div>
+                        </div>)}
+                )}
               <CommentForm post={result} commentHandler={comment=>this.receiveComment(comment)}/>
-            
-            <h5>Comments</h5>
-            {this.state.comment.map((result,i)=>{
-            return (
-              <div key={i}>
-                 <h4>{result.username}</h4> 
-                  <p>{result.comment}</p>
-              </div>
-                   )}
-              )}
-                          
-              </div>)
+            </div>                       
+          </div>
+          </div>)
 
-            }
+   }
   
 }
 
