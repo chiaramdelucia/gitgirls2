@@ -41,7 +41,7 @@ class Forum extends React.Component {
            
 
               <div className = 'tab-content'>
-                  {this.props.children}      
+                  {this.props.children}    
               </div>
 
             </div>

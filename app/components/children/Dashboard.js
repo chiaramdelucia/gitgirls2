@@ -15,8 +15,8 @@ class Dashboard extends React.Component {
 
   render() {
 
-    console.log("Dashboard PROPS",this.props);
-    console.log(this.props.params.condition)
+    // console.log("Dashboard PROPS",this.props);
+    // console.log(this.props.params.condition)
 
     return (
       <div>
@@ -57,11 +57,8 @@ class Dashboard extends React.Component {
                 <button className="button mainBtn"><a href='#/lung'><span><img className='lungMain' src="./images/lung.png" alt="lung"/>Lung</span></a></button>
               </p>
             </div>
+            
             <div className="col-lg-8">
-              <div className='well'>
-                <h3>Condition: {this.props.params.condition}</h3>
-
-              </div>
               <Forum condition={this.props.params.condition} >
                 {this.props.children}
               </Forum>
