@@ -100,35 +100,75 @@ render () {
                   contentLabel="Minimal Modal Example"
                 >
                   
-                  
-                    <div>
-                      <label htmlFor="name">Name: </label>
-                      <input type="text" name="fullname" value={this.state.fullname} onChange={this.handleInputChange}></input>
-                    </div>
-                    <br></br>
-                    <div>
-                      <label htmlFor="email">Website: </label>
-                      <input type="text" name="website" value={this.state.website} onChange={this.handleInputChange}></input>
-                    </div>
-                    <br></br>
-                    <div>
-                      <label htmlFor="description">Phone Number: </label>
-                      <input type="text" name="phonenumber" value={this.state.phonenumber} onChange={this.handleInputChange}></input>
-                    </div>
-                    <input type="hidden" name="condition" value={this.state.condition} onChange={this.handleInputChange}></input>
-                    <div>
-                      <label htmlFor="hospital">Known Hospital Affiliation: </label>
-                      <input type="text" name="hospital" value={this.state.hospital} onChange={this.handleInputChange}></input>
-                    </div>
-                    <div>
-                      <label htmlFor="reason">Reason for Recommendation: </label>
-                      <input type="text" name="reason" value={this.state.reason} onChange={this.handleInputChange}></input>
-                    </div>
-                    <span><button className="btn btn-primary" type="submit" onClick={this.handleSubmitModal}>
-                    Submit
-                    </button>
+      <div className="main-content">
 
-                    <button className="btn btn-default" onClick={this.handleCloseModal}>Close</button></span>
+
+
+
+            <div className="form-register-with-email">
+
+                <div className="form-white-background">
+
+                    <div className="form-title-row">
+                        <h1>Add a Doctor</h1>
+                    </div>
+
+                    <div className="form-row">
+                        <label>
+                            <span>Name</span>
+                            <input type="text" name="fullname" value={this.state.fullname} onChange={this.handleInputChange}></input>
+                        </label>
+                    </div>
+
+                    <div className="form-row">
+                        <label>
+                            <span>Website</span>
+                            <input type="text" name="website" value={this.state.website} onChange={this.handleInputChange}>
+                            </input>
+                        </label>
+                    </div>
+
+                    <div className="form-row">
+                        <label>
+                            <span>Phone Number</span>
+                            <input type="text" name="phonenumber" value={this.state.phonenumber} onChange={this.handleInputChange}>
+                            </input>
+                        </label>
+                    </div>
+
+                    <div className="form-row">
+                        <label>
+                            <span>Hospital Affiliation</span>
+                            <input type="text" name="hospital" value={this.state.hospital} onChange={this.handleInputChange}>
+                            </input>
+                        </label>
+                    </div>
+
+                    <div className="form-row">
+                        <label>
+                            <span>Reason for Recommendation</span>
+                            <input type="text" name="reason" value={this.state.reason} onChange={this.handleInputChange}>
+                            </input>
+                        </label>
+                    </div>
+
+                    <div className="form-row">
+                      <span>
+                          <button className="btn btn-primary" type="submit" onClick={this.handleSubmitModal}>
+                      Submit
+                      </button>
+
+                      <button className="btn btn-default " onClick={this.handleCloseModal}>Close</button>
+                      </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+    </div>
+                  
+                    
 
                  
                 </ReactModal>

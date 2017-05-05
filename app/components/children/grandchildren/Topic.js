@@ -235,8 +235,9 @@ class Topic extends React.Component {
                       <input type='hidden' name='condition' value={this.props.params.condition} onChange={this.handleInputChange}></input>                    </div>
                     
                     <div>
-                      <button onClick={this.handleCloseModal}>Cancel</button>
-                      <input type='submit' value='Submit' onClick={this.handleSubmitModal}></input>
+                    <input className="btn btn-primary" type='submit' value='Submit' onClick={this.handleSubmitModal}></input>
+                    <button className="btn btn-default" onClick={this.handleCloseModal}>Cancel</button>
+                      
                     </div>
 
                   </form>
