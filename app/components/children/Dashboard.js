@@ -15,11 +15,7 @@ class Dashboard extends React.Component {
     //do some stuff to load info about condition here, and set state data so u can pass it down to other components!    
   }
 
-//     function capitalizeFirstLetter(string) {
-//     return string.charAt(0).toUpperCase() + string.slice(1);
-// }
-//      var CapCondition = capitalizeFirstLetter(this.props.match.params.condition);
-//      console.log(CapCondition)
+
 
   render() {
 
@@ -35,7 +31,7 @@ class Dashboard extends React.Component {
         <div className="container">
           <div className="row">  
             <div className="col-md-4">
-              <img className='logoMain' src={"./images/"+ this.props.match.params.condition + ".png"} alt='condition' />
+              <img className='logoMain' src={"./images/breast.png"} alt='condition' />
             </div>
             <div className="col-md-4">
               <h1>{this.props.match.params.condition} Cancer</h1>
