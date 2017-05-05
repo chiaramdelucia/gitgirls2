@@ -14,7 +14,7 @@ class Forum extends React.Component {
   }
 
   render() {
-        // console.log("FORUM PROPS",this.props);
+        console.log("FORUM PROPS",this.props);
 
     return (
       <div className="row">
