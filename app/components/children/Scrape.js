@@ -14,7 +14,7 @@ class Scrape extends React.Component {
     }
 
 
-  componentDidMount(){
+  componentWillMount(){
     scrapehelp.getNCIscrape()
       .then((data) => {
         // console.log('REACT NCI ' + data); 

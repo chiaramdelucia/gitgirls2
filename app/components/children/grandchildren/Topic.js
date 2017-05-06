@@ -5,6 +5,23 @@ import forumTable from '../../utils/forumTablehelp.js';
 import commentHelp from '../../utils/commenthelp.js';
 import axios from 'axios'
 
+const customModal = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
+
+const tabStyle = {
+   tabPane : {
+    width                 : '10%',
+    display               : 'block'
+  }
+};
 
 
 
@@ -123,51 +140,12 @@ class Topic extends React.Component {
     
       <div className="row">
        <div className='col-md-12'>
-           
-            <Tabs>
-              <Tabs.Panel title='Local Support'>
-                <div>                
-                {localSupport.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
-                </div>
-              </Tabs.Panel>
-
-              <Tabs.Panel title='Hospitals & Doctors'>
-                <ul>
-                {hospitalDoctor.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
-                </ul>
-              </Tabs.Panel>
-
-              <Tabs.Panel title='Pain Managment'>                
-                <ul>
-                {painMgmt.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
-                </ul>
-              </Tabs.Panel>
-
-            <Tabs.Panel title='Chemo Therapy'>               
-                <ul>
-                {chemo.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
-                </ul>
-            </Tabs.Panel>
-            <Tabs.Panel title='Radiation Therapy'>               
-                <ul>
-                {radiation.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
-                </ul>
-            </Tabs.Panel>
-            <Tabs.Panel title='Alternative Therapy'>               
-                <ul>
-                {alt.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
-                </ul>
-            </Tabs.Panel>
-            </Tabs>            
-
-            
-
-          {/* Submit new Post to Forum */}
+       {/* Submit new Post to Forum */}
             <div>
-              <button className="btn btn-open" onClick={this.handleOpenModal}>Add Post</button>
+              <button className="btn btn-open postBut" onClick={this.handleOpenModal}>Add Post</button>
                 <ReactModal 
                   isOpen={this.state.showModal}
-                  contentLabel="Minimal Modal Example">
+                  contentLabel="Minimal Modal Example" style={customModal}>
                                   
                   <div className="main-content">
                     <div className="form-register-with-email">
@@ -221,6 +199,42 @@ class Topic extends React.Component {
                 </ReactModal>
             
             </div>
+           
+            <Tabs>
+              <Tabs.Panel title='Local Support' className='specialTabs'>
+                <div>                
+                {localSupport.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
+                </div>
+              </Tabs.Panel>
+
+              <Tabs.Panel title='Hospitals & Doctors' className='specialTabs'>
+                <ul>
+                {hospitalDoctor.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
+                </ul>
+              </Tabs.Panel>
+
+              <Tabs.Panel title='Pain Managment' style={tabStyle}>                
+                <ul>
+                {painMgmt.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
+                </ul>
+              </Tabs.Panel>
+
+            <Tabs.Panel title='Chemo Therapy' style={tabStyle}>               
+                <ul>
+                {chemo.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
+                </ul>
+            </Tabs.Panel>
+            <Tabs.Panel title='Radiation Therapy' style={tabStyle}>               
+                <ul>
+                {radiation.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
+                </ul>
+            </Tabs.Panel>
+            <Tabs.Panel title='Alternative Therapy' style={tabStyle}>               
+                <ul>
+                {alt.map((res, i)=> {return <Post post={res} commentHandler={this.handleComments(res._id)} key={i}/>})}
+                </ul>
+            </Tabs.Panel>
+            </Tabs>            
         </div>
       </div> 
     );
@@ -248,26 +262,24 @@ class Post extends React.Component{
   render(){
     const result= this.props.post;
     // console.log(this.props.commentHandler);
-    return (<div className='panel-body'>
+    return (<div className='well catwell scrollwell'>
       <div className='row'>
-              <div className='col-md-12 forumPost'>
-                <h2>Post: {result.title}</h2>
-                <h3>Authored By: {result.author}</h3>
-                <div>{result.content}</div>
+              <div className='col-md-12'>
+                <h2><strong>Post:  </strong>{result.title}</h2>
+                <h3><strong>Authored By:  </strong>{result.author}</h3>
+                <p>{result.content}</p>
               </div>  
-            </div>
-            <div className='row'>
-              <div className="col-md-6">
+            
                 <h2>Comments</h2>
                 {this.state.comment.map((result,i)=>{
                 return (<div key={i}>
-                        <h4>{result.username}</h4> 
-                        <div>{result.comment}</div>
+                        <h4>Username:  {result.username}</h4> 
+                        <p>Comment:  {result.comment}</p>
                         </div>)}
                 )}
               <CommentForm post={result} commentHandler={comment=>this.receiveComment(comment)}/>
             </div>                       
-          </div>
+          
           </div>)
 
    }
@@ -317,7 +329,7 @@ class CommentForm extends React.Component{
               <button className="btn btn-open" onClick={e=>this.handleOpenModal(e)}>Add a Comment</button>
                 <ReactModal 
                   isOpen={this.state.showModal}
-                  contentLabel="Minimal Modal Example">
+                  contentLabel="Minimal Modal Example" style={customModal}>
                   <div className="main-content">
                     <div className="form-register-with-email">
                       <div className="form-white-background">

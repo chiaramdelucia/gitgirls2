@@ -116,6 +116,7 @@ h3 {
 
 .btn.btn-open {
   background-color: white;
+  color: black;
 }
 
 .btn.btn-default {
@@ -290,6 +291,10 @@ html{
   font-family: 'Oxygen', sans-serif;
   margin: auto;
   margin-bottom: 20px;
+  overflow:auto;
+  text-overflow: auto;
+  word-wrap: break-word
+
 
 }
 .top{
@@ -301,6 +306,20 @@ nav.navbar.navbar-static-top{
   padding-bottom: 0px;
 
 }
+
+.scrollwell{
+  height: 300px;
+  width: 75%;
+  overflow: scroll;
+}
+
+
+.postBut {
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 
 
 
