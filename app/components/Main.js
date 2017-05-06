@@ -1,8 +1,10 @@
 import React from "react";
+import {Link} from 'react-router-dom';
+
 
 class Main extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     
   }
   
@@ -10,7 +12,7 @@ class Main extends React.Component {
     return (
     <div>
     <div>
-      <div className="container">
+      <div className="container top">
         <div className="row">  
           <div className="col-md-3">
             <img className="logoMain" src="./images/logo.png" alt="logo"/>
@@ -30,21 +32,22 @@ class Main extends React.Component {
 
             <h4> Click on a topic below to learn more, connect and share your experiences</h4>
 
-            <p><button className='button mainBtn'><a href="#/Breast"><span><img className="breastMain" src="./images/breast.png" alt="Breast"/>Breast</span></a></button></p>
+
+            <p><button className='button mainBtn'><Link to="/breast"><span><img className="breastMain" src="./images/breast.png" alt="breast"/>Breast</span></Link></button></p>
             
             <p>
-              <button className="button mainBtn"><a href="#/ovarian"><span><img className="ovMain" src="./images/ovarian.png" alt="ovary"/>Ovarian</span></a></button>
+              <button className="button mainBtn"><Link to="/ovarian"><span><img className="ovMain" src="./images/ovarian.png" alt="ovary"/>Ovarian</span></Link></button>
 
             </p>
             <p>
-              <button className="button mainBtn"><a href="#/colon"><span><img className="colonMain" src="./images/colon.png" alt="colon"/>Colon</span></a></button>
+              <button className="button mainBtn"><Link to="/colon"><span><img className="colonMain" src="./images/colon.png" alt="colon"/>Colon</span></Link></button>
             </p>
 
             <p>
-              <button className="button mainBtn"><a href="#/prostate"><span><img className="prosMain" src="./images/prostate.png" alt="prostate"/>Prostate</span></a></button>
+              <button className="button mainBtn"><Link to="/prostate"><span><img className="prosMain" src="./images/prostate.png" alt="prostate"/>Prostate</span></Link></button>
             </p>
             <p>
-              <button className="button mainBtn"><a href="#/lung"><span><img className="lungMain" src="./images/lung.png" alt="lung"/>Lung</span></a></button>
+              <button className="button mainBtn"><Link to="/lung"><span><img className="lungMain" src="./images/lung.png" alt="lung"/>Lung</span></Link></button>
             </p>
           </div>
 

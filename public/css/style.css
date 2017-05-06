@@ -116,6 +116,7 @@ h3 {
 
 .btn.btn-open {
   background-color: white;
+  color: black;
 }
 
 .btn.btn-default {
@@ -278,4 +279,47 @@ html{
     color: #7b9d62;
     background-color: #d6f0c3;
 }
+
+
+.signuppage{
+  height: 800px;
+}
+
+.catwell{
+  width: 60%;
+  color: white;
+  font-family: 'Oxygen', sans-serif;
+  margin: auto;
+  margin-bottom: 20px;
+  overflow:auto;
+  text-overflow: auto;
+  word-wrap: break-word
+
+
+}
+.top{
+  padding-top: 0px;
+  margin-top: 0px;
+}
+nav.navbar.navbar-static-top{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+
+}
+
+.scrollwell{
+  height: 300px;
+  width: 75%;
+  overflow: scroll;
+}
+
+
+.postBut {
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+
 
