@@ -248,7 +248,7 @@ class Post extends React.Component{
   render(){
     const result= this.props.post;
     // console.log(this.props.commentHandler);
-    return (<div className='panel-body'>
+    return (<div className='well'>
       <div className='row'>
               <div className='col-md-12 forumPost'>
                 <h2>Post: {result.title}</h2>
