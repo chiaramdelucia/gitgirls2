@@ -90,6 +90,7 @@ render () {
           <div><h3></h3></div>
               <div>
                 <button className="btn btn-open" onClick={this.handleOpenModal}>Add Doctor</button>
+                <br></br>
                 <div>{this.state.info.fullname}</div>
                   {confilter.map((result, i) => {
                     return <div key={i}><p>Name : {result.fullname}</p><p>Website: {result.website}</p><p>Phone: {result.phonenumber}</p><p>Known Hospital Affiliation: {result.hospital}</p><p>Reason for Recommendation: {result.reason}</p></div>
@@ -111,6 +112,7 @@ render () {
 
                     <div className="form-title-row">
                         <h1>Add a Doctor</h1>
+
                     </div>
 
                     <div className="form-row">
