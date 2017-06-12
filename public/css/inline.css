@@ -15,9 +15,7 @@
 	height: 100px;
 	
 }
-.profilehead{
-	display: inline;
-}
-.profilep{
-	display: inline;
+dt{
+	font-size: 25px;
+	font-family: 'Paytone One', sans-serif;
 }
