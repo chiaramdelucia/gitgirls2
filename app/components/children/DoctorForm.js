@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import formhelp from '../utils/formhelp.js'
+import formhelp from '../utils/formhelp.js';
+import FontAwesome from 'react-fontawesome';
 // import style from ''
 const customModal = {
   content : {
@@ -84,6 +85,7 @@ render () {
   // console.log("Doctor PROPS",this.props);
   const confilter = this.state.info.filter((c) => {  
         return c.condition === this.props.condition});
+
   return (
       <div className="row">
         <div className="col-lg-12">
@@ -104,7 +106,7 @@ render () {
                 {/*<div>{this.state.info.fullname}</div>*/}
                 
                   {confilter.map((result, i) => {
-                    return <div className="well catwell" key={i}><p><strong>Name :  </strong>{result.fullname}</p><p><strong>Website:  </strong>{result.website}</p><p><strong>Phone:  </strong>{result.phonenumber}</p><p><strong>Known Hospital Affiliation:  </strong>{result.hospital}</p><p><strong>Reason for Recommendation:  </strong>{result.reason}</p></div>
+                    return <div className="well catwell" key={i}><p><FontAwesome className = "fa fa-bookmark-o" name='bookmark' style={{float: 'right'}} size= '2x'></FontAwesome> <strong>Name :  </strong>{result.fullname}</p><p><strong>Website:  </strong>{result.website}</p><p><strong>Phone:  </strong>{result.phonenumber}</p><p><strong>Known Hospital Affiliation:  </strong>{result.hospital}</p><p><strong>Reason for Recommendation:  </strong>{result.reason}</p></div>
                    })}
                 
 
