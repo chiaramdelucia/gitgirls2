@@ -11,29 +11,42 @@ export default class Account extends Component {
   		console.log("Account PROPS",this.props);
     	return (
     		<div className="signuppage">
-    			 <div className='row'>
-          			<div className="col-md-4">
-                		<button id="transparent"><Link to="/"><span ><img className='logoMain' src="./images/logo.png" alt="logo"/></span></Link></button>  
-          			</div>
-        		</div>	
-				    <div>
-	        		<h1>Account Profile</h1>
-	           </div>
+          <div className="container top">
+            <div className="row">  
+              <div className="col-md-4"></div>
+              <div className="col-md-4">
+                <h1>Account Profile</h1>
+              </div>
+              <div className="col-md-4">
+                <button id="transparent"><Link to="/"><span ><img className='logoMain' src="./images/logo.png" alt="logo"/></span></Link></button>  
+              </div>
+            </div>
+          </div>
+ <hr></hr>
              <div className="container profile">
                <div className="col-md-4">
-                <img src="./images/profile_pic.png" alt="logo" />
+                <div className="well account">
+                  <img src="./images/profile_pic.png" alt="logo" />
+                  <br/>
+                  <h3>superwoman17</h3>
+                  <ul>
+                    <li><h5>Ovarian Cancer patient</h5></li>
+                    <li><h5>Member since May 2017</h5></li>
+                  </ul>
+                </div>
                </div>
                <div className="col-md-8">
-                 <h3 className="profilehead">Username:</h3> <p className="profilep">superwoman17 </p>
-                 <br />
-                 <h3 className="profilehead">Condition: </h3><p className="profilep"> Ovarian</p>
-                 <br />
-                 <h3 className="profilehead">Relationship to Patient: </h3><p className="profilep">Self</p>
-                 <br /> 
-                 <h3 className="profilehead">About Me: </h3><p className="profilep">I am a comic book loving RN who can't stand how itchy her head is under these 'fashionable' head scarfs. Looking to talk to people who can relate to the trivial annoyances of the day to day life post-chemo.</p>
-               </div>
-             </div>
+                <div className="well catwell">
+                   <h3>About Me</h3>
+                   <p>I am a comic book loving RN who can't stand how itchy her head is under these 'fashionable' head scarfs. Looking to talk to people who can relate to the trivial annoyances of the day-to-day life post-chemo.</p>
+                </div>
+                <div className="well catwell">
 
+                   <h3>Favourites</h3>
+                   <p>All bookmarked doctor recommendations and forum posts will be placed here</p>
+                  </div>
+                  </div>
+             </div>
       	</div>
     	)
   	}

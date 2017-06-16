@@ -319,7 +319,14 @@ nav.navbar.navbar-static-top{
     margin-top: 15px;
     margin-bottom: 15px;
 }
-
+.account{
+  width: 85%;
+  color: white;
+  font-family: 'Oxygen', sans-serif;
+  margin: auto;
+  margin-bottom: 20px;
+  background-color: #CF6D4A;
+}
 
 
 
