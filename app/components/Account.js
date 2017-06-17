@@ -36,11 +36,11 @@ export default class Account extends Component {
                 </div>
                </div>
                <div className="col-md-8">
-                <div className="well catwell">
+                <div className="well account bluewell">
                    <h3>About Me</h3>
                    <p>I am a comic book loving RN who can't stand how itchy her head is under these 'fashionable' head scarfs. Looking to talk to people who can relate to the trivial annoyances of the day-to-day life post-chemo.</p>
                 </div>
-                <div className="well catwell">
+                <div className="well account bluewell">
 
                    <h3>Favourites</h3>
                    <p>All bookmarked doctor recommendations and forum posts will be placed here</p>
