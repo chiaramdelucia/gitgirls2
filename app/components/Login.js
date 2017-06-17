@@ -32,11 +32,18 @@ export default class Login extends Component {
   render () {
     return (
       <div className='signuppage'>
-        <div className='row'>
-          <div className="col-md-4">
-                <button id="transparent"><Link to="/"><span ><img className='logoMain' src="./images/logo.png" alt="logo"/></span></Link></button>  
+        <div className="container top">
+          <div className="row">  
+            <div className="col-md-4"></div>
+            <div className="col-md-4">
+              <h1>Account Profile</h1>
+            </div>
+            <div className="col-md-4">
+              <button id="transparent"><Link to="/"><span ><img className='logoMain' src="./images/logo.png" alt="logo"/></span></Link></button>  
+            </div>
           </div>
         </div>
+ <hr></hr>
         <div className="row">
           <div className="col-sm-6 col-sm-offset-3">
             <h1> Login </h1>
