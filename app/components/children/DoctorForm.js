@@ -2,6 +2,9 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import formhelp from '../utils/formhelp.js';
 import FontAwesome from 'react-fontawesome';
+
+import { ref, firebaseAuth } from '../../firebase.js'
+
 // import style from ''
 const customModal = {
   content : {
@@ -25,7 +28,10 @@ constructor (props) {
       condition: this.props.condition,
       hospital: '',
       reason: '',
-      info: []
+      info: [],
+      bookmarks: [],
+      user: this.props.user
+     
 };
 
 this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -85,9 +91,15 @@ handleInputChange(event) {
 handleBookmark(event){
   const target = event.target;
   const bookmarkAdd = target.value;
-  console.log(event)
-  console.log(target);
-  console.log('value: ' + bookmarkAdd)
+  console.log('value: ' + bookmarkAdd);
+  if (this.state.user != null){
+    ref.child(this.state.user).push(this.state.bookmarks)
+    console.log(ref);
+  }
+  else{
+    console.log('nooopppeeee')
+    console.log(ref);
+  }
 }
 
 render () {

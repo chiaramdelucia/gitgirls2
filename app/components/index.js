@@ -45,8 +45,10 @@ export default class App extends Component {
       if (user) {
         this.setState({
           authed: true,
+          user: user.uid,
           loading: false,
         })
+        console.log("user " + this.state.user);
       } else {
         this.setState({
           authed: false,

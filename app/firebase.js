@@ -12,5 +12,7 @@ import firebase from 'firebase';
 
 export const ref = firebase.database().ref()
 export const firebaseAuth = firebase.auth
+export const bookmarksRef = database.ref('/bookmarks')
+
 
 
