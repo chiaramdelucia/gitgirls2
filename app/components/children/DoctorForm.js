@@ -32,6 +32,7 @@ this.handleOpenModal = this.handleOpenModal.bind(this);
 this.handleCloseModal = this.handleCloseModal.bind(this);
 this.handleSubmitModal = this.handleSubmitModal.bind(this);
 this.handleInputChange = this.handleInputChange.bind(this);
+this.handleBookmark = this.handleBookmark.bind(this);
 }
 componentWillMount () {
   formhelp.showInfo()
@@ -39,6 +40,7 @@ componentWillMount () {
     // console.log('did mount' + '' + data)
     this.setState({
     info: data
+
     })
   })  
 }
@@ -80,6 +82,13 @@ handleInputChange(event) {
 
   });
 }
+handleBookmark(event){
+  const target = event.target;
+  const bookmarkAdd = target.value;
+  console.log(event)
+  console.log(target);
+  console.log('value: ' + bookmarkAdd)
+}
 
 render () {
   // console.log("Doctor PROPS",this.props);
@@ -106,7 +115,7 @@ render () {
                 {/*<div>{this.state.info.fullname}</div>*/}
                 
                   {confilter.map((result, i) => {
-                    return <div className="well catwell" key={i}><p><FontAwesome className = "fa fa-bookmark-o" name='bookmark' style={{float: 'right'}} size= '2x'></FontAwesome> <strong>Name :  </strong>{result.fullname}</p><p><strong>Website:  </strong>{result.website}</p><p><strong>Phone:  </strong>{result.phonenumber}</p><p><strong>Known Hospital Affiliation:  </strong>{result.hospital}</p><p><strong>Reason for Recommendation:  </strong>{result.reason}</p></div>
+                    return <div className="well catwell" key={i}><button type='submit' value={result._id} onClick={this.handleBookmark} style={{float: 'right'}} size= '2x'></button><p><strong>Name :  </strong>{result.fullname}</p><p><strong>Website:  </strong>{result.website}</p><p><strong>Phone:  </strong>{result.phonenumber}</p><p><strong>Known Hospital Affiliation:  </strong>{result.hospital}</p><p><strong>Reason for Recommendation:  </strong>{result.reason}</p></div>
                    })}
                 
 
