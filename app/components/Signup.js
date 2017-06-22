@@ -11,9 +11,10 @@ function setErrorMsg(error) {
 export default class Signup extends Component {
   constructor(props) {
     super(props);
-    this.state = { registerError: null }
+    this.state = { registerError: null, }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
   
   handleSubmit(e){

@@ -33,12 +33,16 @@ function PublicRoute ({component: Component, authed, ...rest}) {
 }
 
 export default class App extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
     authed: false,
     loading: true,
   }
+}
+
+componentWillMount(){
+  console.log('child ' + this.props.children);
 }
   componentDidMount () {
     this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
@@ -62,15 +66,17 @@ export default class App extends Component {
   }
   render() {
     return this.state.loading === true ? <h1>Loading</h1> : (
-      <BrowserRouter>
+      <BrowserRouter >
       <header>
         <div>
+
           <nav className="navbar navbar-static-top">
             <div className="container">
               
               <ul className="nav navbar-nav pull-right">
                 <li>
                   <Link to="/account" className="navbar-brand">Account</Link>
+
                 </li>
                 <li>
                   {this.state.authed
@@ -98,6 +104,7 @@ export default class App extends Component {
                 <PrivateRoute authed={this.state.authed} path='/account' component={Account} />
                 <Route path='/:condition' component={Dashboard}/>
                 <Route path='/:condition/NJ' component={Topic}/>
+
 
                 <Route render={() => <h3>No Match</h3>} />
               </Switch>

@@ -3,6 +3,7 @@ import ReactModal from 'react-modal';
 import formhelp from '../utils/formhelp.js';
 import FontAwesome from 'react-fontawesome';
 
+
 import { ref, firebaseAuth } from '../../firebase.js'
 
 // import style from ''
@@ -30,7 +31,7 @@ constructor (props) {
       reason: '',
       info: [],
       bookmarks: [],
-      user: this.props.user
+      user: this.props.uid
      
 };
 
@@ -48,7 +49,8 @@ componentWillMount () {
     info: data
 
     })
-  })  
+  })
+  console.log('will mount: ' + this.props.user);
 }
 
 handleOpenModal () {
@@ -91,14 +93,19 @@ handleInputChange(event) {
 handleBookmark(event){
   const target = event.target;
   const bookmarkAdd = target.value;
+  let userOnline = this.state.user
   console.log('value: ' + bookmarkAdd);
-  if (this.state.user != null){
-    ref.child(this.state.user).push(this.state.bookmarks)
-    console.log(ref);
+  console.log('useronline: ' + userOnline)
+  console.log('state: ' + this.state.user);
+  console.log(this.state);
+  if (userOnline != null){
+    
+    console.log('yes');
   }
   else{
     console.log('nooopppeeee')
-    console.log(ref);
+    console.log(userOnline)
+
   }
 }
 
