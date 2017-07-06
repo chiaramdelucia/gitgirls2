@@ -1,9 +1,9 @@
 import React from 'react'
-import Forum from './Forum.js'
-import Scrape from './Scrape.js'
-import DoctorForm from './DoctorForm.js'
+import Forum from './DB_children/Forum.js'
+import Scrape from './DB_children/Scrape.js'
+import DoctorForm from './DB_children/DoctorForm.js'
 import {Link,Route} from 'react-router-dom';
-import Topic from './grandchildren/Topic.js'
+import Topic from './DB_children/grandchildren/Topic.js'
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);

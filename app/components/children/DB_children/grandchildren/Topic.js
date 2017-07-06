@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import Tabs from 'react-simpletabs';
-import forumTable from '../../utils/forumTablehelp.js';
-import commentHelp from '../../utils/commenthelp.js';
+import forumTable from '../../../utils/forumTablehelp.js';
+import commentHelp from '../../../utils/commenthelp.js';
 import axios from 'axios'
 
 const customModal = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import formhelp from '../utils/formhelp.js'
+import formhelp from '../../utils/formhelp.js'
 // import style from ''
 const customModal = {
   content : {
