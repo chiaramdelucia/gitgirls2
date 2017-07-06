@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Link, Redirect, Switch, IndexRoute} from 'react-router-dom';
-import Login from './Login';
-import Signup from './Signup';
-import Wrapper from './Wrapper';
+import Login from './children/Auth/Login';
+import Signup from './children/Auth/Signup';
 import Main from './Main';
-import Account from './Account';
+import Account from './children/Auth/Account';
 import Dashboard from './children/Dashboard';
-import Topic from './children/grandchildren/Topic';
+import Topic from './children/DB_children/grandchildren/Topic';
 import { logout } from './utils/firehelp';
 import { firebaseAuth } from '../firebase.js';
 

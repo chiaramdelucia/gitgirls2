@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { login, resetPassword } from './utils/firehelp';
+import { login, resetPassword } from '../../utils/firehelp';
 import {Link} from 'react-router-dom';
 
 function setErrorMsg(error) {

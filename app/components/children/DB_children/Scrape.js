@@ -1,7 +1,7 @@
 import React from 'react'
 // import ReactDOM from 'react-dom'
 import Tabs from 'react-simpletabs'
-import scrapehelp from '../utils/scrapehelp'
+import scrapehelp from '../../utils/scrapehelp'
 
 class Scrape extends React.Component {
   constructor(props) {
